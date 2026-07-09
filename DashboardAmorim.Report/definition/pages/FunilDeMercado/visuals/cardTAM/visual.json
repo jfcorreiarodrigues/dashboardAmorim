@@ -73,6 +73,13 @@
         },
         "type": "Categorical",
         "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        },
         "filter": {
           "Version": 2,
           "From": [
