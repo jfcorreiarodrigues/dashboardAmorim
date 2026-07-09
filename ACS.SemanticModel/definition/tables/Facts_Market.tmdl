@@ -12,6 +12,14 @@ table Facts_Market
 		formatString: 0.0%
 		lineageTag: 0ee7fa5c-bbcf-5ecb-9481-bb885ddc458a
 
+	measure 'ABI Meses Abaixo 50' = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "ABI <50 (duração)")
+		formatString: 0" meses"
+		lineageTag: 6cd5a207-25a4-5d19-b021-cc999315d34e
+
+	measure 'Dodge Momentum YoY' = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "Dodge Momentum (crescimento)")
+		formatString: +0"%"
+		lineageTag: 92b88068-bbbc-5b25-bbcc-cae02e282988
+
 	column ID
 		dataType: string
 		lineageTag: 91f0b923-1eb0-5013-b7e0-49b52d356ee3

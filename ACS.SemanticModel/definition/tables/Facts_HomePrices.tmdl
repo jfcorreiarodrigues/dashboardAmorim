@@ -18,7 +18,7 @@ table Facts_HomePrices
 	measure 'CaseShiller YoY %' =
 			VAR Atual = [Indice CaseShiller]
 			VAR Anterior = CALCULATE([Indice CaseShiller], DATEADD(Dim_Calendario[Date], -1, YEAR))
-			RETURN DIVIDE(Atual - Anterior, Anterior)
+			RETURN IF(ISBLANK(Atual), BLANK(), DIVIDE(Atual - Anterior, Anterior))
 		formatString: 0.0%
 		lineageTag: 77582652-814e-5443-b46c-c841dd8443f1
 

@@ -23,12 +23,12 @@
                       "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Dodge Momentum YoY"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado",
-              "displayName": "Dodge Momentum (%)"
+              "queryRef": "Facts_Market.Dodge Momentum YoY",
+              "nativeQueryRef": "Dodge Momentum YoY",
+              "displayName": "Dodge Momentum"
             }
           ]
         }
@@ -57,70 +57,5 @@
         }
       ]
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fMetDodge",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Metrica"
-              }
-            },
-            "Property": "Métrica"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        },
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_Metrica",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "Métrica"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Dodge Momentum (crescimento)'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }

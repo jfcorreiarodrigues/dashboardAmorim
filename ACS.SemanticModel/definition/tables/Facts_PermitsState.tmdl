@@ -16,7 +16,7 @@ table Facts_PermitsState
 	measure 'Permits YoY %' =
 			VAR Atual = [Permits (milhares)]
 			VAR Anterior = CALCULATE([Permits (milhares)], DATEADD(Dim_Calendario[Date], -1, YEAR))
-			RETURN DIVIDE(Atual - Anterior, Anterior)
+			RETURN IF(ISBLANK(Atual), BLANK(), DIVIDE(Atual - Anterior, Anterior))
 		formatString: 0.0%
 		lineageTag: 2ca69c16-cd02-5243-b662-e7d5d15e6168
 

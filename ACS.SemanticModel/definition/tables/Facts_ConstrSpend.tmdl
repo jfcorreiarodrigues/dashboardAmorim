@@ -8,7 +8,7 @@ table Facts_ConstrSpend
 	measure 'Despesa Constr YoY %' =
 			VAR Atual = [Despesa Constr ($M)]
 			VAR Anterior = CALCULATE([Despesa Constr ($M)], DATEADD(Dim_Calendario[Date], -1, YEAR))
-			RETURN DIVIDE(Atual - Anterior, Anterior)
+			RETURN IF(ISBLANK(Atual), BLANK(), DIVIDE(Atual - Anterior, Anterior))
 		formatString: 0.0%
 		lineageTag: b7ddb530-de0e-5340-a2fa-3cf59ef7e01f
 

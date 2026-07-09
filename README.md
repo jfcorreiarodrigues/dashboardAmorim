@@ -72,6 +72,13 @@ Depois da primeira versão funcional, o dashboard foi redesenhado para responder
 - **Calendário alargado a 1987** — o histórico completo do Case-Shiller (1987–) e dos permits (1990–) já aparece nos eixos temporais, e o "(Vazio)" desapareceu do slicer de ano.
 - Página TESTE removida.
 
+## Ronda 3 — retoques a partir das screenshots
+
+- **Fim do precipício de −100% no gráfico YoY** (Evolução & Ciclo): as três medidas YoY (`Despesa Constr YoY %`, `Permits YoY %`, `CaseShiller YoY %`) devolvem agora BLANK quando não há dados no período atual — o calendário vai até 2031 mas os dados acabam antes, e esses meses apareciam como −100%.
+- **Cartões macro com unidade embutida**: novas medidas `ABI Meses Abaixo 50` (mostra "13 meses") e `Dodge Momentum YoY` (mostra "+37%") em vez de "13,00" e "37,00".
+- **Título do pipeline por cidade corrigido** — NY lidera em stock; o Sun Belt domina em número de mercados.
+- **Eixo X categórico** nos dois gráficos de colunas da página Procura por Segmento — os anos do calendário sem dados (2026, 2027, 2029 no défice) deixam de aparecer como buracos.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**
