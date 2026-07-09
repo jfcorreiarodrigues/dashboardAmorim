@@ -3,10 +3,10 @@
   "name": "p5v2",
   "position": {
     "x": 40,
-    "y": 130,
+    "y": 120,
     "z": 2000,
     "width": 590,
-    "height": 290,
+    "height": 280,
     "tabOrder": 2000
   },
   "visual": {
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa de ocupação — Senior Living Premium (%)'"
+                  "Value": "'Taxa de ocupação — Senior Living Premium: 77,8% → 89,5% (%)'"
                 }
               }
             }

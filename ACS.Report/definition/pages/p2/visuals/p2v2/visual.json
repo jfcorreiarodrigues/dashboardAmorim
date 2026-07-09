@@ -3,10 +3,10 @@
   "name": "p2v2",
   "position": {
     "x": 40,
-    "y": 450,
+    "y": 390,
     "z": 2000,
-    "width": 880,
-    "height": 230,
+    "width": 760,
+    "height": 290,
     "tabOrder": 2000
   },
   "visual": {
@@ -32,6 +32,24 @@
             }
           ]
         },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Categoria"
+                    }
+                  },
+                  "Property": "Categoria"
+                }
+              },
+              "queryRef": "Dim_Categoria.Categoria",
+              "nativeQueryRef": "Categoria"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -39,14 +57,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Despesa Constr YoY %"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "queryRef": "Facts_ConstrSpend.Despesa Constr YoY %",
+              "nativeQueryRef": "Despesa Constr YoY %"
             }
           ]
         }
@@ -84,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pipeline hoteleiro — nº de projetos'"
+                  "Value": "'Variação homóloga da despesa (%) — aceleração vs desaceleração no ciclo'"
                 }
               }
             }
@@ -96,15 +114,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaPipe",
+        "name": "fCat3b",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Dim_Categoria"
               }
             },
-            "Property": "Métrica"
+            "Property": "Categoria"
           }
         },
         "type": "Categorical",
@@ -121,7 +139,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Dim_Categoria",
               "Type": 0
             }
           ],
@@ -137,7 +155,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "Categoria"
                       }
                     }
                   ],
@@ -145,7 +163,21 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Pipeline (projetos)'"
+                          "Value": "'Lodging'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Health care'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Residential'"
                         }
                       }
                     ]
@@ -157,15 +189,15 @@
         }
       },
       {
-        "name": "fSegHot",
+        "name": "fFreqMensal2",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Segmento"
+                "Entity": "Facts_ConstrSpend"
               }
             },
-            "Property": "Segmento"
+            "Property": "Frequência"
           }
         },
         "type": "Categorical",
@@ -182,7 +214,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Segmento",
+              "Entity": "Facts_ConstrSpend",
               "Type": 0
             }
           ],
@@ -198,7 +230,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Segmento"
+                        "Property": "Frequência"
                       }
                     }
                   ],
@@ -206,7 +238,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Hotelaria'"
+                          "Value": "'Mensal'"
                         }
                       }
                     ]

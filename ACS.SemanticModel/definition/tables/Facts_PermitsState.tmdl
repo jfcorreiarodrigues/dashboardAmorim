@@ -20,6 +20,10 @@ table Facts_PermitsState
 		formatString: 0.0%
 		lineageTag: 2ca69c16-cd02-5243-b662-e7d5d15e6168
 
+	measure 'Quota Estado (%)' = DIVIDE([Permits (milhares)], CALCULATE([Permits (milhares)], REMOVEFILTERS(Dim_Estado)))
+		formatString: 0.0%
+		lineageTag: fd7bc9ea-b989-58bb-b466-7454ccbf3fd6
+
 	column ID
 		dataType: string
 		lineageTag: 67c890c0-a8f7-5f8e-a3fd-13739d7988a8

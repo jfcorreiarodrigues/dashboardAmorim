@@ -1,0 +1,56 @@
+{
+  "name": "CPBS",
+  "dataColors": [
+    "#009999",
+    "#C8602A",
+    "#1B3A7A",
+    "#5FB8B8",
+    "#E0995F",
+    "#5A79B0",
+    "#7A6A5F",
+    "#9C4A6E",
+    "#4A7A5A",
+    "#8899AA"
+  ],
+  "foreground": "#1B3A7A",
+  "background": "#FFFFFF",
+  "tableAccent": "#009999",
+  "good": "#009999",
+  "bad": "#C8602A",
+  "neutral": "#8899AA",
+  "textClasses": {
+    "title": {
+      "color": "#1B3A7A",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "label": {
+      "color": "#333F50"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#1B3A7A"
+              }
+            },
+            "fontSize": 11
+          }
+        ],
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

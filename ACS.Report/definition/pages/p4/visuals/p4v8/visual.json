@@ -1,34 +1,33 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p4v3",
+  "name": "p4v8",
   "position": {
     "x": 1045,
-    "y": 40,
-    "z": 3000,
+    "y": 370,
+    "z": 8000,
     "width": 195,
     "height": 145,
-    "tabOrder": 3000
+    "tabOrder": 8000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Macro"
+                      "Entity": "Dim_CidadeCS"
                     }
                   },
-                  "Property": "Spread Credito-Fed (pp)"
+                  "Property": "Tier prioridade Amorim"
                 }
               },
-              "queryRef": "Facts_Macro.Spread Credito-Fed (pp)",
-              "nativeQueryRef": "Spread Credito-Fed (pp)",
-              "displayName": "Spread (pp)"
+              "queryRef": "Dim_CidadeCS.Tier prioridade Amorim",
+              "nativeQueryRef": "Tier prioridade Amorim"
             }
           ]
         }
@@ -49,7 +48,22 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Spread crédito 30a − Fed'"
+                  "Value": "'Tier (cidades)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
                 }
               }
             }

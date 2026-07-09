@@ -12,6 +12,20 @@ table Facts_ConstrSpend
 		formatString: 0.0%
 		lineageTag: b7ddb530-de0e-5340-a2fa-3cf59ef7e01f
 
+	measure 'Despesa Anual ($M)' =
+			VAR vAnual = CALCULATE(SUM(Facts_ConstrSpend[Valor_USDm]), Facts_ConstrSpend[Frequência] = "Anual")
+			VAR vMensal = CALCULATE(SUM(Facts_ConstrSpend[Valor_USDm]), Facts_ConstrSpend[Frequência] = "Mensal")
+			RETURN COALESCE(vAnual, vMensal)
+		formatString: #,0
+		lineageTag: b2b67a5b-a044-59f7-bd9f-7926d8effea9
+
+	measure 'Quota HHL no Total (%)' =
+			VAR Hhl = CALCULATE([Despesa Anual ($M)], Dim_Categoria[Categoria] IN {"Lodging", "Health care", "Residential"})
+			VAR Total = CALCULATE([Despesa Anual ($M)], Dim_Categoria[Categoria] = "Total Construction")
+			RETURN DIVIDE(Hhl, Total)
+		formatString: 0.0%
+		lineageTag: 6ba60dad-089d-55af-9c77-d3c900ea7aa1
+
 	column ID
 		dataType: string
 		lineageTag: f44c1dff-7a4e-51bf-93aa-393bd381f7f0

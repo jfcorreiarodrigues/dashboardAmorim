@@ -1,72 +1,37 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p5v4",
+  "name": "p4v7",
   "position": {
-    "x": 40,
-    "y": 420,
-    "z": 4000,
-    "width": 590,
-    "height": 260,
-    "tabOrder": 4000
+    "x": 830,
+    "y": 370,
+    "z": 7000,
+    "width": 195,
+    "height": 145,
+    "tabOrder": 7000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Calendario"
-                    }
-                  },
-                  "Property": "Ano"
-                }
-              },
-              "queryRef": "Dim_Calendario.Ano",
-              "nativeQueryRef": "Ano",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_HomePrices"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "CaseShiller Atual"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "queryRef": "Facts_HomePrices.CaseShiller Atual",
+              "nativeQueryRef": "CaseShiller Atual",
+              "displayName": "20-City Composite"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Calendario"
-                  }
-                },
-                "Property": "Ano"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "drillFilterOtherVisuals": true,
@@ -84,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Défice de senior housing — 806 mil unidades até 2030 (nº)'"
+                  "Value": "'Case-Shiller — último mês'"
                 }
               }
             }
@@ -96,15 +61,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetDefice",
+        "name": "fCid20",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Dim_CidadeCS"
               }
             },
-            "Property": "Métrica"
+            "Property": "Cidade"
           }
         },
         "type": "Categorical",
@@ -121,7 +86,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Dim_CidadeCS",
               "Type": 0
             }
           ],
@@ -137,7 +102,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "Cidade"
                       }
                     }
                   ],
@@ -145,7 +110,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Unidades em défice'"
+                          "Value": "'20-City Composite'"
                         }
                       }
                     ]

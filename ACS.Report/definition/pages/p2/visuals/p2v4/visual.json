@@ -1,34 +1,33 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p4v3",
+  "name": "p2v4",
   "position": {
-    "x": 1045,
-    "y": 40,
-    "z": 3000,
-    "width": 195,
-    "height": 145,
-    "tabOrder": 3000
+    "x": 830,
+    "y": 600,
+    "z": 4000,
+    "width": 410,
+    "height": 80,
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Macro"
+                      "Entity": "Dim_Calendario"
                     }
                   },
-                  "Property": "Spread Credito-Fed (pp)"
+                  "Property": "Ano"
                 }
               },
-              "queryRef": "Facts_Macro.Spread Credito-Fed (pp)",
-              "nativeQueryRef": "Spread Credito-Fed (pp)",
-              "displayName": "Spread (pp)"
+              "queryRef": "Dim_Calendario.Ano",
+              "nativeQueryRef": "Ano"
             }
           ]
         }
@@ -49,7 +48,22 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Spread crédito 30a − Fed'"
+                  "Value": "'Período'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Between'"
                 }
               }
             }

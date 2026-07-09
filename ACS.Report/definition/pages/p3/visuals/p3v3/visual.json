@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p3v3",
   "position": {
-    "x": 760,
-    "y": 360,
+    "x": 40,
+    "y": 460,
     "z": 3000,
-    "width": 480,
-    "height": 320,
+    "width": 300,
+    "height": 220,
     "tabOrder": 3000
   },
   "visual": {
@@ -42,11 +42,11 @@
                       "Entity": "Facts_PermitsState"
                     }
                   },
-                  "Property": "Permits (milhares)"
+                  "Property": "Preco Medio Unidade ($k)"
                 }
               },
-              "queryRef": "Facts_PermitsState.Permits (milhares)",
-              "nativeQueryRef": "Permits (milhares)"
+              "queryRef": "Facts_PermitsState.Preco Medio Unidade ($k)",
+              "nativeQueryRef": "Preco Medio Unidade ($k)"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "Facts_PermitsState"
                   }
                 },
-                "Property": "Permits (milhares)"
+                "Property": "Preco Medio Unidade ($k)"
               }
             },
             "direction": "Descending"
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top estados — multifamily 5+ unidades (milhares)'"
+                  "Value": "'Valor de obra por unidade ($k) — estados luxury vs volume'"
                 }
               }
             }
@@ -96,7 +96,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fTipoMF",
+        "name": "fTipoTotal3",
         "field": {
           "Column": {
             "Expression": {
@@ -145,7 +145,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'5+ units (multifamily)'"
+                          "Value": "'Total'"
                         }
                       }
                     ]
@@ -155,21 +155,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "fTopNEstadosMF",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Estado"
-              }
-            },
-            "Property": "Estado"
-          }
-        },
-        "type": "TopN",
-        "howCreated": "User"
       }
     ]
   }

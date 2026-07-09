@@ -5,6 +5,19 @@ table Facts_Macro
 		formatString: #,0.00
 		lineageTag: 7da675f8-2cf3-5ae2-9dac-12465711059b
 
+	measure 'Indicador Atual' =
+			VAR UltimaData = CALCULATE(MAX(Facts_Macro[Data]))
+			RETURN CALCULATE(AVERAGE(Facts_Macro[Valor]), Facts_Macro[Data] = UltimaData)
+		formatString: #,0.00
+		lineageTag: a6c959f8-8abf-5252-8d70-81a7c210d29c
+
+	measure 'Spread Credito-Fed (pp)' =
+			VAR Mort = CALCULATE([Indicador Atual], Dim_Indicador[IndicadorID] = "IND_MORT30")
+			VAR Fed = CALCULATE([Indicador Atual], Dim_Indicador[IndicadorID] = "IND_FEDFUNDS")
+			RETURN Mort - Fed
+		formatString: #,0.00
+		lineageTag: ba7f0f83-b563-5ad1-8293-2bfac9782579
+
 	column ID
 		dataType: string
 		lineageTag: 9d554b0e-568c-5940-b4ae-10da8f278181

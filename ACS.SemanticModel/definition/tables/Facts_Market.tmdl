@@ -5,6 +5,13 @@ table Facts_Market
 		formatString: #,0.00
 		lineageTag: ce418c2e-8fb3-5082-89b6-d16d74beec76
 
+	measure 'Quota TAM no Mercado (%)' =
+			VAR Tam = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_TAM")
+			VAR Total = CALCULATE(MAX(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_DESP")
+			RETURN DIVIDE(Tam, Total)
+		formatString: 0.0%
+		lineageTag: 0ee7fa5c-bbcf-5ecb-9481-bb885ddc458a
+
 	column ID
 		dataType: string
 		lineageTag: 91f0b923-1eb0-5013-b7e0-49b52d356ee3

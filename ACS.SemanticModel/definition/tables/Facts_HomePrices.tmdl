@@ -9,6 +9,19 @@ table Facts_HomePrices
 		formatString: #,0
 		lineageTag: fdf1f888-c8e7-56f6-9654-4ec6ea51a7ce
 
+	measure 'CaseShiller Atual' =
+			VAR UltimaData = CALCULATE(MAX(Facts_HomePrices[Data]))
+			RETURN CALCULATE(AVERAGE(Facts_HomePrices[Indice_CaseShiller]), Facts_HomePrices[Data] = UltimaData)
+		formatString: #,0.0
+		lineageTag: d0ba02ff-9536-57a6-88ee-b85b360be7d7
+
+	measure 'CaseShiller YoY %' =
+			VAR Atual = [Indice CaseShiller]
+			VAR Anterior = CALCULATE([Indice CaseShiller], DATEADD(Dim_Calendario[Date], -1, YEAR))
+			RETURN DIVIDE(Atual - Anterior, Anterior)
+		formatString: 0.0%
+		lineageTag: 77582652-814e-5443-b46c-c841dd8443f1
+
 	column ID
 		dataType: string
 		lineageTag: d440726e-e8b6-5844-a21a-d58f4c97f099

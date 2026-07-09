@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p1v5",
   "position": {
-    "x": 660,
+    "x": 40,
     "y": 220,
     "z": 5000,
     "width": 580,
@@ -10,10 +10,10 @@
     "tabOrder": 5000
   },
   "visual": {
-    "visualType": "treemap",
+    "visualType": "barChart",
     "query": {
       "queryState": {
-        "Group": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -32,7 +32,7 @@
             }
           ]
         },
-        "Values": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -42,14 +42,31 @@
                       "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Despesa Constr ($M)"
+                  "Property": "Despesa Anual ($M)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
-              "nativeQueryRef": "Despesa Constr ($M)"
+              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
+              "nativeQueryRef": "Despesa Anual ($M)"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Facts_ConstrSpend"
+                  }
+                },
+                "Property": "Despesa Anual ($M)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "drillFilterOtherVisuals": true,
@@ -67,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Categorias de construção 2025 — onde Lodging e Health care se posicionam ($M)'"
+                  "Value": "'Despesa de construção 2025 — Residencial vs Saúde vs Hotelaria ($M)'"
                 }
               }
             }
@@ -79,7 +96,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fCatDetalhe",
+        "name": "fCatClusters",
         "field": {
           "Column": {
             "Expression": {
@@ -111,92 +128,6 @@
           "Where": [
             {
               "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "t"
-                              }
-                            },
-                            "Property": "Categoria"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Total Construction'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Residential'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Nonresidential'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Health care (private)'"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "fFreqAnual2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Facts_ConstrSpend"
-              }
-            },
-            "Property": "Frequência"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        },
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Facts_ConstrSpend",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
                 "In": {
                   "Expressions": [
                     {
@@ -206,7 +137,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Frequência"
+                        "Property": "Categoria"
                       }
                     }
                   ],
@@ -214,7 +145,21 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Anual'"
+                          "Value": "'Residential'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Health care'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Lodging'"
                         }
                       }
                     ]
@@ -226,7 +171,7 @@
         }
       },
       {
-        "name": "fAno2025b",
+        "name": "fAno2025",
         "field": {
           "Column": {
             "Expression": {

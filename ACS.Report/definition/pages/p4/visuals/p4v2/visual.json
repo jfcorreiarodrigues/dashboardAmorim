@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p4v2",
   "position": {
-    "x": 850,
+    "x": 830,
     "y": 40,
     "z": 2000,
-    "width": 390,
-    "height": 150,
+    "width": 195,
+    "height": 145,
     "tabOrder": 2000
   },
   "visual": {
@@ -23,11 +23,12 @@
                       "Entity": "Facts_Macro"
                     }
                   },
-                  "Property": "Indicador Macro"
+                  "Property": "Indicador Atual"
                 }
               },
-              "queryRef": "Facts_Macro.Indicador Macro",
-              "nativeQueryRef": "Indicador Macro"
+              "queryRef": "Facts_Macro.Indicador Atual",
+              "nativeQueryRef": "Indicador Atual",
+              "displayName": "Crédito 30 anos (%)"
             }
           ]
         }
@@ -48,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa crédito habitação 30 anos (média do período filtrado)'"
+                  "Value": "'Taxa de crédito — último mês'"
                 }
               }
             }

@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p5v4",
+  "name": "p3v6",
   "position": {
-    "x": 40,
-    "y": 420,
-    "z": 4000,
-    "width": 590,
-    "height": 260,
-    "tabOrder": 4000
+    "x": 680,
+    "y": 410,
+    "z": 6000,
+    "width": 560,
+    "height": 270,
+    "tabOrder": 6000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Calendario"
+                      "Entity": "Dim_Estado"
                     }
                   },
-                  "Property": "Ano"
+                  "Property": "Estado"
                 }
               },
-              "queryRef": "Dim_Calendario.Ano",
-              "nativeQueryRef": "Ano",
+              "queryRef": "Dim_Estado.Estado",
+              "nativeQueryRef": "Estado",
               "active": true
             }
           ]
@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_PermitsState"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Permits (milhares)"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "queryRef": "Facts_PermitsState.Permits (milhares)",
+              "nativeQueryRef": "Permits (milhares)"
             }
           ]
         }
@@ -55,16 +55,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim_Calendario"
+                    "Entity": "Facts_PermitsState"
                   }
                 },
-                "Property": "Ano"
+                "Property": "Permits (milhares)"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Défice de senior housing — 806 mil unidades até 2030 (nº)'"
+                  "Value": "'Top estados — multifamily 5+ unidades (milhares)'"
                 }
               }
             }
@@ -96,15 +96,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetDefice",
+        "name": "fTipoMF",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Facts_PermitsState"
               }
             },
-            "Property": "Métrica"
+            "Property": "TipoEstrutura"
           }
         },
         "type": "Categorical",
@@ -121,7 +121,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Facts_PermitsState",
               "Type": 0
             }
           ],
@@ -137,7 +137,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "TipoEstrutura"
                       }
                     }
                   ],
@@ -145,7 +145,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Unidades em défice'"
+                          "Value": "'5+ units (multifamily)'"
                         }
                       }
                     ]
@@ -155,6 +155,21 @@
             }
           ]
         }
+      },
+      {
+        "name": "fTopNEstadosMF",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Estado"
+              }
+            },
+            "Property": "Estado"
+          }
+        },
+        "type": "TopN",
+        "howCreated": "User"
       }
     ]
   }

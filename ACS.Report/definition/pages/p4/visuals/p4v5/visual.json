@@ -2,32 +2,33 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p4v5",
   "position": {
-    "x": 850,
-    "y": 390,
+    "x": 1045,
+    "y": 205,
     "z": 5000,
-    "width": 390,
-    "height": 290,
+    "width": 195,
+    "height": 145,
     "tabOrder": 5000
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "card",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_CidadeCS"
+                      "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Tier prioridade Amorim"
+                  "Property": "Valor Mercado"
                 }
               },
-              "queryRef": "Dim_CidadeCS.Tier prioridade Amorim",
-              "nativeQueryRef": "Tier prioridade Amorim"
+              "queryRef": "Facts_Market.Valor Mercado",
+              "nativeQueryRef": "Valor Mercado",
+              "displayName": "Dodge Momentum (%)"
             }
           ]
         }
@@ -48,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tier prioridade Amorim (cidades)'"
+                  "Value": "'Dodge Momentum 2025 — starts a acelerar p/ 2027'"
                 }
               }
             }
@@ -56,5 +57,70 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fMetDodge",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Metrica"
+              }
+            },
+            "Property": "Métrica"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        },
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Dim_Metrica",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "t"
+                          }
+                        },
+                        "Property": "Métrica"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Dodge Momentum (crescimento)'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

@@ -6,7 +6,7 @@
     "y": 30,
     "z": 1000,
     "width": 1200,
-    "height": 80,
+    "height": 70,
     "tabOrder": 1000
   },
   "visual": {
@@ -64,6 +64,19 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
                 }
               }
             }

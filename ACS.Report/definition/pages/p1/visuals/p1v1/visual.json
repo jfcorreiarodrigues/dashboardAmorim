@@ -5,7 +5,7 @@
     "x": 40,
     "y": 40,
     "z": 1000,
-    "width": 360,
+    "width": 290,
     "height": 150,
     "tabOrder": 1000
   },
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "nativeQueryRef": "Valor Mercado",
+              "displayName": "TAM ($bn)"
             }
           ]
         }
@@ -48,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'TAM — mercado total ($bn)'"
+                  "Value": "'TAM — mercado total endereçável'"
                 }
               }
             }

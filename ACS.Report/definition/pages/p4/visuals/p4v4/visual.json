@@ -2,89 +2,36 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p4v4",
   "position": {
-    "x": 40,
-    "y": 390,
+    "x": 830,
+    "y": 205,
     "z": 4000,
-    "width": 780,
-    "height": 290,
+    "width": 195,
+    "height": 145,
     "tabOrder": 4000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Calendario"
-                    }
-                  },
-                  "Property": "Date"
-                }
-              },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
-              "active": true
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_CidadeCS"
-                    }
-                  },
-                  "Property": "Cidade"
-                }
-              },
-              "queryRef": "Dim_CidadeCS.Cidade",
-              "nativeQueryRef": "Cidade"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_HomePrices"
+                      "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Indice CaseShiller"
+                  "Property": "Valor Mercado"
                 }
               },
-              "queryRef": "Facts_HomePrices.Indice CaseShiller",
-              "nativeQueryRef": "Indice CaseShiller"
+              "queryRef": "Facts_Market.Valor Mercado",
+              "nativeQueryRef": "Valor Mercado",
+              "displayName": "ABI <50 (meses)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Calendario"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "drillFilterOtherVisuals": true,
@@ -102,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Case-Shiller — cidades-chave (base 2000 = 100)'"
+                  "Value": "'ABI abaixo de 50 — spending fraco em 2026'"
                 }
               }
             }
@@ -114,15 +61,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fCidades",
+        "name": "fMetABI",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_CidadeCS"
+                "Entity": "Dim_Metrica"
               }
             },
-            "Property": "Cidade"
+            "Property": "Métrica"
           }
         },
         "type": "Categorical",
@@ -139,7 +86,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_CidadeCS",
+              "Entity": "Dim_Metrica",
               "Type": 0
             }
           ],
@@ -155,7 +102,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Cidade"
+                        "Property": "Métrica"
                       }
                     }
                   ],
@@ -163,42 +110,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Miami'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Los Angeles'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'New York'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'San Francisco'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Dallas'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'20-City Composite'"
+                          "Value": "'ABI <50 (duração)'"
                         }
                       }
                     ]

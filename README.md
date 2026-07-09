@@ -46,6 +46,32 @@ O Power Query não suporta caminhos relativos, por isso o caminho do Excel vive 
 
 Substitui o `.xlsx` (mesmo nome, mesmas folhas e colunas) e faz **Home → Refresh**. Nada mais é preciso — as medidas e visuais recalculam sozinhos. Se renomeares folhas ou colunas no Excel, o Power Query dá erro (os nomes estão fixados no código M de cada tabela).
 
+## Ronda 2 — melhorias orientadas à tese do capítulo (Â2 Mercado & Procura)
+
+Depois da primeira versão funcional, o dashboard foi redesenhado para responder diretamente à tese tripla do capítulo (onde está o dinheiro · ritmo em inflexão · renovação always-on):
+
+**Tema CPBS** aplicado a todo o report (teal `#009999`, laranja `#C8602A`, navy `#1B3A7A`).
+
+**Novas medidas (8):**
+| Medida | O que responde |
+|---|---|
+| `Despesa Anual ($M)` | Total anual por categoria — usa a linha Anual quando existe, senão soma os 12 meses (as categorias HHL são mensais; era isto que deixava o gráfico do funil vazio) |
+| `Quota TAM no Mercado (%)` | Concentração: TAM $380bn ≈ 17% do mercado total (~$2 170bn) |
+| `Quota HHL no Total (%)` | Peso de Lodging+Health care+Residential na construção total |
+| `Quota Estado (%)` | Peso de cada estado no total nacional de licenças |
+| `Indicador Atual` | Valor do indicador macro no último mês disponível (cartões "atual") |
+| `Spread Credito-Fed (pp)` | Prémio do crédito habitação sobre a Fed — compressão = destrava procura |
+| `CaseShiller Atual` / `CaseShiller YoY %` | Último valor do índice e variação homóloga |
+
+**Mudanças por página:**
+- **Funil de Mercado:** 4º cartão "TAM em % do mercado total"; barras e treemap passam à medida `Despesa Anual ($M)` (corrigido o visual vazio); rótulos dos cartões com unidade ($bn/$M).
+- **Evolução & Ciclo:** novo gráfico de **variação homóloga (%)** — mostra a aceleração/desaceleração que suporta a leitura de ciclo; pipeline hoteleiro corrigido para usar só "Hotelaria — total" nacional (antes misturava subsegmentos e cidades — era o zigzag); slicer de ano em modo intervalo.
+- **Geografia:** novo gráfico **valor de obra por unidade ($k)** (separa estados luxury de estados de volume — Tier 3 vs Tier 1); novo gráfico **pipeline hoteleiro por cidade** (Dallas, Atlanta, Phoenix, Nashville, Austin — o Sun Belt do capítulo); tooltip com quota nacional no top estados; slicer de tier em dropdown.
+- **Drivers Macro:** cartões passam a mostrar o **último mês** (não a média do período); novos KPI **ABI <50 (13 meses)** e **Dodge Momentum (+37%)** — os dois números que sustentam "2026 setup → 2027 inflexão"; cartão do spread crédito−Fed.
+- **Procura por Segmento:** novo gráfico do **défice de senior housing (156k → 806k até 2030)**; tabela de observações ganha colunas Ano e Unidade e perde a linha de total (somava unidades diferentes).
+- **Calendário alargado a 1987** — o histórico completo do Case-Shiller (1987–) e dos permits (1990–) já aparece nos eixos temporais, e o "(Vazio)" desapareceu do slicer de ano.
+- Página TESTE removida.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

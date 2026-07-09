@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p3v2",
   "position": {
-    "x": 760,
-    "y": 40,
+    "x": 40,
+    "y": 110,
     "z": 2000,
-    "width": 480,
-    "height": 300,
+    "width": 620,
+    "height": 330,
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "filledMap",
     "query": {
       "queryState": {
         "Category": {
@@ -32,7 +32,7 @@
             }
           ]
         },
-        "Y": {
+        "Gradient": {
           "projections": [
             {
               "field": {
@@ -50,23 +50,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Facts_PermitsState"
-                  }
-                },
-                "Property": "Permits (milhares)"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "drillFilterOtherVisuals": true,
@@ -84,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top estados — licenças totais (milhares)'"
+                  "Value": "'Licenças de construção por estado (milhares de unidades)'"
                 }
               }
             }
@@ -96,7 +79,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fTipoTotal2",
+        "name": "fTipoTotal",
         "field": {
           "Column": {
             "Expression": {
@@ -155,21 +138,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "fTopNEstados",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Estado"
-              }
-            },
-            "Property": "Estado"
-          }
-        },
-        "type": "TopN",
-        "howCreated": "User"
       }
     ]
   }
