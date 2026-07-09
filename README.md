@@ -78,6 +78,8 @@ Depois da primeira versão funcional, o dashboard foi redesenhado para responder
 - **Cartões macro com unidade embutida**: novas medidas `ABI Meses Abaixo 50` (mostra "13 meses") e `Dodge Momentum YoY` (mostra "+37%") em vez de "13,00" e "37,00".
 - **Título do pipeline por cidade corrigido** — NY lidera em stock; o Sun Belt domina em número de mercados.
 - **Eixo X categórico** nos dois gráficos de colunas da página Procura por Segmento — os anos do calendário sem dados (2026, 2027, 2029 no défice) deixam de aparecer como buracos.
+- **Top N = 10 serializado** nos três gráficos de estados da página Geografia (licenças totais, multifamily e valor por unidade) — já não é preciso configurar à mão no Desktop; o retoque manual nº 3 abaixo fica obsoleto.
+- **Mapa com gradiente de cor** — formatação condicional `dataPoint.fill` pela medida `Permits (milhares)` (teal claro → teal escuro). Se o mapa continuar em branco, falta só ativar **Options → Security → Use Map and Filled Map visuals** no Desktop (isto é uma definição da aplicação, não viaja com o projeto).
 
 ## O que está 100% implementado e validado
 
@@ -101,8 +103,8 @@ Depois da primeira versão funcional, o dashboard foi redesenhado para responder
 |---|------|-------|
 | 1 | Funil de Mercado — barras | O guia pede Despesa Constr por `Dim_Segmento`, mas não existe relação entre `Dim_Segmento` e `Facts_ConstrSpend` (unidades diferentes do star schema). Implementei com `Dim_Categoria[Categoria]` filtrada a *Residential / Health care / Lodging* — o mesmo resultado visual (Residencial vs Saúde vs Hotelaria), filtrado a 2025 + Frequência Anual. |
 | 2 | Funil — treemap | Exclui os agregados *Total Construction, Residential, Nonresidential* e *Health care (private)* para evitar dupla contagem. Ajusta o filtro do visual se quiseres outra seleção. |
-| 3 | Geografia — top estados | O filtro **Top N = 10** tem de ser concluído à mão: seleciona o visual → painel Filtros → `Estado` (tipo Top N) → escreve 10 e arrasta `Permits (milhares)` para "Por valor" → Aplicar. (A serialização automática deste filtro é frágil em PBIR, preferi deixá-lo preparado.) |
-| 4 | Geografia — mapa | Se aparecer aviso de mapas, ativa **Options → Security → Use Map and Filled Map visuals**. Se a cor não aparecer, arrasta `Permits (milhares)` para o poço de cor do Filled map. |
+| 3 | Geografia — top estados | ~~Top N à mão~~ **Resolvido na Ronda 3**: o filtro Top N = 10 já vai serializado nos três gráficos de estados. |
+| 4 | Geografia — mapa | Ativa **Options → Security → Use Map and Filled Map visuals** (definição da aplicação; não viaja com o projeto). O gradiente de cor já vai configurado na Ronda 3. |
 | 5 | Drivers Macro — linhas | As duas taxas (crédito habitação 30 anos + taxa diretora Fed) estão no mesmo gráfico de linhas via legenda `Dim_Indicador` — o indicador "Fed Funds" do guia chama-se **"Taxa diretora Fed"** nos dados. A variante "Line and stacked column" com a despesa sobreposta fica para fazer no Desktop se a quiseres (troca o tipo de visual e arrasta `Despesa Constr ($M)` para as colunas). |
 | 6 | Drivers Macro — cartões | Mostram a **média do período visível** (a medida do guia é AVERAGE). Para leres o valor "atual", filtra o cartão aos últimos meses (filtro de data relativa) ou usa um slicer de ano. |
 | 7 | Calendário | O DAX do guia começa em **2000**: dados anteriores (Case-Shiller desde 1987, permits desde 1990, despesa desde 1993) não aparecem em eixos baseados na `Dim_Calendario`. Para os incluir, edita a tabela `Dim_Calendario` e troca `DATE(2000,1,1)` por `DATE(1987,1,1)`. |
