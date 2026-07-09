@@ -1,0 +1,55 @@
+table Dim_SubSegmento
+	lineageTag: d1f14a72-da16-5d7a-b073-09fa7848d485
+
+	column SubSegmentoID
+		dataType: string
+		lineageTag: de1fae84-e0ee-5d75-be99-81e35bcf2c40
+		summarizeBy: none
+		sourceColumn: SubSegmentoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubSegmento
+		dataType: string
+		lineageTag: 32d18671-c90d-5bdd-a823-8bfbd6005d3a
+		summarizeBy: none
+		sourceColumn: SubSegmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column SegmentoID
+		dataType: string
+		lineageTag: a583d634-6636-5d8a-a982-0c6b05cdb402
+		summarizeBy: none
+		sourceColumn: SegmentoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Densidade acústica/vibração'
+		dataType: string
+		lineageTag: 4d8f9a75-e0c4-55f6-bdb4-184bf76c6320
+		summarizeBy: none
+		sourceColumn: Densidade acústica/vibração
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notas
+		dataType: string
+		lineageTag: bd7b5c2d-b38b-5842-979f-fe8a80fcaab7
+		summarizeBy: none
+		sourceColumn: Notas
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_SubSegmento = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_SubSegmento",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"SubSegmentoID", type text}, {"SubSegmento", type text}, {"SegmentoID", type text}, {"Densidade acústica/vibração", type text}, {"Notas", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

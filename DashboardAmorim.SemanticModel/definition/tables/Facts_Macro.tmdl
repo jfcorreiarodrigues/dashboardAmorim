@@ -1,0 +1,76 @@
+table Facts_Macro
+	lineageTag: c46722b5-de5a-5ec9-91a0-32214435faea
+
+	measure 'Indicador Macro' = AVERAGE(Facts_Macro[Valor])
+		formatString: #,0.00
+		lineageTag: 7da675f8-2cf3-5ae2-9dac-12465711059b
+
+	column ID
+		dataType: string
+		lineageTag: 9d554b0e-568c-5940-b4ae-10da8f278181
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		lineageTag: e61a4176-b062-5ad9-a41f-3cb29851bc47
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 6940ed0c-b5af-5c60-946f-879c3c6933df
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndicadorID
+		dataType: string
+		lineageTag: 0f9f5a9f-27a8-5a3f-9c56-edb6abeee4e2
+		summarizeBy: none
+		sourceColumn: IndicadorID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor
+		dataType: double
+		lineageTag: 21e46580-9a80-59a3-963b-0bc28d5152bc
+		summarizeBy: none
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidade
+		dataType: string
+		lineageTag: 4bc34d70-a4cf-5c5c-a623-718b08f30273
+		summarizeBy: none
+		sourceColumn: Unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column FonteID
+		dataType: string
+		lineageTag: f7284198-8721-57c0-9434-3ebea46c9999
+		summarizeBy: none
+		sourceColumn: FonteID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Facts_Macro = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Facts_Macro",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"ID", type text}, {"Data", type datetime}, {"Ano", Int64.Type}, {"IndicadorID", type text}, {"Valor", type number}, {"Unidade", type text}, {"FonteID", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

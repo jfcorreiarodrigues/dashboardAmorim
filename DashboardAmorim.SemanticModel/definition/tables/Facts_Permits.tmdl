@@ -1,0 +1,72 @@
+table Facts_Permits
+	lineageTag: 69769a81-288a-50de-ace8-c32c0e369f73
+
+	column ID
+		dataType: string
+		lineageTag: 17298866-b3da-5dfa-94dc-be3f2835bc40
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		lineageTag: 287792fe-bca5-5e79-ab07-11040379e5b9
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: fbe85fb6-0ada-5aca-aae2-184065ba76b9
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Regiao
+		dataType: string
+		lineageTag: 82ff748f-b376-5b87-b73d-814507a2cfe9
+		summarizeBy: none
+		sourceColumn: Regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoEstrutura
+		dataType: string
+		lineageTag: 16979b65-8b41-5c09-932d-d289e656e0c9
+		summarizeBy: none
+		sourceColumn: TipoEstrutura
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidades_milhares
+		dataType: double
+		lineageTag: e251b833-a91d-51db-a35e-692300e84e05
+		summarizeBy: sum
+		sourceColumn: Unidades_milhares
+
+		annotation SummarizationSetBy = Automatic
+
+	column FonteID
+		dataType: string
+		lineageTag: 5537f112-345c-54db-9ab7-c565e1e8d007
+		summarizeBy: none
+		sourceColumn: FonteID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Facts_Permits = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Facts_Permits",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"ID", type text}, {"Data", type datetime}, {"Ano", Int64.Type}, {"Regiao", type text}, {"TipoEstrutura", type text}, {"Unidades_milhares", type number}, {"FonteID", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

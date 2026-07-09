@@ -1,0 +1,89 @@
+relationship 1c688e8f-0706-5d31-8d01-1b8a0d36061b
+	fromColumn: Facts_Market.SegmentoID
+	toColumn: Dim_Segmento.SegmentoID
+
+relationship 30feb2b4-a1b5-5df6-8d34-ae71147ad97c
+	fromColumn: Facts_Market.SubSegmentoID
+	toColumn: Dim_SubSegmento.SubSegmentoID
+
+relationship 3e356516-eace-51a1-b803-0b7661eaca6c
+	fromColumn: Facts_Market.GeografiaID
+	toColumn: Dim_Geografia.GeografiaID
+
+relationship 44299721-3d46-505f-8d3f-d1ffb5ab0ad9
+	fromColumn: Facts_Market.MetricaID
+	toColumn: Dim_Metrica.MetricaID
+
+relationship 68c3f4b2-95a8-5c18-ba5f-85cd002bad34
+	fromColumn: Facts_ConstrSpend.CategoriaID
+	toColumn: Dim_Categoria.CategoriaID
+
+relationship 1081533b-7d00-543c-beab-45f6dc6c6492
+	fromColumn: Facts_Permits.Regiao
+	toColumn: Dim_RegiaoCensus.Regiao
+
+relationship 002481b7-444c-5f67-925a-0fb2da0ce8f8
+	fromColumn: Facts_PermitsState.Abrev
+	toColumn: Dim_Estado.Abrev
+
+relationship 952ea545-eafc-5dae-ab23-6e668f6595c2
+	fromColumn: Facts_Macro.IndicadorID
+	toColumn: Dim_Indicador.IndicadorID
+
+relationship 09fedb31-99a2-5e40-9a3b-8efc2bc2ab9c
+	fromColumn: Facts_HomePrices.CidadeTicker
+	toColumn: Dim_CidadeCS.CidadeTicker
+
+relationship a9b47e60-08bf-5cb0-a761-c881fb75b13e
+	fromColumn: Facts_Market.FonteID
+	toColumn: Dim_Fonte.FonteID
+
+relationship 3a7feea7-924c-5012-9039-55428f8d9e8a
+	fromColumn: Facts_ConstrSpend.FonteID
+	toColumn: Dim_Fonte.FonteID
+
+relationship 1741b599-f634-5376-99ee-be34e9b79381
+	fromColumn: Facts_Permits.FonteID
+	toColumn: Dim_Fonte.FonteID
+
+relationship efbad496-d1f5-57e0-8cf9-832681ae8453
+	fromColumn: Facts_PermitsState.FonteID
+	toColumn: Dim_Fonte.FonteID
+
+relationship 5ce01aec-eacf-5406-a006-d74a4acd3c98
+	fromColumn: Facts_Macro.FonteID
+	toColumn: Dim_Fonte.FonteID
+
+relationship 2e9ebdfe-7495-538b-9b68-2aa9e753426d
+	fromColumn: Facts_HomePrices.FonteID
+	toColumn: Dim_Fonte.FonteID
+
+relationship 693d219e-3ece-52c5-9dbf-64ddbdc72fdc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Facts_Market.Data
+	toColumn: Dim_Calendario.Date
+
+relationship 39f2609f-662e-50ea-8452-5e122e384e52
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Facts_ConstrSpend.Data
+	toColumn: Dim_Calendario.Date
+
+relationship a7b298e9-b157-5184-8af9-b56198050976
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Facts_Permits.Data
+	toColumn: Dim_Calendario.Date
+
+relationship 2937bdb1-f16b-58e4-bef5-95de9be8ad10
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Facts_PermitsState.Data
+	toColumn: Dim_Calendario.Date
+
+relationship 121663a7-0660-5656-82f3-63fae40a0a46
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Facts_Macro.Data
+	toColumn: Dim_Calendario.Date
+
+relationship 24980da8-e2e6-5c8e-8437-888b1eb8b691
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Facts_HomePrices.Data
+	toColumn: Dim_Calendario.Date

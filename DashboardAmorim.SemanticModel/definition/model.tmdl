@@ -1,0 +1,29 @@
+model Model
+	culture: pt-PT
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-PT
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["CaminhoExcel", "Dim_Segmento", "Dim_SubSegmento", "Dim_Geografia", "Dim_RegiaoCensus", "Dim_Estado", "Dim_CidadeCS", "Dim_Metrica", "Dim_Categoria", "Dim_Indicador", "Dim_Fonte", "Facts_Market", "Facts_ConstrSpend", "Facts_Permits", "Facts_PermitsState", "Facts_Macro", "Facts_HomePrices"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table Dim_Segmento
+ref table Dim_SubSegmento
+ref table Dim_Geografia
+ref table Dim_RegiaoCensus
+ref table Dim_Estado
+ref table Dim_CidadeCS
+ref table Dim_Metrica
+ref table Dim_Categoria
+ref table Dim_Indicador
+ref table Dim_Fonte
+ref table Facts_Market
+ref table Facts_ConstrSpend
+ref table Facts_Permits
+ref table Facts_PermitsState
+ref table Facts_Macro
+ref table Facts_HomePrices
+ref table Dim_Calendario

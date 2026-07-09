@@ -1,0 +1,55 @@
+table Dim_CidadeCS
+	lineageTag: 933cc1bb-f66f-5e52-8b3b-132a24471bb5
+
+	column CidadeTicker
+		dataType: string
+		lineageTag: 7364b4de-9b49-5393-b823-1dcca9a70224
+		summarizeBy: none
+		sourceColumn: CidadeTicker
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cidade
+		dataType: string
+		lineageTag: 93eb7ede-ad78-5fd5-b6e7-efac1fde19c3
+		summarizeBy: none
+		sourceColumn: Cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado
+		dataType: string
+		lineageTag: 19fe24a8-930d-5d87-991b-5a13d25bd101
+		summarizeBy: none
+		sourceColumn: Estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegiaoCensus
+		dataType: string
+		lineageTag: c482b8b4-59a2-5619-b3f8-83a5fae78e33
+		summarizeBy: none
+		sourceColumn: RegiaoCensus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tier prioridade Amorim'
+		dataType: string
+		lineageTag: dc4dfdff-7046-52fd-86a0-7c3310682cf0
+		summarizeBy: none
+		sourceColumn: Tier prioridade Amorim
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_CidadeCS = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_CidadeCS",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"CidadeTicker", type text}, {"Cidade", type text}, {"Estado", type text}, {"RegiaoCensus", type text}, {"Tier prioridade Amorim", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

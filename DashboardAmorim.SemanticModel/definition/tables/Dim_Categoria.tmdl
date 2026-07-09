@@ -1,0 +1,47 @@
+table Dim_Categoria
+	lineageTag: 638bfc4a-eec0-540f-8f4b-542ef5e5c1cf
+
+	column CategoriaID
+		dataType: string
+		lineageTag: 9a229786-4f4b-5625-a6af-ca44e3b29eee
+		summarizeBy: none
+		sourceColumn: CategoriaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: 536964ea-e85b-5b12-8dad-c67569cffdcc
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClusterAmorim
+		dataType: string
+		lineageTag: 5d60afdd-5f53-5366-b4a9-2abe85f984a3
+		summarizeBy: none
+		sourceColumn: ClusterAmorim
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frequência/fonte'
+		dataType: string
+		lineageTag: bbf26f7d-664f-5b39-a19a-db22c0e2664a
+		summarizeBy: none
+		sourceColumn: Frequência/fonte
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Categoria = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_Categoria",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"CategoriaID", type text}, {"Categoria", type text}, {"ClusterAmorim", type text}, {"Frequência/fonte", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

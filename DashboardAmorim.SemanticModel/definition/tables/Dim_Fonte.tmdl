@@ -1,0 +1,63 @@
+table Dim_Fonte
+	lineageTag: 9ba899a6-94ed-50e0-99bb-9eef4e5e12e8
+
+	column FonteID
+		dataType: string
+		lineageTag: 6c5013d7-7995-56ce-b3f7-27177384c127
+		summarizeBy: none
+		sourceColumn: FonteID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fonte
+		dataType: string
+		lineageTag: c71d15b7-cf6c-5d7c-b015-68fc8a3c0417
+		summarizeBy: none
+		sourceColumn: Fonte
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: 48cea152-735e-5c15-90f9-94b6b416e589
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Credibilidade
+		dataType: string
+		lineageTag: 67293ac6-a89c-5c04-a0c1-b1ce85f0ae2b
+		summarizeBy: none
+		sourceColumn: Credibilidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Acesso
+		dataType: string
+		lineageTag: 944571d5-383b-562a-b2a6-3a346d9c7bbe
+		summarizeBy: none
+		sourceColumn: Acesso
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Link/Referência'
+		dataType: string
+		lineageTag: b726b2fd-2da4-5180-8ea8-1d64b688b339
+		summarizeBy: none
+		sourceColumn: Link/Referência
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Fonte = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_Fonte",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"FonteID", type text}, {"Fonte", type text}, {"Tipo", type text}, {"Credibilidade", type text}, {"Acesso", type text}, {"Link/Referência", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

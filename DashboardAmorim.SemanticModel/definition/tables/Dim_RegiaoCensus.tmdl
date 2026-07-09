@@ -1,0 +1,31 @@
+table Dim_RegiaoCensus
+	lineageTag: 42d141bb-dfd8-52e0-aff0-b6210a5d5d3f
+
+	column Regiao
+		dataType: string
+		lineageTag: c07ab52e-3c6d-5c69-9aea-1c85bd588a05
+		summarizeBy: none
+		sourceColumn: Regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Correspondência aproximada (tua classificação)'
+		dataType: string
+		lineageTag: f65c86e9-698f-5917-a8e2-3cfb8ccb7d4a
+		summarizeBy: none
+		sourceColumn: Correspondência aproximada (tua classificação)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_RegiaoCensus = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_RegiaoCensus",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Regiao", type text}, {"Correspondência aproximada (tua classificação)", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,48 @@
+table Dim_Estado
+	lineageTag: 05913828-f1f8-5b64-bc51-c6d9c7a7b26b
+
+	column Abrev
+		dataType: string
+		lineageTag: a2456746-ff75-5160-96bb-6f4d9fdbf1bd
+		summarizeBy: none
+		sourceColumn: Abrev
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado
+		dataType: string
+		dataCategory: StateOrProvince
+		lineageTag: b5bda7e5-98fa-5ebb-b77e-8cfb71c9be4a
+		summarizeBy: none
+		sourceColumn: Estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegiaoCensus
+		dataType: string
+		lineageTag: d3332ddb-e505-5cf5-ac71-0d7f1c1198d9
+		summarizeBy: none
+		sourceColumn: RegiaoCensus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tier prioridade Amorim'
+		dataType: string
+		lineageTag: 86424517-6052-5aaf-b9c4-6c960001ed3f
+		summarizeBy: none
+		sourceColumn: Tier prioridade Amorim
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Estado = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_Estado",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Abrev", type text}, {"Estado", type text}, {"RegiaoCensus", type text}, {"Tier prioridade Amorim", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

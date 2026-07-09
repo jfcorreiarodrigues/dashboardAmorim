@@ -1,0 +1,84 @@
+table Facts_ConstrSpend
+	lineageTag: 65ae6c3a-7d24-529e-96a8-5f9c59cd1903
+
+	measure 'Despesa Constr ($M)' = SUM(Facts_ConstrSpend[Valor_USDm])
+		formatString: #,0
+		lineageTag: 83c3e8cc-c354-5333-b666-21806cfa4350
+
+	measure 'Despesa Constr YoY %' =
+			VAR Atual = [Despesa Constr ($M)]
+			VAR Anterior = CALCULATE([Despesa Constr ($M)], DATEADD(Dim_Calendario[Date], -1, YEAR))
+			RETURN DIVIDE(Atual - Anterior, Anterior)
+		formatString: 0.0%
+		lineageTag: b7ddb530-de0e-5340-a2fa-3cf59ef7e01f
+
+	column ID
+		dataType: string
+		lineageTag: f44c1dff-7a4e-51bf-93aa-393bd381f7f0
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		lineageTag: 5667e976-ce2f-5d12-8b8a-5583c2f58edc
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 8691632a-780e-566c-af17-cac98af66db2
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frequência'
+		dataType: string
+		lineageTag: 2e3647e5-557b-54b8-86b4-8c1ef5a2d3e4
+		summarizeBy: none
+		sourceColumn: Frequência
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoriaID
+		dataType: string
+		lineageTag: 86a0822c-fc8f-55fe-a121-ea9d7bd6cb52
+		summarizeBy: none
+		sourceColumn: CategoriaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor_USDm
+		dataType: int64
+		formatString: 0
+		lineageTag: df63ec71-9df2-5378-8a44-5930fb038b45
+		summarizeBy: sum
+		sourceColumn: Valor_USDm
+
+		annotation SummarizationSetBy = Automatic
+
+	column FonteID
+		dataType: string
+		lineageTag: d9dea376-3271-5c35-b4ba-00c7d26bda25
+		summarizeBy: none
+		sourceColumn: FonteID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Facts_ConstrSpend = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Facts_ConstrSpend",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"ID", type text}, {"Data", type datetime}, {"Ano", Int64.Type}, {"Frequência", type text}, {"CategoriaID", type text}, {"Valor_USDm", Int64.Type}, {"FonteID", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,72 @@
+table Facts_HomePrices
+	lineageTag: 55782766-0800-5409-aff9-9e4404039a59
+
+	measure 'Indice CaseShiller' = AVERAGE(Facts_HomePrices[Indice_CaseShiller])
+		formatString: #,0.0
+		lineageTag: 344068f8-54d8-52ad-afe9-431d456b19da
+
+	measure 'Valorizacao desde 2000 (%)' = [Indice CaseShiller] - 100
+		formatString: #,0
+		lineageTag: fdf1f888-c8e7-56f6-9654-4ec6ea51a7ce
+
+	column ID
+		dataType: string
+		lineageTag: d440726e-e8b6-5844-a21a-d58f4c97f099
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		lineageTag: e6e05949-dd80-5112-9d51-49295382d695
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 51a220d0-bb12-5f63-bfe6-4fd7fa0e6c75
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column CidadeTicker
+		dataType: string
+		lineageTag: 4bd57244-4ed8-5aea-9301-cb990eca73b0
+		summarizeBy: none
+		sourceColumn: CidadeTicker
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indice_CaseShiller
+		dataType: double
+		lineageTag: 59afc616-fa34-5e27-92eb-feb93fd7cb04
+		summarizeBy: none
+		sourceColumn: Indice_CaseShiller
+
+		annotation SummarizationSetBy = Automatic
+
+	column FonteID
+		dataType: string
+		lineageTag: fdd1a739-96e3-5fd4-b6e4-335b873fa759
+		summarizeBy: none
+		sourceColumn: FonteID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Facts_HomePrices = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Facts_HomePrices",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"ID", type text}, {"Data", type datetime}, {"Ano", Int64.Type}, {"CidadeTicker", type text}, {"Indice_CaseShiller", type number}, {"FonteID", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

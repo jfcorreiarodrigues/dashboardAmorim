@@ -1,0 +1,4 @@
+expression CaminhoExcel = "C:\dashboardAmorim\Modelo_Dados_Mercado_EUA_PowerBI.xlsx" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 8e447d17-b0bc-5dec-8bf9-e60581f6b800
+
+	annotation PBI_ResultType = Text

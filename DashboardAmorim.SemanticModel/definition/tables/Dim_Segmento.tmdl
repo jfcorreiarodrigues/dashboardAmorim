@@ -1,0 +1,47 @@
+table Dim_Segmento
+	lineageTag: 4c33b19b-7ec3-553b-9f86-a8fc5a3c022a
+
+	column SegmentoID
+		dataType: string
+		lineageTag: e6c160ca-f880-5332-b377-d9501b0c5b68
+		summarizeBy: none
+		sourceColumn: SegmentoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segmento
+		dataType: string
+		lineageTag: b2c36c65-2641-5227-b78d-499c7a14d9e9
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Despesa anual ($bn)'
+		dataType: double
+		lineageTag: af6139ef-1256-56ae-879f-1a5693f25cc3
+		summarizeBy: none
+		sourceColumn: Despesa anual ($bn)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notas
+		dataType: string
+		lineageTag: ad15b8ee-f47a-52eb-80b6-14578f3cdf80
+		summarizeBy: none
+		sourceColumn: Notas
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Segmento = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_Segmento",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"SegmentoID", type text}, {"Segmento", type text}, {"Despesa anual ($bn)", type number}, {"Notas", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

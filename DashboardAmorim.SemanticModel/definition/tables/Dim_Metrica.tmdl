@@ -1,0 +1,47 @@
+table Dim_Metrica
+	lineageTag: c8fbc616-d3df-5f9a-8fc5-071b8a3b7dba
+
+	column MetricaID
+		dataType: string
+		lineageTag: 41e33451-8384-53c5-b1fe-ce9b2e7e6570
+		summarizeBy: none
+		sourceColumn: MetricaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Métrica'
+		dataType: string
+		lineageTag: 050d01d2-c7a4-573d-b76c-57d401ef94d9
+		summarizeBy: none
+		sourceColumn: Métrica
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidade
+		dataType: string
+		lineageTag: a3750ef5-e499-5001-9eeb-401e5169d1c4
+		summarizeBy: none
+		sourceColumn: Unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: c879a7f2-56d8-54f2-8c74-04425d955ab7
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Metrica = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_Metrica",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"MetricaID", type text}, {"Métrica", type text}, {"Unidade", type text}, {"Categoria", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,107 @@
+table Facts_PermitsState
+	lineageTag: bc5877db-c613-593f-a3f3-99d676622796
+
+	measure 'Permits (milhares)' = SUM(Facts_PermitsState[Unidades_milhares])
+		formatString: #,0.0
+		lineageTag: 8aa92e5d-c416-5b95-9cdf-c3915a60d663
+
+	measure 'Valor Permits ($M)' = SUM(Facts_PermitsState[Valor_USDmilhoes])
+		formatString: #,0
+		lineageTag: 14809725-110e-56c5-9fd4-b29a058dbc42
+
+	measure 'Preco Medio Unidade ($k)' = DIVIDE([Valor Permits ($M)], [Permits (milhares)])
+		formatString: #,0.0
+		lineageTag: b415c8c8-fe45-5275-820a-ebe767c36528
+
+	measure 'Permits YoY %' =
+			VAR Atual = [Permits (milhares)]
+			VAR Anterior = CALCULATE([Permits (milhares)], DATEADD(Dim_Calendario[Date], -1, YEAR))
+			RETURN DIVIDE(Atual - Anterior, Anterior)
+		formatString: 0.0%
+		lineageTag: 2ca69c16-cd02-5243-b662-e7d5d15e6168
+
+	column ID
+		dataType: string
+		lineageTag: 67c890c0-a8f7-5f8e-a3fd-13739d7988a8
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		lineageTag: 744e68f3-3a23-59ea-bb62-19536265f935
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d0d6b12-acff-54c7-bbab-dbadc5e6e961
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado
+		dataType: string
+		lineageTag: e4e49eb6-8a5b-5723-aff4-afa75dad39d7
+		summarizeBy: none
+		sourceColumn: Estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abrev
+		dataType: string
+		lineageTag: e2af3477-72e8-5bd1-905a-a1a40c87d14f
+		summarizeBy: none
+		sourceColumn: Abrev
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoEstrutura
+		dataType: string
+		lineageTag: fd236f35-621d-5747-9520-af1ac88b5b04
+		summarizeBy: none
+		sourceColumn: TipoEstrutura
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidades_milhares
+		dataType: double
+		lineageTag: a32e53b9-a74e-5b9c-9044-e78b1d91e567
+		summarizeBy: sum
+		sourceColumn: Unidades_milhares
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor_USDmilhoes
+		dataType: double
+		lineageTag: 1b2b43bc-0665-53f8-a32c-5b1fbdac01ba
+		summarizeBy: sum
+		sourceColumn: Valor_USDmilhoes
+
+		annotation SummarizationSetBy = Automatic
+
+	column FonteID
+		dataType: string
+		lineageTag: cd9ea3c4-23e4-5c5e-ad3c-464c2dad68be
+		summarizeBy: none
+		sourceColumn: FonteID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Facts_PermitsState = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Facts_PermitsState",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"ID", type text}, {"Data", type datetime}, {"Ano", Int64.Type}, {"Estado", type text}, {"Abrev", type text}, {"TipoEstrutura", type text}, {"Unidades_milhares", type number}, {"Valor_USDmilhoes", type number}, {"FonteID", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

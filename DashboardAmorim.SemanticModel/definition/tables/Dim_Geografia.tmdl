@@ -1,0 +1,55 @@
+table Dim_Geografia
+	lineageTag: 0ccaede5-f3da-5c65-a277-f98991e63481
+
+	column GeografiaID
+		dataType: string
+		lineageTag: 49b39599-7c15-5874-b7fc-d94ea493c94c
+		summarizeBy: none
+		sourceColumn: GeografiaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade/Área'
+		dataType: string
+		lineageTag: 55ffbc59-ef77-5176-8e6b-86d823b2bc41
+		summarizeBy: none
+		sourceColumn: Cidade/Área
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado
+		dataType: string
+		lineageTag: 850abec1-86f3-5498-bdac-e81ee8aa6543
+		summarizeBy: none
+		sourceColumn: Estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Região'
+		dataType: string
+		lineageTag: e4d32392-d27f-5d04-b82a-a5f3614775a3
+		summarizeBy: none
+		sourceColumn: Região
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tier prioridade'
+		dataType: string
+		lineageTag: cef93418-14d2-5e6f-8042-b5eafb7672bf
+		summarizeBy: none
+		sourceColumn: Tier prioridade
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Geografia = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_Geografia",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"GeografiaID", type text}, {"Cidade/Área", type text}, {"Estado", type text}, {"Região", type text}, {"Tier prioridade", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

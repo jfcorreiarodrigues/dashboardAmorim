@@ -1,0 +1,55 @@
+table Dim_Indicador
+	lineageTag: 47e45350-7892-5143-a86c-20b8d7e56d35
+
+	column IndicadorID
+		dataType: string
+		lineageTag: a7e0f2f1-ed3b-5b27-82aa-ea663f8d8a74
+		summarizeBy: none
+		sourceColumn: IndicadorID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indicador
+		dataType: string
+		lineageTag: 3d7f75a5-8dfa-5351-853c-7610dee681a0
+		summarizeBy: none
+		sourceColumn: Indicador
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidade
+		dataType: string
+		lineageTag: 7ceb0a80-611e-5cbc-be53-d51ebeab900b
+		summarizeBy: none
+		sourceColumn: Unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: 8fcc240e-e40d-53c7-a337-be93e93a5c09
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nota
+		dataType: string
+		lineageTag: e2e7c7c3-5a21-5b22-a85b-2995b52c3797
+		summarizeBy: none
+		sourceColumn: Nota
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Indicador = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Dim_Indicador",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"IndicadorID", type text}, {"Indicador", type text}, {"Unidade", type text}, {"Categoria", type text}, {"Nota", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table

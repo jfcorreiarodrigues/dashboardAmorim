@@ -1,0 +1,116 @@
+table Facts_Market
+	lineageTag: a9ca3093-8fce-5835-954f-953f2c354ec4
+
+	measure 'Valor Mercado' = SUM(Facts_Market[Valor])
+		formatString: #,0.00
+		lineageTag: ce418c2e-8fb3-5082-89b6-d16d74beec76
+
+	column ID
+		dataType: string
+		lineageTag: 91f0b923-1eb0-5013-b7e0-49b52d356ee3
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		lineageTag: 23ff8127-5dd5-563b-8d79-d270f50a94f3
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: b1869c1e-5583-584f-802f-6131da678143
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Periodo
+		dataType: string
+		lineageTag: 785e43fb-0372-5203-9a9e-a50fe9a74033
+		summarizeBy: none
+		sourceColumn: Periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column SegmentoID
+		dataType: string
+		lineageTag: 18c49d87-5cfa-516b-be71-7cb96244adfb
+		summarizeBy: none
+		sourceColumn: SegmentoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubSegmentoID
+		dataType: string
+		lineageTag: 95d39238-cb15-5f05-aa3d-91f949aeee5d
+		summarizeBy: none
+		sourceColumn: SubSegmentoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeografiaID
+		dataType: string
+		lineageTag: 571e10ad-1b56-59ba-b4d5-79f0fede938b
+		summarizeBy: none
+		sourceColumn: GeografiaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MetricaID
+		dataType: string
+		lineageTag: 45b98706-3bd2-540e-ace3-921d17394f7d
+		summarizeBy: none
+		sourceColumn: MetricaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor
+		dataType: double
+		lineageTag: 868590d5-7724-51ec-9f31-e76457c3af11
+		summarizeBy: sum
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidade
+		dataType: string
+		lineageTag: b664a1fa-065b-5d9f-b01f-7ba7a726b94d
+		summarizeBy: none
+		sourceColumn: Unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column FonteID
+		dataType: string
+		lineageTag: 474306ef-815e-5589-bca0-2421463d931a
+		summarizeBy: none
+		sourceColumn: FonteID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nota
+		dataType: string
+		lineageTag: db4786b3-72df-5171-9695-ce366d703725
+		summarizeBy: none
+		sourceColumn: Nota
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Facts_Market = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Facts_Market",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"ID", type text}, {"Data", type datetime}, {"Ano", Int64.Type}, {"Periodo", type text}, {"SegmentoID", type text}, {"SubSegmentoID", type text}, {"GeografiaID", type text}, {"MetricaID", type text}, {"Valor", type number}, {"Unidade", type text}, {"FonteID", type text}, {"Nota", type text}})
+				in
+				    TiposAlterados
+
+	annotation PBI_ResultType = Table
