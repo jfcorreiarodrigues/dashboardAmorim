@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p4v5",
+  "position": {
+    "x": 850,
+    "y": 390,
+    "z": 5000,
+    "width": 390,
+    "height": 290,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_CidadeCS"
+                    }
+                  },
+                  "Property": "Tier prioridade Amorim"
+                }
+              },
+              "queryRef": "Dim_CidadeCS.Tier prioridade Amorim",
+              "nativeQueryRef": "Tier prioridade Amorim"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tier prioridade Amorim (cidades)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

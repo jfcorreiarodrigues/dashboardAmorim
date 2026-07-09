@@ -3,11 +3,25 @@
 Projeto **Power BI Project (PBIP)** gerado a partir de `Modelo_Dados_Mercado_EUA_PowerBI.xlsx` segundo o `Guia_Dashboard_PowerBI_ACS.md`. O semantic model está em **TMDL** e o report em **PBIR** (formatos de texto, prontos para git).
 
 ```
-DashboardAmorim.pbip                  ← abre isto no Power BI Desktop
-DashboardAmorim.SemanticModel/        ← modelo: tabelas, relações, medidas (TMDL)
-DashboardAmorim.Report/               ← report: 5 páginas e visuais (PBIR)
+ACS.pbip                              ← abre isto no Power BI Desktop
+ACS.SemanticModel/                    ← modelo: tabelas, relações, medidas (TMDL)
+ACS.Report/                           ← report: 5 páginas + visuais (PBIR)
 Modelo_Dados_Mercado_EUA_PowerBI.xlsx ← os dados (inalterados)
 ```
+
+> Os nomes de pastas e ficheiros são curtos (`ACS.Report`, `pages/p1/visuals/p1v1/…`) de propósito: o PBIR cria pastas muito profundas e o Windows corta caminhos com mais de 260 caracteres.
+
+## ⚠️ Descarregar sem cortar ficheiros (importante no Windows)
+
+Se descarregares o ZIP do GitHub e extraíres para uma pasta funda (ex.: `Downloads`), o Windows pode dar **"Destination Path Too Long"** e **saltar ficheiros de visuais** — o dashboard abre com páginas vazias. Para evitar:
+
+- **Melhor opção:** faz `git clone` para uma pasta curta, p. ex. `C:\pbi`:
+  `git clone -b claude/powerbi-dashboard-excel-yyggon <url-do-repo> C:\pbi`
+- **Se usares o ZIP:** extrai para a **raiz do disco** (`C:\`), não para `Downloads`. E se o Windows perguntar, escolhe **não** duplicar a pasta com o nome do ZIP.
+- **Alternativa (uma vez):** ativar caminhos longos no Windows — `regedit` →
+  `HKLM\SYSTEM\CurrentControlSet\Control\FileSystem` → `LongPathsEnabled` = `1`, e reiniciar.
+
+Confirma que a pasta extraída tem `ACS.Report`, `ACS.SemanticModel` **e** o `ACS.pbip` lado a lado antes de abrir.
 
 ## Como abrir
 
