@@ -3,7 +3,7 @@
   "name": "p4v7",
   "position": {
     "x": 830,
-    "y": 370,
+    "y": 400,
     "z": 7000,
     "width": 195,
     "height": 145,
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Case-Shiller — último mês'"
+                  "Value": "'Case-Shiller \u2014 \u00faltimo m\u00eas'"
                 }
               }
             }

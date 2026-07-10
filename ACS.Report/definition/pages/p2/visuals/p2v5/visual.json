@@ -3,7 +3,7 @@
   "name": "p2v5",
   "position": {
     "x": 660,
-    "y": 620,
+    "y": 650,
     "z": 4000,
     "width": 580,
     "height": 60,
@@ -48,7 +48,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Período'"
+                  "Value": "'Per\u00edodo'"
                 }
               }
             }

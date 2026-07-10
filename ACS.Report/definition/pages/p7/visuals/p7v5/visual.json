@@ -3,7 +3,7 @@
   "name": "p7v5",
   "position": {
     "x": 40,
-    "y": 285,
+    "y": 315,
     "z": 5000,
     "width": 700,
     "height": 395,
@@ -103,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Os dois jogos — volume (licenças, eixo X) vs valor ($k por unidade, eixo Y) por estado prioritário'"
+                  "Value": "'Os dois jogos \u2014 volume (licen\u00e7as, eixo X) vs valor ($k por unidade, eixo Y) por estado priorit\u00e1rio'"
                 }
               }
             }
@@ -213,7 +213,7 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'—'"
+                              "Value": "'\u2014'"
                             }
                           }
                         ]

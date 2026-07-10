@@ -3,7 +3,7 @@
   "name": "p3v4",
   "position": {
     "x": 360,
-    "y": 460,
+    "y": 490,
     "z": 4000,
     "width": 300,
     "height": 220,
@@ -24,11 +24,11 @@
                       "Entity": "Dim_Geografia"
                     }
                   },
-                  "Property": "Cidade/Área"
+                  "Property": "Cidade/\u00c1rea"
                 }
               },
-              "queryRef": "Dim_Geografia.Cidade/Área",
-              "nativeQueryRef": "Cidade/Área",
+              "queryRef": "Dim_Geografia.Cidade/\u00c1rea",
+              "nativeQueryRef": "Cidade/\u00c1rea",
               "active": true
             }
           ]
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pipeline hoteleiro por cidade — NY lidera em stock, Sun Belt em nº de mercados (nº projetos)'"
+                  "Value": "'Pipeline hoteleiro por cidade \u2014 NY lidera em stock, Sun Belt em n\u00ba de mercados (n\u00ba projetos)'"
                 }
               }
             }
@@ -104,7 +104,7 @@
                 "Entity": "Dim_Metrica"
               }
             },
-            "Property": "Métrica"
+            "Property": "M\u00e9trica"
           }
         },
         "type": "Categorical",
@@ -130,7 +130,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "M\u00e9trica"
                       }
                     }
                   ],
@@ -158,7 +158,7 @@
                 "Entity": "Dim_Geografia"
               }
             },
-            "Property": "Cidade/Área"
+            "Property": "Cidade/\u00c1rea"
           }
         },
         "type": "Categorical",
@@ -186,7 +186,7 @@
                                 "Source": "t"
                               }
                             },
-                            "Property": "Cidade/Área"
+                            "Property": "Cidade/\u00c1rea"
                           }
                         }
                       ],

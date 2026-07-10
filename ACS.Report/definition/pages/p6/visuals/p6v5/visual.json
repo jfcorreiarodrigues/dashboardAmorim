@@ -3,7 +3,7 @@
   "name": "p6v5",
   "position": {
     "x": 520,
-    "y": 480,
+    "y": 510,
     "z": 5000,
     "width": 720,
     "height": 230,
@@ -96,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Matriz tier → estado (expande com +)'"
+                  "Value": "'Matriz tier \u2192 estado (expande com +)'"
                 }
               }
             }

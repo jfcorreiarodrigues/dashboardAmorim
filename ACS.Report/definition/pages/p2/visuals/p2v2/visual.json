@@ -3,7 +3,7 @@
   "name": "p2v2",
   "position": {
     "x": 660,
-    "y": 40,
+    "y": 70,
     "z": 1500,
     "width": 580,
     "height": 310,
@@ -102,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Transmissão do ciclo — housing starts (colunas, mil) vs taxa de crédito 30a (linha, %)'"
+                  "Value": "'Transmiss\u00e3o do ciclo \u2014 housing starts (colunas, mil) vs taxa de cr\u00e9dito 30a (linha, %)'"
                 }
               }
             }

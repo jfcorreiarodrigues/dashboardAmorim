@@ -3,7 +3,7 @@
   "name": "p5v3",
   "position": {
     "x": 660,
-    "y": 95,
+    "y": 125,
     "z": 3000,
     "width": 580,
     "height": 230,
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ocupação Senior Living Premium: 77,8% → 89,5% (procura estrutural)'"
+                  "Value": "'Ocupa\u00e7\u00e3o Senior Living Premium: 77,8% \u2192 89,5% (procura estrutural)'"
                 }
               }
             }

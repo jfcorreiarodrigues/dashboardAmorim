@@ -3,7 +3,7 @@
   "name": "p4v6",
   "position": {
     "x": 40,
-    "y": 360,
+    "y": 390,
     "z": 6000,
     "width": 760,
     "height": 320,
@@ -130,7 +130,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Case-Shiller — cidades-chave (base 2000 = 100; usa as setas de drill Ano→Trim→Mês)'"
+                  "Value": "'Case-Shiller \u2014 cidades-chave (base 2000 = 100; usa as setas de drill Ano\u2192Trim\u2192M\u00eas)'"
                 }
               }
             }

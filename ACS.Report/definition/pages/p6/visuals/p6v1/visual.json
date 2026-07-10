@@ -3,7 +3,7 @@
   "name": "p6v1",
   "position": {
     "x": 40,
-    "y": 70,
+    "y": 100,
     "z": 1000,
     "width": 1200,
     "height": 60,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "EXPLORAR AS LICENÇAS — PERGUNTA AOS DADOS E DECOMPÕE POR TIER, ESTADO E TIPO DE ESTRUTURA",
+                    "value": "EXPLORAR AS LICEN\u00c7AS \u2014 PERGUNTA AOS DADOS E DECOMP\u00d5E POR TIER, ESTADO E TIPO DE ESTRUTURA",
                     "textStyle": {
                       "fontSize": "16pt",
                       "color": "#FFFFFF"

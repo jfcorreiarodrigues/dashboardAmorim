@@ -3,7 +3,7 @@
   "name": "p4v3",
   "position": {
     "x": 1045,
-    "y": 40,
+    "y": 70,
     "z": 3000,
     "width": 195,
     "height": 145,
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Spread crédito 30a − Fed'"
+                  "Value": "'Spread cr\u00e9dito 30a \u2212 Fed'"
                 }
               }
             }

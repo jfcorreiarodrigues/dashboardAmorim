@@ -3,7 +3,7 @@
   "name": "p4v2",
   "position": {
     "x": 830,
-    "y": 40,
+    "y": 70,
     "z": 2000,
     "width": 195,
     "height": 145,
@@ -29,7 +29,7 @@
               },
               "queryRef": "Facts_Macro.Indicador Atual",
               "nativeQueryRef": "Indicador Atual",
-              "displayName": "Crédito 30 anos (%)"
+              "displayName": "Cr\u00e9dito 30 anos (%)"
             }
           ]
         }
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa de crédito — último mês'"
+                  "Value": "'Taxa de cr\u00e9dito \u2014 \u00faltimo m\u00eas'"
                 }
               }
             }
@@ -103,7 +103,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Taxa crédito habitação 30 anos'"
+                          "Value": "'Taxa cr\u00e9dito habita\u00e7\u00e3o 30 anos'"
                         }
                       }
                     ]

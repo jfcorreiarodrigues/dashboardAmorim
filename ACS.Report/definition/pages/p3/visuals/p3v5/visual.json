@@ -3,7 +3,7 @@
   "name": "p3v5",
   "position": {
     "x": 680,
-    "y": 110,
+    "y": 140,
     "z": 5000,
     "width": 560,
     "height": 280,
@@ -102,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top estados — licenças totais (milhares; tooltip = quota nacional)'"
+                  "Value": "'Top estados \u2014 licen\u00e7as totais (milhares; tooltip = quota nacional)'"
                 }
               }
             }

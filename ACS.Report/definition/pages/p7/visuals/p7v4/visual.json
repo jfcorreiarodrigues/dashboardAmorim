@@ -3,7 +3,7 @@
   "name": "p7v4",
   "position": {
     "x": 850,
-    "y": 80,
+    "y": 110,
     "z": 4000,
     "width": 390,
     "height": 190,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "3 · ONDE E COMO ENTRAR",
+                    "value": "3 \u00b7 ONDE E COMO ENTRAR",
                     "textStyle": {
                       "fontSize": "13pt",
                       "color": "#FFFFFF"
@@ -30,7 +30,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Volume no Sun Belt: TX+FL ≈ 3,8× CA em licenças acumuladas (Tier 1 · Volume, canal distribuição). Margem nos estados de valor (Tier 2/3 — $200k+ por unidade, canal especificação/arquitetos). Multifamily 5+ = porta regulamentar da acústica. E a procura pelo material já existe: os EUA são o 3º importador mundial de cortiça (~$230M/ano, Comtrade).",
+                    "value": "Volume no Sun Belt: TX+FL \u2248 3,8\u00d7 CA em licen\u00e7as acumuladas (Tier 1 \u00b7 Volume, canal distribui\u00e7\u00e3o). Margem nos estados de valor (Tier 2/3 \u2014 $200k+ por unidade, canal especifica\u00e7\u00e3o/arquitetos). Multifamily 5+ = porta regulamentar da ac\u00fastica. E a procura pelo material j\u00e1 existe: os EUA s\u00e3o o 3\u00ba importador mundial de corti\u00e7a (~$230M/ano, Comtrade).",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#FFFFFF"

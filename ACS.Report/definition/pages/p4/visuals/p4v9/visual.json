@@ -3,7 +3,7 @@
   "name": "p4v9",
   "position": {
     "x": 830,
-    "y": 530,
+    "y": 560,
     "z": 9000,
     "width": 410,
     "height": 150,
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Renovação residencial (LIRA) — ~$509bn/ano, estável no ciclo'"
+                  "Value": "'Renova\u00e7\u00e3o residencial (LIRA) \u2014 ~$509bn/ano, est\u00e1vel no ciclo'"
                 }
               }
             }
@@ -138,7 +138,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'LIRA — renovação residencial (móvel 4T)'"
+                          "Value": "'LIRA \u2014 renova\u00e7\u00e3o residencial (m\u00f3vel 4T)'"
                         }
                       }
                     ]

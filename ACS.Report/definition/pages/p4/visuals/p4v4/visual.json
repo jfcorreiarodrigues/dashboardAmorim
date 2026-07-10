@@ -3,7 +3,7 @@
   "name": "p4v4",
   "position": {
     "x": 830,
-    "y": 205,
+    "y": 235,
     "z": 4000,
     "width": 195,
     "height": 145,
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'ABI abaixo de 50 — spending fraco em 2026'"
+                  "Value": "'ABI abaixo de 50 \u2014 spending fraco em 2026'"
                 }
               }
             }

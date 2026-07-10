@@ -3,7 +3,7 @@
   "name": "p7v1",
   "position": {
     "x": 40,
-    "y": 10,
+    "y": 40,
     "z": 1000,
     "width": 1200,
     "height": 55,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "RESPOSTA AO DESAFIO — ENTRAR EM 2026 PARA COLHER A INFLEXÃO DE 2027",
+                    "value": "RESPOSTA AO DESAFIO \u2014 ENTRAR EM 2026 PARA COLHER A INFLEX\u00c3O DE 2027",
                     "textStyle": {
                       "fontSize": "16pt",
                       "color": "#FFFFFF"

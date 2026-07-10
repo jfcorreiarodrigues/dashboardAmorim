@@ -3,7 +3,7 @@
   "name": "p3v3",
   "position": {
     "x": 40,
-    "y": 460,
+    "y": 490,
     "z": 3000,
     "width": 300,
     "height": 220,
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Valor de obra por unidade ($k) — estados luxury vs volume'"
+                  "Value": "'Valor de obra por unidade ($k) \u2014 estados luxury vs volume'"
                 }
               }
             }

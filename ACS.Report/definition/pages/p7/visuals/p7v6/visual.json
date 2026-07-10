@@ -3,7 +3,7 @@
   "name": "p7v6",
   "position": {
     "x": 760,
-    "y": 285,
+    "y": 315,
     "z": 6000,
     "width": 480,
     "height": 395,
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Funil de prioridade — licenças (milhares) por tier Amorim'"
+                  "Value": "'Funil de prioridade \u2014 licen\u00e7as (milhares) por tier Amorim'"
                 }
               }
             }
@@ -194,7 +194,7 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'—'"
+                              "Value": "'\u2014'"
                             }
                           }
                         ]
