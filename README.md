@@ -30,7 +30,7 @@ Confirma que a pasta extraída tem `ACS.Report`, `ACS.SemanticModel` **e** o `AC
    - *Store semantic model using TMDL format*
    - *Store reports using enhanced metadata format (PBIR)*
    e reinicia o Desktop.
-3. Faz duplo clique em **`DashboardAmorim.pbip`**.
+3. Faz duplo clique em **`ACS.pbip`**.
 
 ## Primeiro passo obrigatório: apontar para o Excel
 
@@ -55,7 +55,7 @@ Depois da primeira versão funcional, o dashboard foi redesenhado para responder
 **Novas medidas (8):**
 | Medida | O que responde |
 |---|---|
-| `Despesa Anual ($M)` | Total anual por categoria — usa a linha Anual quando existe, senão soma os 12 meses (as categorias HHL são mensais; era isto que deixava o gráfico do funil vazio) |
+| `Despesa Anual ($M)` | Total anual por categoria — usa a linha Anual quando existe, senão os meses (corrigido na Ronda 8: os meses do Census são SAAR, usa-se a **média**, não a soma) |
 | `Quota TAM no Mercado (%)` | Concentração: TAM $380bn ≈ 17% do mercado total (~$2 170bn) |
 | `Quota HHL no Total (%)` | Peso de Lodging+Health care+Residential na construção total |
 | `Quota Estado (%)` | Peso de cada estado no total nacional de licenças |
@@ -78,8 +78,8 @@ Depois da primeira versão funcional, o dashboard foi redesenhado para responder
 - **Cartões macro com unidade embutida**: novas medidas `ABI Meses Abaixo 50` (mostra "13 meses") e `Dodge Momentum YoY` (mostra "+37%") em vez de "13,00" e "37,00".
 - **Título do pipeline por cidade corrigido** — NY lidera em stock; o Sun Belt domina em número de mercados.
 - **Eixo X categórico** nos dois gráficos de colunas da página Procura por Segmento — os anos do calendário sem dados (2026, 2027, 2029 no défice) deixam de aparecer como buracos.
-- **Top N = 10 serializado** nos três gráficos de estados da página Geografia (licenças totais, multifamily e valor por unidade) — já não é preciso configurar à mão no Desktop; o retoque manual nº 3 abaixo fica obsoleto.
-- **Mapa com gradiente de cor** — formatação condicional `dataPoint.fill` pela medida `Permits (milhares)` (teal claro → teal escuro). Se o mapa continuar em branco, falta só ativar **Options → Security → Use Map and Filled Map visuals** no Desktop (isto é uma definição da aplicação, não viaja com o projeto).
+- ~~Top N = 10 serializado nos três gráficos de estados~~ — **revertido na Ronda 7**: a serialização manual do filtro Top N era a causa do erro de desserialização; voltou a ser retoque manual.
+- ~~Mapa com gradiente de cor via `dataPoint.fill`~~ — **removido na Ronda 6** com a reversão do azureMap; arrasta `Permits (milhares)` para o poço de cor se precisares.
 
 ## Ronda 4 — componentes da cadeira de Business Analytics
 
@@ -115,6 +115,15 @@ O stack trace do Desktop apontou para `SemanticQuerySerializer.deserializeFilter
 - **Top N = 10 volta a ser retoque manual** (2 min): visual → painel Filtros → `Estado` → tipo de filtro "N principais" → 10 → arrastar `Permits (milhares)` para "Por valor" → Aplicar.
 - Só restam filtros categóricos `In`/`Not(In)` — formas canónicas do Desktop. Isto deve resolver também a **publicação**, que falhava na mesma desserialização do lado do Service.
 
+## Ronda 8 — correção dos valores anualizados do Census (SAAR)
+
+Os dados mensais de `Facts_ConstrSpend` vêm do Census a **taxa anualizada (SAAR)**: cada mês já representa "quanto seria o ano a este ritmo". Somar os 12 meses inflava o mercado ~12× (o Residential 2025 aparecia como $11 biliões em vez de ~$921 mil milhões). Verificado contra os dados: a média dos meses bate certo com a realidade (Residential ~$921bn, Total ~$2,17 biliões, Health care ~$69bn, Lodging ~$24bn).
+
+- `Despesa Anual ($M)` reescrita: linhas `Anual` somam-se; linhas `Mensal` usam a **média** — via `SUMX` por (categoria, ano), para que contextos multi-categoria (ex.: `Quota HHL no Total (%)` = 46,8%) somem as médias por categoria em vez de tirar a média das linhas todas juntas (um `AVERAGE` simples daria ~15%, errado).
+- Como nenhum par (categoria, ano) tem as duas frequências (verificado), `vAnual + vMensal` nunca conta duas vezes.
+- Os visuais anuais (barras e treemap do Funil de Mercado, ribbon da Procura por Segmento) voltam a usar `Despesa Anual ($M)`; títulos clarificados como "total anual Census".
+- Os gráficos **mensais** de ciclo continuam com `Despesa Constr ($M)`: cada ponto mensal é a taxa anualizada nesse mês — correto para leitura de ciclo; o título passou a dizer "taxa anualizada SAAR".
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**
@@ -129,7 +138,7 @@ O stack trace do Desktop apontou para `SemanticQuerySerializer.deserializeFilter
 - Auto date/time desligado no modelo (usa-se sempre a `Dim_Calendario`).
 - Integridade verificada nos dados: chaves únicas em todas as dimensões e **zero valores órfãos** nas 15 relações dimensão↔facto.
 
-**Report:** as 5 páginas do guia — *Funil de Mercado, Evolução & Ciclo, Geografia, Drivers Macro, Procura por Segmento* — com 21 visuais, cada um já com os filtros de `Dim_Metrica`/`Dim_Segmento`/`Frequência`/`TipoEstrutura` indicados no guia. Todos os JSON foram validados contra os JSON Schemas oficiais (schemas `visualContainer 2.0.0`, `page 2.0.0`, `report 3.1.0`).
+**Report:** as 5 páginas do guia — *Funil de Mercado, Evolução & Ciclo, Geografia, Drivers Macro, Procura por Segmento* — mais a página *Explorar*, num total de **6 páginas e 34 visuais**, cada um já com os filtros de `Dim_Metrica`/`Dim_Segmento`/`Frequência`/`TipoEstrutura` indicados no guia. Todos os JSON foram validados contra os JSON Schemas oficiais.
 
 ## O que precisa de retoque manual (visuais = best-effort)
 
@@ -137,8 +146,8 @@ O stack trace do Desktop apontou para `SemanticQuerySerializer.deserializeFilter
 |---|------|-------|
 | 1 | Funil de Mercado — barras | O guia pede Despesa Constr por `Dim_Segmento`, mas não existe relação entre `Dim_Segmento` e `Facts_ConstrSpend` (unidades diferentes do star schema). Implementei com `Dim_Categoria[Categoria]` filtrada a *Residential / Health care / Lodging* — o mesmo resultado visual (Residencial vs Saúde vs Hotelaria), filtrado a 2025 + Frequência Anual. |
 | 2 | Funil — treemap | Exclui os agregados *Total Construction, Residential, Nonresidential* e *Health care (private)* para evitar dupla contagem. Ajusta o filtro do visual se quiseres outra seleção. |
-| 3 | Geografia — top estados | ~~Top N à mão~~ **Resolvido na Ronda 3**: o filtro Top N = 10 já vai serializado nos três gráficos de estados. |
-| 4 | Geografia — mapa | Ativa **Options → Security → Use Map and Filled Map visuals** (definição da aplicação; não viaja com o projeto). O gradiente de cor já vai configurado na Ronda 3. |
+| 3 | Geografia — top estados | O filtro **Top N = 10** faz-se à mão (2 min): visual → painel Filtros → `Estado` → tipo "N principais" → 10 → arrasta `Permits (milhares)` para "Por valor" → Aplicar. (A serialização automática foi tentada e revertida na Ronda 7 — corrompia o relatório.) |
+| 4 | Geografia — mapa | Ativa **Options → Security → Use Map and Filled Map visuals** (definição da aplicação; não viaja com o projeto). Se a cor não aparecer, arrasta `Permits (milhares)` para o poço de cor do Filled map. |
 | 5 | Drivers Macro — linhas | As duas taxas (crédito habitação 30 anos + taxa diretora Fed) estão no mesmo gráfico de linhas via legenda `Dim_Indicador` — o indicador "Fed Funds" do guia chama-se **"Taxa diretora Fed"** nos dados. A variante "Line and stacked column" com a despesa sobreposta fica para fazer no Desktop se a quiseres (troca o tipo de visual e arrasta `Despesa Constr ($M)` para as colunas). |
 | 6 | Drivers Macro — cartões | Mostram a **média do período visível** (a medida do guia é AVERAGE). Para leres o valor "atual", filtra o cartão aos últimos meses (filtro de data relativa) ou usa um slicer de ano. |
 | 7 | Calendário | O DAX do guia começa em **2000**: dados anteriores (Case-Shiller desde 1987, permits desde 1990, despesa desde 1993) não aparecem em eixos baseados na `Dim_Calendario`. Para os incluir, edita a tabela `Dim_Calendario` e troca `DATE(2000,1,1)` por `DATE(1987,1,1)`. |
@@ -151,6 +160,6 @@ Nota de dupla contagem: `Facts_Permits` e `Facts_PermitsState` têm linhas *Tota
 ## Como foi validado (e como revalidar)
 
 - **TMDL**: desserializado com o parser oficial `TmdlSerializer` (NuGet `Microsoft.AnalysisServices.NetCore.retail.amd64` 19.84.1, .NET 8) — 17 tabelas, 21 relações e 10 medidas reconhecidas sem erros. Para revalidar: instala o .NET SDK 8, cria um projeto de consola com esse pacote e chama `TmdlSerializer.DeserializeDatabaseFromFolder("DashboardAmorim.SemanticModel/definition")`.
-- **PBIR/PBIP**: todos os 34 ficheiros JSON validados contra os JSON Schemas oficiais publicados em `github.com/microsoft/json-schemas`.
+- **PBIR/PBIP**: todos os 48 ficheiros JSON validados contra os JSON Schemas oficiais publicados em `github.com/microsoft/json-schemas`, e todos os campos/valores de filtro dos 34 visuais auditados contra os dados reais do Excel (0 inexistentes).
 - `pbi-tools` não foi usado: só corre em Windows com o Power BI Desktop instalado. Em alternativa, no Windows, o **Tabular Editor 2** (grátis, ≥ 2.21) abre diretamente a pasta `definition/` do semantic model para inspeção.
 - A validação final de sempre: abrir o `.pbip` no Power BI Desktop — na primeira gravação o Desktop pode reescrever/normalizar os ficheiros, o que é esperado.

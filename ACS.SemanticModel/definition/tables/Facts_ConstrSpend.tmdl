@@ -14,8 +14,12 @@ table Facts_ConstrSpend
 
 	measure 'Despesa Anual ($M)' =
 			VAR vAnual = CALCULATE(SUM(Facts_ConstrSpend[Valor_USDm]), Facts_ConstrSpend[Frequência] = "Anual")
-			VAR vMensal = CALCULATE(SUM(Facts_ConstrSpend[Valor_USDm]), Facts_ConstrSpend[Frequência] = "Mensal")
-			RETURN COALESCE(vAnual, vMensal)
+			VAR vMensal =
+			    SUMX(
+			        SUMMARIZE(Facts_ConstrSpend, Facts_ConstrSpend[CategoriaID], Facts_ConstrSpend[Ano]),
+			        CALCULATE(AVERAGE(Facts_ConstrSpend[Valor_USDm]), Facts_ConstrSpend[Frequência] = "Mensal")
+			    )
+			RETURN vAnual + vMensal
 		formatString: #,0
 		lineageTag: b2b67a5b-a044-59f7-bd9f-7926d8effea9
 

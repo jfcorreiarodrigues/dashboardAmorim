@@ -61,11 +61,11 @@
                       "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Despesa Constr ($M)"
+                  "Property": "Despesa Anual ($M)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
-              "nativeQueryRef": "Despesa Constr ($M)"
+              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
+              "nativeQueryRef": "Despesa Anual ($M)"
             }
           ]
         }
@@ -102,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Despesa anual por segmento 2018-2025 — Residencial domina, Saúde 2º, Hotelaria recupera ($M)'"
+                  "Value": "'Despesa anual por segmento 2018-2025, total anual Census ($M)'"
                 }
               }
             }
@@ -171,60 +171,6 @@
                       {
                         "Literal": {
                           "Value": "'Lodging'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "fFreqRibbon",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Facts_ConstrSpend"
-              }
-            },
-            "Property": "Frequência"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Facts_ConstrSpend",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "Frequência"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Mensal'"
                         }
                       }
                     ]

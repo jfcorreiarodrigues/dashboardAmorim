@@ -43,11 +43,11 @@
                       "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Despesa Constr ($M)"
+                  "Property": "Despesa Anual ($M)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
-              "nativeQueryRef": "Despesa Constr ($M)"
+              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
+              "nativeQueryRef": "Despesa Anual ($M)"
             }
           ]
         }
@@ -62,7 +62,7 @@
                     "Entity": "Facts_ConstrSpend"
                   }
                 },
-                "Property": "Despesa Constr ($M)"
+                "Property": "Despesa Anual ($M)"
               }
             },
             "direction": "Descending"
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Despesa de construção 2025 — Residencial vs Saúde vs Hotelaria ($M)'"
+                  "Value": "'Despesa de construção 2025, total anual Census ($M) — Residencial vs Saúde vs Hotelaria'"
                 }
               }
             }

@@ -43,11 +43,11 @@
                       "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Despesa Constr ($M)"
+                  "Property": "Despesa Anual ($M)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
-              "nativeQueryRef": "Despesa Constr ($M)"
+              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
+              "nativeQueryRef": "Despesa Anual ($M)"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Categorias não-residenciais 2025 — Lodging e Health care face a Office, Power, etc. ($M)'"
+                  "Value": "'Categorias não-residenciais 2025, total anual Census ($M) — Lodging e Health care face a Office, Power, etc.'"
                 }
               }
             }
