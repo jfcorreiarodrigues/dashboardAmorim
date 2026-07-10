@@ -3,7 +3,7 @@
   "name": "p1v6",
   "position": {
     "x": 660,
-    "y": 220,
+    "y": 260,
     "z": 6000,
     "width": 580,
     "height": 460,
@@ -11,6 +11,7 @@
   },
   "visual": {
     "visualType": "treemap",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Group": {
@@ -52,7 +53,6 @@
         }
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {

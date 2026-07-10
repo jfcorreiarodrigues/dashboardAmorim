@@ -3,7 +3,7 @@
   "name": "p2v2",
   "position": {
     "x": 40,
-    "y": 390,
+    "y": 430,
     "z": 2000,
     "width": 760,
     "height": 290,
@@ -11,6 +11,7 @@
   },
   "visual": {
     "visualType": "lineChart",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -87,7 +88,6 @@
         ]
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {

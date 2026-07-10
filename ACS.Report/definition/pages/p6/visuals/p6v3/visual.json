@@ -1,39 +1,17 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p2v4",
+  "name": "p6v3",
   "position": {
-    "x": 830,
-    "y": 640,
-    "z": 4000,
-    "width": 410,
-    "height": 80,
-    "tabOrder": 4000
+    "x": 780,
+    "y": 145,
+    "z": 3000,
+    "width": 460,
+    "height": 320,
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "qnaVisual",
     "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Calendario"
-                    }
-                  },
-                  "Property": "Ano"
-                }
-              },
-              "queryRef": "Dim_Calendario.Ano",
-              "nativeQueryRef": "Ano"
-            }
-          ]
-        }
-      }
-    },
     "visualContainerObjects": {
       "title": [
         {
@@ -48,7 +26,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Período'"
+                  "Value": "'Pergunta aos dados (Q&A)'"
                 }
               }
             }
@@ -57,13 +35,13 @@
       ]
     },
     "objects": {
-      "data": [
+      "hiddenProperties": [
         {
           "properties": {
-            "mode": {
+            "savedUtterance": {
               "expr": {
                 "Literal": {
-                  "Value": "'Between'"
+                  "Value": "'permits por estado?'"
                 }
               }
             }

@@ -1,38 +1,83 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p1v2",
+  "name": "p6v4",
   "position": {
-    "x": 350,
-    "y": 80,
-    "z": 2000,
-    "width": 290,
-    "height": 150,
-    "tabOrder": 2000
+    "x": 40,
+    "y": 480,
+    "z": 4000,
+    "width": 460,
+    "height": 230,
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "donutChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Dim_RegiaoCensus"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Regiao"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado",
-              "displayName": "SAM ($bn)"
+              "queryRef": "Dim_RegiaoCensus.Regiao",
+              "nativeQueryRef": "Regiao",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Facts_Permits"
+                        }
+                      },
+                      "Property": "Unidades_milhares"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Facts_Permits.Unidades_milhares)",
+              "nativeQueryRef": "Soma de Unidades_milhares"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Facts_Permits"
+                      }
+                    },
+                    "Property": "Unidades_milhares"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "visualContainerObjects": {
@@ -49,7 +94,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SAM — mercado acústico servível'"
+                  "Value": "'Licenças por região Census (milhares)'"
                 }
               }
             }
@@ -61,15 +106,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaSAM",
+        "name": "fTipoTotalDonut",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Facts_Permits"
               }
             },
-            "Property": "Métrica"
+            "Property": "TipoEstrutura"
           }
         },
         "type": "Categorical",
@@ -86,7 +131,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Facts_Permits",
               "Type": 0
             }
           ],
@@ -102,7 +147,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "TipoEstrutura"
                       }
                     }
                   ],
@@ -110,7 +155,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'SAM'"
+                          "Value": "'Total'"
                         }
                       }
                     ]

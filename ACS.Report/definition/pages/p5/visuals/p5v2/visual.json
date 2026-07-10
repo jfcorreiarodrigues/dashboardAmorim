@@ -3,14 +3,15 @@
   "name": "p5v2",
   "position": {
     "x": 40,
-    "y": 120,
+    "y": 160,
     "z": 2000,
     "width": 590,
     "height": 280,
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "ribbonChart",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -20,15 +21,33 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Calendario"
+                      "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Ano"
                 }
               },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "Facts_ConstrSpend.Ano",
+              "nativeQueryRef": "Ano",
               "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Categoria"
+                    }
+                  },
+                  "Property": "Categoria"
+                }
+              },
+              "queryRef": "Dim_Categoria.Categoria",
+              "nativeQueryRef": "Categoria"
             }
           ]
         },
@@ -39,14 +58,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Despesa Anual ($M)"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
+              "nativeQueryRef": "Despesa Anual ($M)"
             }
           ]
         }
@@ -58,10 +77,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim_Calendario"
+                    "Entity": "Facts_ConstrSpend"
                   }
                 },
-                "Property": "Date"
+                "Property": "Ano"
               }
             },
             "direction": "Ascending"
@@ -69,7 +88,6 @@
         ]
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -84,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa de ocupação — Senior Living Premium: 77,8% → 89,5% (%)'"
+                  "Value": "'Despesa anual por segmento 2018-2025 — Residencial domina, Saúde 2º, Hotelaria recupera ($M)'"
                 }
               }
             }
@@ -96,15 +114,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaOcc",
+        "name": "fCatRibbon",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Dim_Categoria"
               }
             },
-            "Property": "Métrica"
+            "Property": "Categoria"
           }
         },
         "type": "Categorical",
@@ -121,7 +139,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Dim_Categoria",
               "Type": 0
             }
           ],
@@ -137,7 +155,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "Categoria"
                       }
                     }
                   ],
@@ -145,7 +163,21 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Taxa de ocupação'"
+                          "Value": "'Residential'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Health care'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Lodging'"
                         }
                       }
                     ]
@@ -157,15 +189,15 @@
         }
       },
       {
-        "name": "fSubSenior",
+        "name": "fAnosRibbon",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_SubSegmento"
+                "Entity": "Facts_ConstrSpend"
               }
             },
-            "Property": "SubSegmento"
+            "Property": "Ano"
           }
         },
         "type": "Categorical",
@@ -182,7 +214,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_SubSegmento",
+              "Entity": "Facts_ConstrSpend",
               "Type": 0
             }
           ],
@@ -198,7 +230,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "SubSegmento"
+                        "Property": "Ano"
                       }
                     }
                   ],
@@ -206,7 +238,56 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Senior Living Premium'"
+                          "Value": "2018L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2019L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2020L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2021L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2022L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2023L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2024L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2025L"
                         }
                       }
                     ]

@@ -81,6 +81,17 @@ Depois da primeira versão funcional, o dashboard foi redesenhado para responder
 - **Top N = 10 serializado** nos três gráficos de estados da página Geografia (licenças totais, multifamily e valor por unidade) — já não é preciso configurar à mão no Desktop; o retoque manual nº 3 abaixo fica obsoleto.
 - **Mapa com gradiente de cor** — formatação condicional `dataPoint.fill` pela medida `Permits (milhares)` (teal claro → teal escuro). Se o mapa continuar em branco, falta só ativar **Options → Security → Use Map and Filled Map visuals** no Desktop (isto é uma definição da aplicação, não viaja com o projeto).
 
+## Ronda 4 — componentes da cadeira de Business Analytics
+
+Alinhado com o exercício Financial feito em aula; a serialização de cada componente foi copiada do próprio ficheiro do exercício:
+
+- **Page navigator** no topo das 6 páginas (o conteúdo desceu 40px para lhe dar lugar).
+- **Funnel chart** na página Funil de Mercado (substitui o gráfico de barras — mesma query e filtros).
+- **azureMap** em vez do filledMap clássico na Geografia — **já não é preciso ativar a opção de segurança dos mapas**; a camada filled vem ligada, bolhas desligadas, gradiente teal pelo volume de licenças, centrado nos EUA continentais.
+- **Ribbon chart** na Procura por Segmento — despesa anual 2018-2025 por categoria (mostra trocas de posição entre segmentos).
+- **Combo line + clustered column** (2 eixos) na Procura por Segmento — colunas = starts de saúde ($bn), linha = ocupação senior living (%); 2 medidas novas com o filtro embutido (`Starts Saude ($bn)`, `Ocupacao Senior (%)`).
+- **Página 6 "Explorar"**: banner de título (textbox), **árvore de decomposição** (licenças por tier → estado → tipo de estrutura, com as linhas Total excluídas para não duplicar), **Q&A** com pergunta guardada ("permits por estado?"), **donut** de licenças por região Census e **matriz** com hierarquia tier → estado expansível.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

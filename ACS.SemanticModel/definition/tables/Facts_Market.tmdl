@@ -20,6 +20,14 @@ table Facts_Market
 		formatString: +0"%"
 		lineageTag: 92b88068-bbbc-5b25-bbcc-cae02e282988
 
+	measure 'Starts Saude ($bn)' = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "Construction starts", Dim_Segmento[Segmento] = "Saúde")
+		formatString: #,0.0
+		lineageTag: 70969794-c9ea-5c10-9358-3825cc574977
+
+	measure 'Ocupacao Senior (%)' = CALCULATE(AVERAGE(Facts_Market[Valor]), Dim_Metrica[Métrica] = "Taxa de ocupação", Dim_SubSegmento[SubSegmento] = "Senior Living Premium")
+		formatString: 0.0"%"
+		lineageTag: fbe6ed46-fc01-508c-9b75-a261ca9d56df
+
 	column ID
 		dataType: string
 		lineageTag: 91f0b923-1eb0-5013-b7e0-49b52d356ee3

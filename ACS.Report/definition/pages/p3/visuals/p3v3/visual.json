@@ -3,7 +3,7 @@
   "name": "p3v3",
   "position": {
     "x": 40,
-    "y": 460,
+    "y": 500,
     "z": 3000,
     "width": 300,
     "height": 220,
@@ -11,6 +11,7 @@
   },
   "visual": {
     "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -69,7 +70,6 @@
         ]
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {

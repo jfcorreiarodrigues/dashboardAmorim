@@ -3,7 +3,7 @@
   "name": "p5v4",
   "position": {
     "x": 40,
-    "y": 420,
+    "y": 460,
     "z": 4000,
     "width": 590,
     "height": 260,
@@ -11,6 +11,7 @@
   },
   "visual": {
     "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -69,7 +70,6 @@
         ]
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {

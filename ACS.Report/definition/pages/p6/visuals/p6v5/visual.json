@@ -1,19 +1,53 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p1v2",
+  "name": "p6v5",
   "position": {
-    "x": 350,
-    "y": 80,
-    "z": 2000,
-    "width": 290,
-    "height": 150,
-    "tabOrder": 2000
+    "x": 520,
+    "y": 480,
+    "z": 5000,
+    "width": 720,
+    "height": 230,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "pivotTable",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estado"
+                    }
+                  },
+                  "Property": "Tier prioridade Amorim"
+                }
+              },
+              "queryRef": "Dim_Estado.Tier prioridade Amorim",
+              "nativeQueryRef": "Tier prioridade Amorim",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estado"
+                    }
+                  },
+                  "Property": "Estado"
+                }
+              },
+              "queryRef": "Dim_Estado.Estado",
+              "nativeQueryRef": "Estado",
+              "active": true
+            }
+          ]
+        },
         "Values": {
           "projections": [
             {
@@ -21,15 +55,28 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_PermitsState"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Permits (milhares)"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado",
-              "displayName": "SAM ($bn)"
+              "queryRef": "Facts_PermitsState.Permits (milhares)",
+              "nativeQueryRef": "Permits (milhares)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_PermitsState"
+                    }
+                  },
+                  "Property": "Quota Estado (%)"
+                }
+              },
+              "queryRef": "Facts_PermitsState.Quota Estado (%)",
+              "nativeQueryRef": "Quota Estado (%)"
             }
           ]
         }
@@ -49,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SAM — mercado acústico servível'"
+                  "Value": "'Matriz tier → estado (expande com +)'"
                 }
               }
             }
@@ -61,15 +108,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaSAM",
+        "name": "fTipoTotalMatriz",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Facts_PermitsState"
               }
             },
-            "Property": "Métrica"
+            "Property": "TipoEstrutura"
           }
         },
         "type": "Categorical",
@@ -86,7 +133,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Facts_PermitsState",
               "Type": 0
             }
           ],
@@ -102,7 +149,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "TipoEstrutura"
                       }
                     }
                   ],
@@ -110,7 +157,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'SAM'"
+                          "Value": "'Total'"
                         }
                       }
                     ]

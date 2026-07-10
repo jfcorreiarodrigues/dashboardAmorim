@@ -1,53 +1,83 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p3v4",
+  "name": "p6v2",
   "position": {
-    "x": 360,
-    "y": 500,
-    "z": 4000,
-    "width": 300,
-    "height": 220,
-    "tabOrder": 4000
+    "x": 40,
+    "y": 145,
+    "z": 2000,
+    "width": 720,
+    "height": 320,
+    "tabOrder": 2000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "decompositionTreeVisual",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Geografia"
-                    }
-                  },
-                  "Property": "Cidade/Área"
-                }
-              },
-              "queryRef": "Dim_Geografia.Cidade/Área",
-              "nativeQueryRef": "Cidade/Área",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Analyze": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_PermitsState"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Permits (milhares)"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "queryRef": "Facts_PermitsState.Permits (milhares)",
+              "nativeQueryRef": "Permits (milhares)"
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estado"
+                    }
+                  },
+                  "Property": "Tier prioridade Amorim"
+                }
+              },
+              "queryRef": "Dim_Estado.Tier prioridade Amorim",
+              "nativeQueryRef": "Tier prioridade Amorim",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estado"
+                    }
+                  },
+                  "Property": "Estado"
+                }
+              },
+              "queryRef": "Dim_Estado.Estado",
+              "nativeQueryRef": "Estado",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_PermitsState"
+                    }
+                  },
+                  "Property": "TipoEstrutura"
+                }
+              },
+              "queryRef": "Facts_PermitsState.TipoEstrutura",
+              "nativeQueryRef": "TipoEstrutura",
+              "active": true
             }
           ]
         }
@@ -59,10 +89,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Facts_Market"
+                    "Entity": "Facts_PermitsState"
                   }
                 },
-                "Property": "Valor Mercado"
+                "Property": "Permits (milhares)"
               }
             },
             "direction": "Descending"
@@ -84,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pipeline hoteleiro por cidade — NY lidera em stock, Sun Belt em nº de mercados (nº projetos)'"
+                  "Value": "'Árvore de decomposição — licenças (milhares)'"
                 }
               }
             }
@@ -96,15 +126,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaPipe2",
+        "name": "fSemTotalDecomp",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Facts_PermitsState"
               }
             },
-            "Property": "Métrica"
+            "Property": "TipoEstrutura"
           }
         },
         "type": "Categorical",
@@ -121,68 +151,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "Métrica"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Pipeline (projetos)'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "fGeoNaoUS",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Geografia"
-              }
-            },
-            "Property": "Cidade/Área"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        },
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_Geografia",
+              "Entity": "Facts_PermitsState",
               "Type": 0
             }
           ],
@@ -200,7 +169,7 @@
                                 "Source": "t"
                               }
                             },
-                            "Property": "Cidade/Área"
+                            "Property": "TipoEstrutura"
                           }
                         }
                       ],
@@ -208,7 +177,7 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'Estados Unidos (nacional)'"
+                              "Value": "'Total'"
                             }
                           }
                         ]
