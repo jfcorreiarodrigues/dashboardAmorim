@@ -98,6 +98,15 @@ Alinhado com o exercício Financial feito em aula; a serialização de cada comp
 - **Combo de saúde desfeito** (Procura por Segmento): as três séries (ocupação 2021-2026, starts 2024-2030, défice 2025/2028/2030) não partilham anos, por isso um combo line+column ficava com a linha e as colunas quase sem sobreposição. Voltou a ser uma **linha de ocupação limpa** — a decisão analítica correta.
 - **Audit automático** de todos os 34 visuais contra os dados do Excel: 0 campos ou valores de filtro inexistentes.
 
+## Ronda 6 — robustez (corrige erro do Manufacturing e falha de publicação)
+
+Causa-raiz encontrada e três reversões para componentes comprovadamente estáveis:
+
+- **Erro "ao compor o relatório" ao clicar em Manufacturing** — a causa real era a medida `Despesa Anual ($M)` (`COALESCE(CALCULATE(...Anual), CALCULATE(...Mensal))`): uma medida composta que o motor não consegue decompor para *highlight*. Em 2025 cada categoria tem só uma frequência, por isso os visuais da página 1 passam a usar `Despesa Constr ($M)` (SUM simples) — dá o total anual correto **e** é à prova de clique. Funnel revertido para **gráfico de barras**.
+- **Falha ao publicar no Service** — o `azureMap` depende de uma definição do tenant (Azure Maps) e não renderiza em "publish to web", o que fazia o relatório falhar a carregar. Revertido para **filledMap** (mapa coroplético core, publica sempre).
+- **Navegador de páginas removido** — era redundante (o Power BI já mostra os separadores em baixo) e em modo de edição só reagia a Ctrl+clique, dando a impressão de "não muda de tab". Navegação normal pelos separadores em baixo.
+- **`visualInteractions` removidas** — a tentativa anterior não resolvia e acrescentava risco.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

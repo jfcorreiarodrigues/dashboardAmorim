@@ -4,57 +4,5 @@
   "displayName": "Funil de Mercado",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280,
-  "visualInteractions": [
-    {
-      "source": "p1v6",
-      "target": "p1v1",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v6",
-      "target": "p1v2",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v6",
-      "target": "p1v3",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v6",
-      "target": "p1v4",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v6",
-      "target": "p1v5",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v5",
-      "target": "p1v1",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v5",
-      "target": "p1v2",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v5",
-      "target": "p1v3",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v5",
-      "target": "p1v4",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p1v5",
-      "target": "p1v6",
-      "type": "NoFilter"
-    }
-  ]
+  "width": 1280
 }

@@ -3,7 +3,7 @@
   "name": "p1v6",
   "position": {
     "x": 660,
-    "y": 260,
+    "y": 220,
     "z": 6000,
     "width": 580,
     "height": 460,
@@ -43,11 +43,11 @@
                       "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Despesa Anual ($M)"
+                  "Property": "Despesa Constr ($M)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
-              "nativeQueryRef": "Despesa Anual ($M)"
+              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
+              "nativeQueryRef": "Despesa Constr ($M)"
             }
           ]
         }
