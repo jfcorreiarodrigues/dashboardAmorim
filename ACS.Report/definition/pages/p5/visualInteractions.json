@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/visualInteractions/1.0.0/schema.json",
+  "version": "1.0",
+  "interactions": [
+    {
+      "name": "p5v1",
+      "targets": ["p5v4", "p5v5", "p5v6", "p5v7"],
+      "type": "FilterAction",
+      "behavior": "None"
+    }
+  ]
+}
