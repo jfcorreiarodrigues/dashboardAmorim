@@ -124,6 +124,16 @@ Os dados mensais de `Facts_ConstrSpend` vêm do Census a **taxa anualizada (SAAR
 - Os visuais anuais (barras e treemap do Funil de Mercado, ribbon da Procura por Segmento) voltam a usar `Despesa Anual ($M)`; títulos clarificados como "total anual Census".
 - Os gráficos **mensais** de ciclo continuam com `Despesa Constr ($M)`: cada ponto mensal é a taxa anualizada nesse mês — correto para leitura de ciclo; o título passou a dizer "taxa anualizada SAAR".
 
+## Ronda 9 — o cluster "Residencial de Luxo" ganha números próprios
+
+O Census só tem "Residential" **total** — os visuais que o usam são um *proxy* e os títulos passaram a dizê-lo. Mas o cluster estratégico do capítulo é o **Residencial de Luxo**, e os dados dele existiam no Excel escondidos na tabela de observações. Agora têm destaque próprio:
+
+- **Faixa de 4 cartões** na página Procura por Segmento: mercado de luxo **$291bn em 2025 (→ $349bn em 2031)**, **CAGR 3,2%**, **$1.792/sf** e **+214% de valorização em 5 anos** — os números que justificam o cluster premium na tese.
+- Página reorganizada (slicer e gráficos ligeiramente mais compactos) para caber a faixa sem apertar a leitura.
+- Implementado só com cartões core + filtros categóricos — nenhuma serialização exótica (lição das Rondas 6-7).
+
+## O que está 100% implementado e validado
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

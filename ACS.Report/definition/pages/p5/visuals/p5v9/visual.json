@@ -1,0 +1,131 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p5v9",
+  "position": {
+    "x": 660,
+    "y": 445,
+    "z": 5000,
+    "width": 580,
+    "height": 235,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Metrica"
+                    }
+                  },
+                  "Property": "Métrica"
+                }
+              },
+              "queryRef": "Dim_Metrica.Métrica",
+              "nativeQueryRef": "Métrica"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_Market"
+                    }
+                  },
+                  "Property": "Ano"
+                }
+              },
+              "queryRef": "Facts_Market.Ano",
+              "nativeQueryRef": "Ano"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_Market"
+                    }
+                  },
+                  "Property": "Valor Mercado"
+                }
+              },
+              "queryRef": "Facts_Market.Valor Mercado",
+              "nativeQueryRef": "Valor Mercado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Metrica"
+                    }
+                  },
+                  "Property": "Unidade"
+                }
+              },
+              "queryRef": "Dim_Metrica.Unidade",
+              "nativeQueryRef": "Unidade"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Fonte"
+                    }
+                  },
+                  "Property": "Fonte"
+                }
+              },
+              "queryRef": "Dim_Fonte.Fonte",
+              "nativeQueryRef": "Fonte"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Observações do segmento — de onde vem cada número'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

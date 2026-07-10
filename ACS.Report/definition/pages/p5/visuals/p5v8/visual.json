@@ -1,20 +1,39 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p5v5",
+  "name": "p5v8",
   "position": {
-    "x": 345,
-    "y": 335,
-    "z": 3400,
-    "width": 285,
-    "height": 100,
-    "tabOrder": 3400
+    "x": 40,
+    "y": 445,
+    "z": 4000,
+    "width": 590,
+    "height": 235,
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "clusteredColumnChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Ano"
+                }
+              },
+              "queryRef": "Dim_Calendario.Ano",
+              "nativeQueryRef": "Ano",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
           "projections": [
             {
               "field": {
@@ -28,11 +47,27 @@
                 }
               },
               "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado",
-              "displayName": "CAGR (%)"
+              "nativeQueryRef": "Valor Mercado"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Calendario"
+                  }
+                },
+                "Property": "Ano"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "visualContainerObjects": {
@@ -49,7 +84,22 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'LUXO — crescimento anual até 2031'"
+                  "Value": "'Défice de senior housing — 806 mil unidades até 2030 (nº)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "axisType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Categorical'"
                 }
               }
             }
@@ -61,7 +111,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetLux2",
+        "name": "fMetDefice",
         "field": {
           "Column": {
             "Expression": {
@@ -103,61 +153,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'CAGR'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "fSubLux2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_SubSegmento"
-              }
-            },
-            "Property": "SubSegmento"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_SubSegmento",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "SubSegmento"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Residencial luxo — total'"
+                          "Value": "'Unidades em défice'"
                         }
                       }
                     ]

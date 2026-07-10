@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Despesa de construção 2025, total anual Census ($M) — Residencial vs Saúde vs Hotelaria'"
+                  "Value": "'Despesa de construção 2025, total anual Census ($M) — proxies: Residential = residencial total (o cluster alvo é o luxo)'"
                 }
               }
             }
