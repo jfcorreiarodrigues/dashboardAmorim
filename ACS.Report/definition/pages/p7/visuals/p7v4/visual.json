@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p7v4",
+  "position": {
+    "x": 850,
+    "y": 80,
+    "z": 4000,
+    "width": 390,
+    "height": 190,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "3 · ONDE E COMO ENTRAR",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Volume no Sun Belt: TX+FL ≈ 3,8× CA em licenças acumuladas (Tier 1 · Volume, canal distribuição). Margem nos estados de valor (Tier 2 · Premium / Tier 3 · Luxury — $200k+ por unidade, canal especificação/arquitetos). Multifamily 5+ unidades = porta regulamentar da acústica.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1B3A7A'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

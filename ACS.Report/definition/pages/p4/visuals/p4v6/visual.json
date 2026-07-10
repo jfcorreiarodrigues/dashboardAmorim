@@ -24,12 +24,40 @@
                       "Entity": "Dim_Calendario"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Ano"
                 }
               },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "Dim_Calendario.Ano",
+              "nativeQueryRef": "Ano",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Trimestre"
+                }
+              },
+              "queryRef": "Dim_Calendario.Trimestre",
+              "nativeQueryRef": "Trimestre"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Mes"
+                }
+              },
+              "queryRef": "Dim_Calendario.Mes",
+              "nativeQueryRef": "Mes"
             }
           ]
         },
@@ -80,7 +108,7 @@
                     "Entity": "Dim_Calendario"
                   }
                 },
-                "Property": "Date"
+                "Property": "Ano"
               }
             },
             "direction": "Ascending"
@@ -102,7 +130,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Case-Shiller — cidades-chave (base 2000 = 100)'"
+                  "Value": "'Case-Shiller — cidades-chave (base 2000 = 100; usa as setas de drill Ano→Trim→Mês)'"
                 }
               }
             }

@@ -132,7 +132,27 @@ O Census só tem "Residential" **total** — os visuais que o usam são um *prox
 - Página reorganizada (slicer e gráficos ligeiramente mais compactos) para caber a faixa sem apertar a leitura.
 - Implementado só com cartões core + filtros categóricos — nenhuma serialização exótica (lição das Rondas 6-7).
 
-## O que está 100% implementado e validado
+## Ronda 10 — camada de conclusões e cobertura dos componentes da cadeira
+
+**O problema a resolver:** o dashboard mostrava os dados mas não dizia o que concluir. Agora diz:
+
+- **Página 7 "Conclusões"** — a resposta ao desafio em 3 blocos (ONDE está o dinheiro · QUANDO entrar · ONDE/COMO entrar), com números validados contra o modelo, mais duas evidências: **scatter** volume×valor por estado colorido por tier (os "dois jogos" — distribuição vs especificação) e **funnel** de licenças por tier de prioridade.
+- **Combo juros→starts** (Evolução & Ciclo): housing starts em colunas vs taxa de crédito 30a em linha — o mecanismo de transmissão que sustenta o timing. Usa séries que já estavam no Excel mas não eram aproveitadas (Housing Starts 2000-2026). 2 medidas novas (`Housing Starts (mil, SAAR)`, `Taxa Credito 30a (%)`, AVERAGE — corretas em qualquer drill).
+- **Drill Ano→Trimestre→Mês** no Case-Shiller (Drivers Macro) — setas de drill como na aula; a medida é AVERAGE, por isso o valor anual (média dos meses) é correto.
+- **Cartões do luxo convertidos para `cardVisual`** (o "new card" ensinado na aula).
+
+**Cobertura dos componentes da aula:** funnel ✓ · barras/colunas ✓ · linhas (multi-série e com drill) ✓ · combo line+column ✓ · ribbon ✓ · treemap ✓ · donut ✓ · scatter ✓ · mapa ✓ · cards (legacy + cardVisual) ✓ · slicers (mosaico/dropdown/intervalo) ✓ · matriz com hierarquia ✓ · tabela ✓ · textbox/insights ✓ · Q&A ✓ · árvore de decomposição ✓. **Excluídos de propósito:** visuais AppSource pagos (ZoomCharts aparecia com licença expirada no exercício), box-and-whisker/sunburst/small-multiples/hexbin (custom visuals — não viajam no PBIP sem importação manual), page navigator e azureMap (removidos nas Rondas 6-7 por robustez de publicação).
+
+**Séries no Excel ainda por explorar** (já carregadas no modelo): Housing Completions, PPI inputs to construction (custos), Emprego na construção (capacidade), Treasury 10 anos.
+
+**Dados em falta para fortalecer o capítulo (onde descarregar):**
+| Lacuna | Fonte (grátis) |
+|---|---|
+| Série mensal do ABI (só temos o resumo "13 meses <50") | AIA/Deltek — aia.org/resources/abi |
+| Série mensal do Dodge Momentum (só temos o +37%) | construction.com (press releases mensais) |
+| **Renovação residencial** — a tese "always-on" não tem série própria | Harvard JCHS **LIRA** — jchs.harvard.edu (remodeling) e Census C30 "improvements" |
+| Importações de cortiça EUA (prova de procura) | USITC DataWeb (dataweb.usitc.gov) ou UN Comtrade, código HS 45 |
+| Preços/concorrência em isolamento acústico | FRED: PPI floor coverings (série grátis); relatórios Freedonia/Grand View (pagos — usar sumários) |
 
 ## O que está 100% implementado e validado
 

@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p2v3",
+  "name": "p7v5",
   "position": {
     "x": 40,
-    "y": 370,
-    "z": 2000,
-    "width": 600,
-    "height": 310,
-    "tabOrder": 2000
+    "y": 285,
+    "z": 5000,
+    "width": 700,
+    "height": 395,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "scatterChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
@@ -21,14 +21,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Calendario"
+                      "Entity": "Dim_Estado"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Estado"
                 }
               },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "Dim_Estado.Estado",
+              "nativeQueryRef": "Estado",
               "active": true
             }
           ]
@@ -40,14 +40,32 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Categoria"
+                      "Entity": "Dim_Estado"
                     }
                   },
-                  "Property": "Categoria"
+                  "Property": "Tier prioridade Amorim"
                 }
               },
-              "queryRef": "Dim_Categoria.Categoria",
-              "nativeQueryRef": "Categoria"
+              "queryRef": "Dim_Estado.Tier prioridade Amorim",
+              "nativeQueryRef": "Tier prioridade Amorim"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_PermitsState"
+                    }
+                  },
+                  "Property": "Permits (milhares)"
+                }
+              },
+              "queryRef": "Facts_PermitsState.Permits (milhares)",
+              "nativeQueryRef": "Permits (milhares)"
             }
           ]
         },
@@ -58,34 +76,17 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_ConstrSpend"
+                      "Entity": "Facts_PermitsState"
                     }
                   },
-                  "Property": "Despesa Constr YoY %"
+                  "Property": "Preco Medio Unidade ($k)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Constr YoY %",
-              "nativeQueryRef": "Despesa Constr YoY %"
+              "queryRef": "Facts_PermitsState.Preco Medio Unidade ($k)",
+              "nativeQueryRef": "Preco Medio Unidade ($k)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Calendario"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "visualContainerObjects": {
@@ -102,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Variação homóloga da despesa (%) — aceleração vs desaceleração no ciclo'"
+                  "Value": "'Os dois jogos — volume (licenças, eixo X) vs valor ($k por unidade, eixo Y) por estado prioritário'"
                 }
               }
             }
@@ -114,15 +115,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fCat3b",
+        "name": "fTipoTotScatter",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Categoria"
+                "Entity": "Facts_PermitsState"
               }
             },
-            "Property": "Categoria"
+            "Property": "TipoEstrutura"
           }
         },
         "type": "Categorical",
@@ -132,7 +133,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Categoria",
+              "Entity": "Facts_PermitsState",
               "Type": 0
             }
           ],
@@ -148,7 +149,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Categoria"
+                        "Property": "TipoEstrutura"
                       }
                     }
                   ],
@@ -156,21 +157,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Lodging'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Health care'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Residential'"
+                          "Value": "'Total'"
                         }
                       }
                     ]
@@ -182,15 +169,15 @@
         }
       },
       {
-        "name": "fFreqMensal2",
+        "name": "fTierScatter",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Facts_ConstrSpend"
+                "Entity": "Dim_Estado"
               }
             },
-            "Property": "Frequência"
+            "Property": "Tier prioridade Amorim"
           }
         },
         "type": "Categorical",
@@ -200,35 +187,39 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Facts_ConstrSpend",
+              "Entity": "Dim_Estado",
               "Type": 0
             }
           ],
           "Where": [
             {
               "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "Tier prioridade Amorim"
                           }
-                        },
-                        "Property": "Frequência"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Mensal'"
                         }
-                      }
-                    ]
-                  ]
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'—'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
                 }
               }
             }

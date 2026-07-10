@@ -18,6 +18,14 @@ table Facts_Macro
 		formatString: #,0.00
 		lineageTag: ba7f0f83-b563-5ad1-8293-2bfac9782579
 
+	measure 'Housing Starts (mil, SAAR)' = CALCULATE(AVERAGE(Facts_Macro[Valor]), Dim_Indicador[Indicador] = "Housing Starts")
+		formatString: #,0
+		lineageTag: 698fa5b6-faae-5edc-86d6-270e594e262a
+
+	measure 'Taxa Credito 30a (%)' = CALCULATE(AVERAGE(Facts_Macro[Valor]), Dim_Indicador[Indicador] = "Taxa crédito habitação 30 anos")
+		formatString: 0.00
+		lineageTag: ceaef24f-f6cc-50c5-9159-bb65744dad11
+
 	column ID
 		dataType: string
 		lineageTag: 9d554b0e-568c-5940-b4ae-10da8f278181

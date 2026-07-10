@@ -10,11 +10,11 @@
     "tabOrder": 3400
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "cardVisual",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
             {
               "field": {
