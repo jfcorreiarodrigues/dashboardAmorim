@@ -107,6 +107,14 @@ Causa-raiz encontrada e três reversões para componentes comprovadamente estáv
 - **Navegador de páginas removido** — era redundante (o Power BI já mostra os separadores em baixo) e em modo de edição só reagia a Ctrl+clique, dando a impressão de "não muda de tab". Navegação normal pelos separadores em baixo.
 - **`visualInteractions` removidas** — a tentativa anterior não resolvia e acrescentava risco.
 
+## Ronda 7 — remoção dos filtros Top N (causa real do erro, confirmada por stack trace)
+
+O stack trace do Desktop apontou para `SemanticQuerySerializer.deserializeFilter → Cannot read properties of undefined (reading 'Column')`: um **filtro** com estrutura que o motor não desserializa. Os três filtros **Top N serializados à mão** (In + Subquery + Top) na Geografia eram o único elemento exótico restante — foram removidos. Também eliminado o bloco `objects` vazio dos filtros categóricos (o Desktop não o escreve).
+
+- Os três gráficos de estados voltam a mostrar a lista completa ordenada (com scroll), como na versão que funcionava.
+- **Top N = 10 volta a ser retoque manual** (2 min): visual → painel Filtros → `Estado` → tipo de filtro "N principais" → 10 → arrastar `Permits (milhares)` para "Por valor" → Aplicar.
+- Só restam filtros categóricos `In`/`Not(In)` — formas canónicas do Desktop. Isto deve resolver também a **publicação**, que falhava na mesma desserialização do lado do Service.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

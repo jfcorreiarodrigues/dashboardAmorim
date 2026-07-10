@@ -127,13 +127,6 @@
         },
         "type": "Categorical",
         "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        },
         "filter": {
           "Version": 2,
           "From": [
@@ -168,106 +161,6 @@
                       }
                     ]
                   ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "fTopNEstados",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Estado"
-              }
-            },
-            "Property": "Estado"
-          }
-        },
-        "type": "TopN",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        },
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_Estado",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "Estado"
-                      }
-                    }
-                  ],
-                  "Table": {
-                    "Subquery": {
-                      "Query": {
-                        "Version": 2,
-                        "From": [
-                          {
-                            "Name": "t",
-                            "Entity": "Dim_Estado",
-                            "Type": 0
-                          },
-                          {
-                            "Name": "f",
-                            "Entity": "Facts_PermitsState",
-                            "Type": 0
-                          }
-                        ],
-                        "Select": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "t"
-                                }
-                              },
-                              "Property": "Estado"
-                            },
-                            "Name": "Dim_Estado.Estado"
-                          }
-                        ],
-                        "OrderBy": [
-                          {
-                            "Direction": 2,
-                            "Expression": {
-                              "Measure": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "f"
-                                  }
-                                },
-                                "Property": "Permits (milhares)"
-                              }
-                            }
-                          }
-                        ],
-                        "Top": 10
-                      }
-                    }
-                  }
                 }
               }
             }
