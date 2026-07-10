@@ -10,7 +10,7 @@
     "tabOrder": 3000
   },
   "visual": {
-    "visualType": "lineClusteredColumnComboChart",
+    "visualType": "lineChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
@@ -21,37 +21,19 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Dim_Calendario"
                     }
                   },
-                  "Property": "Ano"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "Facts_Market.Ano",
-              "nativeQueryRef": "Ano",
+              "queryRef": "Dim_Calendario.Date",
+              "nativeQueryRef": "Date",
               "active": true
             }
           ]
         },
         "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Facts_Market"
-                    }
-                  },
-                  "Property": "Starts Saude ($bn)"
-                }
-              },
-              "queryRef": "Facts_Market.Starts Saude ($bn)",
-              "nativeQueryRef": "Starts Saude ($bn)"
-            }
-          ]
-        },
-        "Y2": {
           "projections": [
             {
               "field": {
@@ -77,10 +59,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Facts_Market"
+                    "Entity": "Dim_Calendario"
                   }
                 },
-                "Property": "Ano"
+                "Property": "Date"
               }
             },
             "direction": "Ascending"
@@ -102,22 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Saúde: starts ($bn, colunas) vs ocupação senior living (%, linha)'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "objects": {
-      "categoryAxis": [
-        {
-          "properties": {
-            "axisType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Categorical'"
+                  "Value": "'Ocupação Senior Living Premium: 77,8% → 89,5% (procura estrutural)'"
                 }
               }
             }

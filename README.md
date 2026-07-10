@@ -92,6 +92,12 @@ Alinhado com o exercício Financial feito em aula; a serialização de cada comp
 - **Combo line + clustered column** (2 eixos) na Procura por Segmento — colunas = starts de saúde ($bn), linha = ocupação senior living (%); 2 medidas novas com o filtro embutido (`Starts Saude ($bn)`, `Ocupacao Senior (%)`).
 - **Página 6 "Explorar"**: banner de título (textbox), **árvore de decomposição** (licenças por tier → estado → tipo de estrutura, com as linhas Total excluídas para não duplicar), **Q&A** com pergunta guardada ("permits por estado?"), **donut** de licenças por região Census e **matriz** com hierarquia tier → estado expansível.
 
+## Ronda 5 — teste de usabilidade e correção de bugs
+
+- **Corrigido o "erro ao compor o relatório" ao clicar em Manufacturing** (Funil de Mercado): o *cross-highlight* do treemap para o novo funnel disparava um bug do Power BI. Definidas **interações explícitas** (`visualInteractions`) — o treemap e o funnel deixam de se realçar mutuamente e de mexer nos cartões TAM/SAM/SOM (que são referência fixa). Clicar já não dá erro.
+- **Combo de saúde desfeito** (Procura por Segmento): as três séries (ocupação 2021-2026, starts 2024-2030, défice 2025/2028/2030) não partilham anos, por isso um combo line+column ficava com a linha e as colunas quase sem sobreposição. Voltou a ser uma **linha de ocupação limpa** — a decisão analítica correta.
+- **Audit automático** de todos os 34 visuais contra os dados do Excel: 0 campos ou valores de filtro inexistentes.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**
