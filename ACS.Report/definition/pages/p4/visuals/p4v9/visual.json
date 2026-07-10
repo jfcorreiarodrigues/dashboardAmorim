@@ -1,38 +1,73 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p1v3",
+  "name": "p4v9",
   "position": {
-    "x": 526,
-    "y": 40,
-    "z": 3000,
-    "width": 228,
+    "x": 830,
+    "y": 530,
+    "z": 9000,
+    "width": 410,
     "height": 150,
-    "tabOrder": 3000
+    "tabOrder": 9000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "lineChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Dim_Calendario.Date",
+              "nativeQueryRef": "Date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_Macro"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Indicador Macro"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado",
-              "displayName": "SOM ($M)"
+              "queryRef": "Facts_Macro.Indicador Macro",
+              "nativeQueryRef": "Indicador Macro"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Calendario"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "visualContainerObjects": {
@@ -49,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SOM — target 5 anos'"
+                  "Value": "'Renovação residencial (LIRA) — ~$509bn/ano, estável no ciclo'"
                 }
               }
             }
@@ -61,15 +96,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaSOM",
+        "name": "fIndLira",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Dim_Indicador"
               }
             },
-            "Property": "Métrica"
+            "Property": "Indicador"
           }
         },
         "type": "Categorical",
@@ -79,7 +114,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Dim_Indicador",
               "Type": 0
             }
           ],
@@ -95,7 +130,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "Indicador"
                       }
                     }
                   ],
@@ -103,7 +138,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'SOM (target 5 anos)'"
+                          "Value": "'LIRA — renovação residencial (móvel 4T)'"
                         }
                       }
                     ]

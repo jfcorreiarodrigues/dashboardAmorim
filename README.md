@@ -154,6 +154,21 @@ O Census só tem "Residential" **total** — os visuais que o usam são um *prox
 | Importações de cortiça EUA (prova de procura) | USITC DataWeb (dataweb.usitc.gov) ou UN Comtrade, código HS 45 |
 | Preços/concorrência em isolamento acústico | FRED: PPI floor coverings (série grátis); relatórios Freedonia/Grand View (pagos — usar sumários) |
 
+## Ronda 11 — as 4 lacunas de dados fechadas (LIRA, Comtrade, ABI, Dodge)
+
+O Excel ganhou **141 linhas novas** no `Facts_Macro` (IDs M02280-M02420), 8 indicadores novos no `Dim_Indicador` e 2 fontes no `Dim_Fonte` (F_JCHS, F_COMTRADE) — integridade verificada (IDs únicos, zero órfãos):
+
+| Fonte | O que entrou | Onde aparece |
+|---|---|---|
+| **Harvard JCHS — LIRA** | 122 trimestres (1996Q4-2027Q1) de renovação residencial, móvel 4T | Linha nova nos Drivers Macro: **~$509bn/ano, estável** — a perna "always-on" da tese finalmente tem série própria |
+| **UN Comtrade (HS 45)** | 11 meses de importações de cortiça dos EUA (jun-25→abr-26, $230M) | 5º cartão no Funil de Mercado: **os EUA são o 3º maior importador mundial de cortiça** (depois de FR/IT, que são hubs de processamento) — prova de procura pelo material |
+| **AIA/Deltek ABI dez-2025** | 4 valores regionais exatos (NE 44,2 · MW 51,7 · SO 47,7 · WE 45,3) | Dados no modelo; Midwest = única região >50 |
+| **Dodge Outlook 2026** | Starts totais ($1,21tn 2025 → $1,26tn 2026) e multifamily ($144bn → $156bn) | Texto das Conclusões: "starts +4% em 2026 e regresso à tendência em 2027" — confirmação independente do timing |
+
+Medida nova: `Importacoes Cortica ($M)`. Os textos da página Conclusões citam agora LIRA, Dodge e Comtrade com os valores exatos.
+
+**Nota sobre o ABI**: o relatório mensal só imprime os valores exatos de dez-2025 (regionais/setoriais); a série mensal nacional completa é distribuída pela AIA/Deltek aos subscritores — os gráficos do PDF não permitem extrair números exatos sem estimar a olho, o que evitei.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**
