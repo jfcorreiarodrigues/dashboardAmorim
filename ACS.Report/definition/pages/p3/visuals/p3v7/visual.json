@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p3v7",
+  "position": {
+    "x": 460,
+    "y": 36,
+    "z": 15000,
+    "width": 780,
+    "height": 42,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Cor por Tier:  ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "bold": true,
+                      "color": "#252423"
+                    }
+                  },
+                  {
+                    "value": "■ Tier 1 · Volume (Sun Belt)    ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "bold": true,
+                      "color": "#C8602A"
+                    }
+                  },
+                  {
+                    "value": "■ Tier 2 · Premium (Costa Leste)    ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "bold": true,
+                      "color": "#1B3A7A"
+                    }
+                  },
+                  {
+                    "value": "■ Tier 3 · Luxury (Oeste/Mountain)    ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "bold": true,
+                      "color": "#009999"
+                    }
+                  },
+                  {
+                    "value": "■ Sem prioridade",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "bold": true,
+                      "color": "#909090"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p3v12",
+  "position": {
+    "x": 1060,
+    "y": 344,
+    "z": 20200,
+    "width": 175,
+    "height": 20,
+    "tabOrder": 20200
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Sun Belt puro — escala",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "italic": true,
+                      "bold": false,
+                      "color": "#909090"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

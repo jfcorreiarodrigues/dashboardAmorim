@@ -103,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Os dois jogos \u2014 volume (licen\u00e7as, eixo X) vs valor ($k por unidade, eixo Y) por estado priorit\u00e1rio'"
+                  "Value": "'Os dois jogos — volume (licenças, eixo X) vs valor ($k por unidade, eixo Y) por estado prioritário'"
                 }
               }
             }
@@ -213,13 +213,67 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'\u2014'"
+                              "Value": "'Sem prioridade'"
                             }
                           }
                         ]
                       ]
                     }
                   }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "fAno2025p7v5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facts_PermitsState"
+              }
+            },
+            "Property": "Ano"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Facts_PermitsState",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "t"
+                          }
+                        },
+                        "Property": "Ano"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2025L"
+                        }
+                      }
+                    ]
+                  ]
                 }
               }
             }

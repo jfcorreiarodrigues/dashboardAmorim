@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p3v5",
   "position": {
-    "x": 680,
-    "y": 140,
+    "x": 40,
+    "y": 382,
     "z": 5000,
-    "width": 560,
-    "height": 280,
+    "width": 300,
+    "height": 190,
     "tabOrder": 5000
   },
   "visual": {
@@ -102,7 +102,62 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top estados \u2014 licen\u00e7as totais (milhares; tooltip = quota nacional)'"
+                  "Value": "'Top estados — licenças totais (milhares; tooltip = quota nacional)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'U.S. Census Bureau, Building Permits Survey (2025). Tooltip de cada barra = quota nacional (%). Cor = Tier de prioridade.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Dim_Estado"
+                            }
+                          },
+                          "Property": "TierCor"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  }
                 }
               }
             }

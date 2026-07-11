@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p3v2",
+  "name": "p3v8",
   "position": {
-    "x": 40,
+    "x": 610,
     "y": 86,
-    "z": 2000,
-    "width": 560,
+    "z": 16000,
+    "width": 630,
     "height": 288,
-    "tabOrder": 2000
+    "tabOrder": 16000
   },
   "visual": {
-    "visualType": "map",
+    "visualType": "scatterChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
@@ -33,7 +33,7 @@
             }
           ]
         },
-        "Size": {
+        "X": {
           "projections": [
             {
               "field": {
@@ -50,56 +50,26 @@
               "nativeQueryRef": "Permits (milhares)"
             }
           ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_PermitsState"
+                    }
+                  },
+                  "Property": "Preco Medio Unidade ($k)"
+                }
+              },
+              "queryRef": "Facts_PermitsState.Preco Medio Unidade ($k)",
+              "nativeQueryRef": "Preco Medio Unidade ($k)"
+            }
+          ]
         }
       }
-    },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Onde está o potencial — cor = Tier de prioridade, tamanho = volume de licenças (2025)'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeader": [
-        {
-          "properties": {
-            "showTooltipButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeaderTooltip": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'U.S. Census Bureau, Building Permits Survey (por estado, 2025). Tiers: classificação da equipa MBA (mapa mental A2). O Sun Belt acende a laranja e grande; estados sem prioridade ficam cinza e pequenos.'"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "objects": {
       "dataPoint": [
@@ -129,12 +99,60 @@
           }
         }
       ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Volume × Valor — onde o potencial se concentra (2025)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'U.S. Census Bureau, Building Permits Survey (unidades + valor declarado, 2025). NOTA DE RIGOR: valor = custo de construção declarado na licença, NÃO preço de venda nem densidade de procura acústica — Wyoming/Hawaii (alto $/unidade, baixo volume) não são por isso prioritários. Cor = Tier (legenda no topo). Honey pot = alto volume E alto valor.'"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "fTipoTotal",
+        "name": "fP3ScTipo",
         "field": {
           "Column": {
             "Expression": {

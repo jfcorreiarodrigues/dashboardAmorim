@@ -31,6 +31,24 @@ table Dim_Estado
 		lineageTag: 86424517-6052-5aaf-b9c4-6c960001ed3f
 		summarizeBy: none
 		sourceColumn: Tier prioridade Amorim
+		sortByColumn: TierOrdem
+
+		annotation SummarizationSetBy = Automatic
+
+	column TierOrdem
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d3d8679-66ad-57cd-b5eb-49f18d0140ee
+		summarizeBy: none
+		sourceColumn: TierOrdem
+
+		annotation SummarizationSetBy = User
+
+	column TierCor
+		dataType: string
+		lineageTag: c1f3d0e4-71a2-5ffa-9728-227db7a4d5b9
+		summarizeBy: none
+		sourceColumn: TierCor
 
 		annotation SummarizationSetBy = Automatic
 
@@ -41,7 +59,7 @@ table Dim_Estado
 				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
 				    Folha = Origem{[Item="Dim_Estado",Kind="Sheet"]}[Data],
 				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
-				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Abrev", type text}, {"Estado", type text}, {"RegiaoCensus", type text}, {"Tier prioridade Amorim", type text}})
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Abrev", type text}, {"Estado", type text}, {"RegiaoCensus", type text}, {"Tier prioridade Amorim", type text}, {"TierOrdem", Int64.Type}, {"TierCor", type text}})
 				in
 				    TiposAlterados
 

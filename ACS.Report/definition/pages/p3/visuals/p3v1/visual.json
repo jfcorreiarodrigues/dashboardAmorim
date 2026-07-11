@@ -3,10 +3,10 @@
   "name": "p3v1",
   "position": {
     "x": 40,
-    "y": 60,
+    "y": 36,
     "z": 1000,
-    "width": 300,
-    "height": 60,
+    "width": 400,
+    "height": 42,
     "tabOrder": 1000
   },
   "visual": {
@@ -49,6 +49,32 @@
               "expr": {
                 "Literal": {
                   "Value": "'Tier prioridade Amorim'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tiers: classificação da equipa MBA (volume × densidade premium × pipeline) — não é fonte externa. Ordenados por prioridade via TierOrdem.'"
                 }
               }
             }

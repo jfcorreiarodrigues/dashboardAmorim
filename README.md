@@ -201,6 +201,17 @@ Com os preços reais de SKUs do Ricardo (ACS) e as áreas do brief, o SAM passou
 - Cartão **custo saúde por sqft** ($1.177 em 2026, +65% vs 2018).
 - **Caixa de conclusão** (HOTELARIA 2027-28 · HEALTHCARE contínua · RESIDENCIAL 2027-30 · TIMING: 2026 = posicionamento) e **rodapé de fontes** — todos os visuais com tooltip ⓘ de fonte.
 
+## Ronda 16 — Página 3: o potencial de penetração identificável por cor (tiers)
+
+- **`Dim_Estado` enriquecida**: tiers renomeados para autoexplicativos ("Tier 1 · Volume (Sun Belt)", "Tier 2 · Premium (Costa Leste)", "Tier 3 · Luxury (Costa Oeste/Mountain)", "Sem prioridade"); colunas novas `TierOrdem` (ordenação 1-4, ligada via `sortByColumn`) e `TierCor` (hex com `#`). Filtros do report que usavam `—` (p7v5/p7v6) atualizados.
+- **Color mapping determinístico** em todos os visuais de estado: laranja `#C8602A` = Tier 1 · navy `#1B3A7A` = Tier 2 · teal `#009999` = Tier 3 · cinza `#D0D0D0` = sem prioridade — aplicado por **conditional formatting "field value"** sobre `TierCor` (não depende da ordem de cores do tema). Legenda de cores em textbox no topo.
+- **Mapa → bubble map**: cor = tier, tamanho = licenças 2025 — o Sun Belt acende a laranja e grande.
+- **Scatter herói "Volume × Valor"** com anotações dos 4 quadrantes (HONEY POT · Sun Belt puro · Nichos luxury · Baixa prioridade). Linhas médias de referência ficam como retoque manual (Analytics → Average lines em X e Y) — serialização exótica evitada.
+- **Barras coloridas por tier** (top total, multifamily 5+, $/unidade) e **nota de rigor obrigatória**: "$/unidade = custo declarado na licença, não preço de venda" (título + tooltips + conclusão).
+- **Bug corrigido**: a página não filtrava o ano e a medida é SUM — os rankings somavam 2019-2025 (~7×). Filtro de página Ano=2025 na p3 + filtros Ano=2025 no scatter e funnel da p7.
+- **Números validados no modelo**: Tier 1 = **≈47%** das licenças 2025 (o prompt dizia 54% — corrigido); Tier 2 = ≈10%; Tier 3 = ≈12%. Tier 2 inclui **CT** (8 estados, não 7).
+- Conclusão "ONDE ENTRAR" + rodapé de fontes; tooltips ⓘ em todos os visuais (tiers assinalados como classificação da equipa, não fonte externa).
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

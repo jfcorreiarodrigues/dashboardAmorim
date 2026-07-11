@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Funil de prioridade \u2014 licen\u00e7as (milhares) por tier Amorim'"
+                  "Value": "'Funil de prioridade — licenças (milhares) por tier Amorim'"
                 }
               }
             }
@@ -194,13 +194,67 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'\u2014'"
+                              "Value": "'Sem prioridade'"
                             }
                           }
                         ]
                       ]
                     }
                   }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "fAno2025p7v6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facts_PermitsState"
+              }
+            },
+            "Property": "Ano"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Facts_PermitsState",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "t"
+                          }
+                        },
+                        "Property": "Ano"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2025L"
+                        }
+                      }
+                    ]
+                  ]
                 }
               }
             }
