@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Momentum a acumular'"
+                  "Value": "'Momentum a acumular (Dodge 2025)'"
                 }
               }
             }
@@ -91,6 +91,19 @@
               "expr": {
                 "Literal": {
                   "Value": "24D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

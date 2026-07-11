@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Custo de construção healthcare: $714/sqft (2018) → $1.177/sqft (2026) = +65%'"
+                  "Value": "'Custo de construção saúde 2026 — $1.177/sqft (+65% vs 2018)'"
                 }
               }
             }
@@ -105,6 +105,19 @@
               "expr": {
                 "Literal": {
                   "Value": "28D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

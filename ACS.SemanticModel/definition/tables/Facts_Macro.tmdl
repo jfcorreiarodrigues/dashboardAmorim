@@ -11,6 +11,13 @@ table Facts_Macro
 		formatString: #,0.00
 		lineageTag: a6c959f8-8abf-5252-8d70-81a7c210d29c
 
+	measure 'Spread Credito-Treasury (pp)' =
+			VAR Mort = CALCULATE([Indicador Atual], Dim_Indicador[IndicadorID] = "IND_MORT30")
+			VAR T10 = CALCULATE([Indicador Atual], Dim_Indicador[IndicadorID] = "IND_DGS10")
+			RETURN Mort - T10
+		formatString: #,0.00
+		lineageTag: ba0b3ad6-e468-556e-97cf-57c6329fcb18
+
 	measure 'Spread Credito-Fed (pp)' =
 			VAR Mort = CALCULATE([Indicador Atual], Dim_Indicador[IndicadorID] = "IND_MORT30")
 			VAR Fed = CALCULATE([Indicador Atual], Dim_Indicador[IndicadorID] = "IND_FEDFUNDS")

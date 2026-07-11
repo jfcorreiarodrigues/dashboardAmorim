@@ -233,6 +233,13 @@ Com os preços reais de SKUs do Ricardo (ACS) e as áreas do brief, o SAM passou
 - Conclusão "CONDIÇÕES FINANCEIRAS" + rodapé de fontes.
 - **Oportunidade futura**: obter série temporal de refurbishment hoteleiro e histórico do rácio de renovação em saúde para desenvolver o ângulo "always-on" com visual próprio.
 
+## Ronda 19 — polish dos cartões (P2/P4), spread coerente e PT-PT
+
+- **Cartões sem cortes**: o que cortava era o rótulo de categoria por baixo do valor (redundante com o título) — escondido (`categoryLabels: off`) em 7 cartões das páginas 2 e 4; títulos autoexplicativos ("Custo de construção saúde 2026 — $1.177/sqft (+65% vs 2018)", "Momentum a acumular (Dodge 2025)").
+- **Spread — contradição resolvida com o benchmark certo**: o prompt pedia "esticado vs ~1,7pp", mas face à **Fed** a média desde 2000 é 3,2pp e o atual (2,8pp) está em linha. O benchmark a que o ~1,7pp pertence é o **Treasury 10Y** — criada a medida `Spread Credito-Treasury (pp)` (≈2,0pp atual) e o cartão passou a usá-la: "vs ~1,7pp média — esticado (prémio de risco elevado)". Cartão e conclusão dizem a mesma coisa, e a nota de rigor (Fed em linha) fica no tooltip.
+- **Eixo Case-Shiller**: já corrigido na Ronda 18 (dados até **mar-2026**, filtro NotIn 2027-2031) — confirmado presente.
+- **PT-PT**: auditoria a todo o texto visível do report (títulos, tooltips, conclusões, rodapés) — o texto já estava em português europeu; única correção: "Analise" → "Análise" no banner da página Explorar. "$2,17 biliões" mantém-se (bilião = 10^12 em PT-PT, correto para o mercado total de $2,17 trillion US).
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

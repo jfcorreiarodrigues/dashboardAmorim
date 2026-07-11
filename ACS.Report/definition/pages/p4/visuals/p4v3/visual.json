@@ -24,12 +24,12 @@
                       "Entity": "Facts_Macro"
                     }
                   },
-                  "Property": "Spread Credito-Fed (pp)"
+                  "Property": "Spread Credito-Treasury (pp)"
                 }
               },
-              "queryRef": "Facts_Macro.Spread Credito-Fed (pp)",
-              "nativeQueryRef": "Spread Credito-Fed (pp)",
-              "displayName": "Spread (pp)"
+              "queryRef": "Facts_Macro.Spread Credito-Treasury (pp)",
+              "nativeQueryRef": "Spread Credito-Treasury (pp)",
+              "displayName": "Spread vs Treasury (pp)"
             }
           ]
         }
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Spread crédito 30a − Fed — em linha com a média histórica'"
+                  "Value": "'Spread crédito 30a − Treasury 10Y: vs ~1,7pp média — esticado (prémio de risco elevado)'"
                 }
               }
             }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cálculo sobre FRED (MORTGAGE30US − FEDFUNDS): 2,8pp vs média de 3,2pp desde 2000 — em linha, não esticado. O prémio que segue elevado é face ao Treasury 10Y: ~2,0pp vs norma de longo prazo ~1,7pp. Validado no modelo.'"
+                  "Value": "'Prémio do crédito habitação sobre o Treasury 10Y: ~2,0pp vs norma de longo prazo ~1,7pp (FRED) — esticado. Nota de rigor: face à taxa Fed o spread (2,8pp) está em linha com a média desde 2000 (3,2pp) — o benchmark correto para «esticado» é o Treasury. Cálculo sobre FRED (MORTGAGE30US − DGS10).'"
                 }
               }
             }
@@ -91,6 +91,19 @@
               "expr": {
                 "Literal": {
                   "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
