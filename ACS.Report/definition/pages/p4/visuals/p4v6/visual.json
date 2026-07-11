@@ -3,10 +3,10 @@
   "name": "p4v6",
   "position": {
     "x": 40,
-    "y": 390,
+    "y": 338,
     "z": 6000,
     "width": 760,
-    "height": 320,
+    "height": 240,
     "tabOrder": 6000
   },
   "visual": {
@@ -130,7 +130,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Case-Shiller \u2014 cidades-chave (base 2000 = 100; usa as setas de drill Ano\u2192Trim\u2192M\u00eas)'"
+                  "Value": "'Case-Shiller — cidades-chave (base 2000 = 100; usa as setas de drill Ano→Trim→Mês)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'FRED / S&P Cotality Case-Shiller, base 2000 = 100. Dados reais até mar-2026 — o eixo termina aí (sem forecast de preços; não existe essa série no modelo). Usa as setas de drill Ano→Trimestre→Mês.'"
                 }
               }
             }
@@ -224,6 +250,92 @@
                       }
                     ]
                   ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "fCSAnoReal",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Calendario"
+              }
+            },
+            "Property": "Ano"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Dim_Calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "Ano"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "2027L"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "2028L"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "2029L"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "2030L"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "2031L"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
                 }
               }
             }

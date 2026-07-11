@@ -3,10 +3,10 @@
   "name": "p4v7",
   "position": {
     "x": 830,
-    "y": 400,
+    "y": 316,
     "z": 7000,
     "width": 195,
-    "height": 145,
+    "height": 115,
     "tabOrder": 7000
   },
   "visual": {
@@ -49,7 +49,48 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Case-Shiller \u2014 \u00faltimo m\u00eas'"
+                  "Value": "'Case-Shiller — último mês'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Último valor do 20-City Composite (mar-2026). Fonte: FRED / S&P Cotality Case-Shiller.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
                 }
               }
             }

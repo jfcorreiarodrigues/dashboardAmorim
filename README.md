@@ -222,6 +222,17 @@ Com os preços reais de SKUs do Ricardo (ACS) e as áreas do brief, o SAM passou
 - **Mistério do cartão "1,63K" resolvido**: o cartão somava a métrica `Custo por sf` que tinha DOIS dados de saúde — o standard acute care de $450/sf (F080, BSA LifeStructures) e o meu $1.177/sqft do pipeline (F140) → 450+1177=1.627. Corrigido criando a métrica própria `Valor por sqft (pipeline saúde)` (M_HC_CSF) para F139/F140 — o cartão passa a mostrar 1.177 e o standard BSA continua disponível sem colisão.
 - Cartões ABI e Dodge alargados (195→400px, fonte 24pt) — "13 meses" e "+37%" deixam de cortar.
 
+## Ronda 18 — Página 4 diferenciada: condições financeiras (taxas só aqui)
+
+**Divisão de papéis (Opção B do prompt)**: Pág. 2 = ATIVIDADE (despesa, pipeline, momentum; o combo starts vs taxa fica lá porque o foco são as starts) · Pág. 4 = CONDIÇÕES FINANCEIRAS (linha crédito 30a vs Fed, spread, Case-Shiller, LIRA). Inventário confirmou que **não havia duplicação real** — nada foi removido.
+
+- **Eixo do Case-Shiller corrigido**: os dados reais vão até **mar-2026** (não ~2025 como assumia o prompt); o eixo esticava até 2031 por causa da Dim_Calendario — filtro NotIn 2027-2031 no visual. Sem forecast de preços (a série não existe).
+- **Spread com contexto honesto (validado nos dados)**: o prompt dizia "média histórica 1,5-2,0pp, hoje esticado" — mas a média do spread crédito−Fed desde 2000 no modelo é **3,2pp**, e o atual (2,8pp) está **em linha**, não esticado. O prémio que está de facto elevado é face ao **Treasury 10Y** (~2,0pp vs norma ~1,7pp). Cartão, tooltip e conclusão usam esta leitura.
+- Cartões todos corrigidos (fontes 18-20pt, "13 meses" sem corte) + tooltips ⓘ em todos os visuais.
+- **Renovação como argumento de apoio** (sem secção nova): nota junto ao LIRA — residencial $509bn/ano, saúde 37% do capex (2025), hotelaria 2.041 conv+renov (2026). O "vs 30% em 2024" do prompt não está no modelo — omitido (não inventar).
+- Conclusão "CONDIÇÕES FINANCEIRAS" + rodapé de fontes.
+- **Oportunidade futura**: obter série temporal de refurbishment hoteleiro e histórico do rácio de renovação em saúde para desenvolver o ângulo "always-on" com visual próprio.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

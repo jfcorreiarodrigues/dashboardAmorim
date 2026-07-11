@@ -6,7 +6,7 @@
     "y": 70,
     "z": 1000,
     "width": 760,
-    "height": 300,
+    "height": 260,
     "tabOrder": 1000
   },
   "visual": {
@@ -102,7 +102,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Custo de capital \u2014 cr\u00e9dito habita\u00e7\u00e3o 30 anos vs taxa diretora Fed (%)'"
+                  "Value": "'Custo de capital — crédito habitação 30 anos vs taxa diretora Fed (%)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'FRED: MORTGAGE30US (crédito habitação 30 anos) e FEDFUNDS (taxa diretora), médias mensais. As séries de taxas vivem nesta página; na Pág. 2 o combo é focado nas housing starts.'"
                 }
               }
             }
@@ -156,7 +182,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Taxa cr\u00e9dito habita\u00e7\u00e3o 30 anos'"
+                          "Value": "'Taxa crédito habitação 30 anos'"
                         }
                       }
                     ],

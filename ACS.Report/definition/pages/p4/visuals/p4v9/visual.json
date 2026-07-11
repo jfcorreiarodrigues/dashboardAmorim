@@ -3,10 +3,10 @@
   "name": "p4v9",
   "position": {
     "x": 830,
-    "y": 560,
+    "y": 439,
     "z": 9000,
     "width": 410,
-    "height": 150,
+    "height": 112,
     "tabOrder": 9000
   },
   "visual": {
@@ -84,7 +84,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Renova\u00e7\u00e3o residencial (LIRA) \u2014 ~$509bn/ano, est\u00e1vel no ciclo'"
+                  "Value": "'Renovação residencial (LIRA) — ~$509bn/ano, estável no ciclo'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Harvard JCHS — LIRA (renovação residencial, média móvel 4T, 1996-2027). ~$509bn/ano, estável no ciclo.'"
                 }
               }
             }
@@ -138,7 +164,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'LIRA \u2014 renova\u00e7\u00e3o residencial (m\u00f3vel 4T)'"
+                          "Value": "'LIRA — renovação residencial (móvel 4T)'"
                         }
                       }
                     ]

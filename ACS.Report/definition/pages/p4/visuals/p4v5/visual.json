@@ -3,10 +3,10 @@
   "name": "p4v5",
   "position": {
     "x": 1045,
-    "y": 235,
+    "y": 193,
     "z": 5000,
     "width": 195,
-    "height": 145,
+    "height": 115,
     "tabOrder": 5000
   },
   "visual": {
@@ -49,7 +49,48 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dodge Momentum 2025 \u2014 starts a acelerar p/ 2027'"
+                  "Value": "'Dodge Momentum 2025 — starts a acelerar p/ 2027'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dodge Momentum Index +37% em 2025 — projetos a entrar em planeamento. Fonte: Dodge Construction Network.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
                 }
               }
             }
