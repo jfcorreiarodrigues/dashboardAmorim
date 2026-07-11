@@ -6,7 +6,7 @@
     "y": 475,
     "z": 4000,
     "width": 590,
-    "height": 235,
+    "height": 205,
     "tabOrder": 4000
   },
   "visual": {
@@ -43,11 +43,11 @@
                       "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Serie Segmento Anual"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "queryRef": "Facts_Market.Serie Segmento Anual",
+              "nativeQueryRef": "Serie Segmento Anual"
             }
           ]
         }
@@ -83,8 +83,39 @@
             },
             "text": {
               "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_Market"
+                    }
+                  },
+                  "Property": "Titulo Grafico Anual"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
                 "Literal": {
-                  "Value": "'D\u00e9fice de senior housing \u2014 806 mil unidades at\u00e9 2030 (n\u00ba)'"
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Colunas anuais dinâmicas: Hotelaria = aberturas 2022-2027 · Saúde = novos hospitais (2025) · Luxo = mercado $bn · Adjacente = défice senior (2025/2028/2030). Fontes no rodapé.'"
                 }
               }
             }
@@ -107,63 +138,5 @@
         }
       ]
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fMetDefice",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Metrica"
-              }
-            },
-            "Property": "M\u00e9trica"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_Metrica",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "M\u00e9trica"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Unidades em d\u00e9fice'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }

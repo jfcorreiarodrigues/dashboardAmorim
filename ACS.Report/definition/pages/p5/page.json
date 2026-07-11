@@ -12,36 +12,6 @@
       "type": "NoFilter"
     },
     {
-      "source": "p5v1",
-      "target": "p5v3",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p5v1",
-      "target": "p5v4",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p5v1",
-      "target": "p5v5",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p5v1",
-      "target": "p5v6",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p5v1",
-      "target": "p5v7",
-      "type": "NoFilter"
-    },
-    {
-      "source": "p5v1",
-      "target": "p5v8",
-      "type": "NoFilter"
-    },
-    {
       "source": "p5v3",
       "target": "p5v8",
       "type": "NoFilter"

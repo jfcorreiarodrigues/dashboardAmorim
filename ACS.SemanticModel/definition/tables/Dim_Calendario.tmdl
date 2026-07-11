@@ -5,7 +5,7 @@ table Dim_Calendario
 	column Date
 		dataType: dateTime
 		isKey
-		formatString: General Date
+		formatString: mmm yyyy
 		lineageTag: c4a99ffd-086b-566a-bcdc-7817213d3847
 		summarizeBy: none
 		isNameInferred

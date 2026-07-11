@@ -240,6 +240,17 @@ Com os preços reais de SKUs do Ricardo (ACS) e as áreas do brief, o SAM passou
 - **Eixo Case-Shiller**: já corrigido na Ronda 18 (dados até **mar-2026**, filtro NotIn 2027-2031) — confirmado presente.
 - **PT-PT**: auditoria a todo o texto visível do report (títulos, tooltips, conclusões, rodapés) — o texto já estava em português europeu; única correção: "Analise" → "Análise" no banner da página Explorar. "$2,17 biliões" mantém-se (bilião = 10^12 em PT-PT, correto para o mercado total de $2,17 trillion US).
 
+## Ronda 20 — Página 5 verdadeiramente dinâmica por segmento
+
+O slicer de Segmento passa a comandar **todos** os visuais (antes só filtrava a tabela de observações):
+
+- **12 medidas DAX novas** em Facts_Market (SWITCH + SELECTEDVALUE, fallback = Residencial de Luxo quando nada está selecionado): 4 valores de KPI (texto formatado com unidade e período, ex.: "6 020 projetos (mar 2026)"), 4 títulos de cartão, 2 séries de gráfico e 2 títulos de gráfico. Períodos escolhidos dinamicamente (último ≤ hoje para séries com forecast; máximo para metas tipo "défice até 2030") — nunca datas fixas.
+- **Técnica dos gráficos condicionais**: medida dinâmica única por visual (não bookmarks — não são acionáveis por slicer — nem 4 visuais sobrepostos — a visibilidade condicional não é serializável em PBIR). O gráfico temporal mostra pipeline hoteleiro / starts saúde / mercado luxo / ocupação senior; as colunas anuais mostram aberturas / novos hospitais / mercado / défice.
+- **Títulos dinâmicos via fx** (title.text ligado a medida) nos 4 cartões e 2 gráficos.
+- Desambiguação validada nos dados: pipeline/aberturas hoteleiras filtradas a "Hotelaria — total" + nacional (as linhas por cidade e por subsegmento somariam lixo); novos hospitais ao nacional (236, não a soma com os estados); preço/sqft ao "Residencial luxo — total" ($1.792 Manhattan/Corcoran).
+- Ribbon Census mantém-se como **contexto fixo assinalado** (não há relação Categoria↔Segmento); slicer em **seleção única**; `Dim_Calendario[Date]` com formato "mmm yyyy" (corrige o tooltip "30-06-2025 00:00:00"); cartão do luxo lê "$291,1bn (2025)"; rodapé de fontes por segmento.
+- Limitações honestas: Saúde nas colunas anuais tem 1 só ano (novos hospitais 2025 — evita duplicar os starts do gráfico temporal); starts "mais recentes reais" são 2024 ($33,9bn — 2026+ é forecast, o cartão indica o ano).
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

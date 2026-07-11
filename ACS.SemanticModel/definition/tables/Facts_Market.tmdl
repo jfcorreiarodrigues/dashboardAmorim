@@ -28,6 +28,128 @@ table Facts_Market
 		formatString: 0.0"%"
 		lineageTag: fbe6ed46-fc01-508c-9b75-a261ca9d56df
 
+	measure 'KPI Seg 1' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_PIPE_P", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)", Facts_Market[Data] <= TODAY()) VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_PIPE_P", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0", "pt-PT") & " projetos (" & FORMAT(d, "mmm yyyy", "pt-PT") & ")",
+			"Saúde", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_STARTS", Facts_Market[Data] <= TODAY()) VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_STARTS", Facts_Market[Data] = d) RETURN "$" & FORMAT(v, "#,0.0", "pt-PT") & "bn (" & FORMAT(YEAR(d), "0") & ")",
+			"Residencial de Luxo", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_MKT", Dim_SubSegmento[SubSegmento] = "Residencial luxo — total", Facts_Market[Data] <= TODAY()) VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_MKT", Dim_SubSegmento[SubSegmento] = "Residencial luxo — total", Facts_Market[Data] = d) RETURN "$" & FORMAT(v, "#,0.0", "pt-PT") & "bn (" & FORMAT(YEAR(d), "0") & ")",
+			"Adjacente", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_OCC", Facts_Market[Data] <= TODAY()) VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_OCC", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0.0", "pt-PT") & "% (" & FORMAT(d, "mmm yyyy", "pt-PT") & ")",
+			BLANK())
+		lineageTag: 030a6112-f4e4-5a8c-bb31-0f312ab8b672
+
+	measure 'KPI Seg 2' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_PIPE_Q", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)", Facts_Market[Data] <= TODAY()) VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_PIPE_Q", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0", "pt-PT") & " quartos (" & FORMAT(d, "mmm yyyy", "pt-PT") & ")",
+			"Saúde", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_NOVOS", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_NOVOS", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0", "pt-PT") & " hospitais (" & FORMAT(YEAR(d), "0") & ")",
+			"Residencial de Luxo", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_CAGR") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_CAGR", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0.0", "pt-PT") & "%/ano até 2031",
+			"Adjacente", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_DEFICE") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_DEFICE", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0", "pt-PT") & " unidades (" & FORMAT(YEAR(d), "0") & ")",
+			BLANK())
+		lineageTag: baa79326-137d-5306-9077-3c862f1a70db
+
+	measure 'KPI Seg 3' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_ABRE_P", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_ABRE_P", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0", "pt-PT") & " hotéis (" & FORMAT(YEAR(d), "0") & ")",
+			"Saúde", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_RENOV") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_RENOV", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0", "pt-PT") & "% do capex (" & FORMAT(YEAR(d), "0") & ")",
+			"Residencial de Luxo", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_PRICE_SF", Dim_SubSegmento[SubSegmento] = "Residencial luxo — total") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_PRICE_SF", Dim_SubSegmento[SubSegmento] = "Residencial luxo — total", Facts_Market[Data] = d) RETURN "$" & FORMAT(v, "#,0", "pt-PT") & "/sqft",
+			"Adjacente", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_MKT", Facts_Market[Data] <= TODAY()) VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_MKT", Facts_Market[Data] = d) RETURN "$" & FORMAT(v, "#,0.00", "pt-PT") & "bn (" & FORMAT(YEAR(d), "0") & ")",
+			BLANK())
+		lineageTag: d3eb49ce-2896-5387-8601-2e1ed2ff55c7
+
+	measure 'KPI Seg 4' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_DESP") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_DESP", Facts_Market[Data] = d) RETURN "$" & FORMAT(v, "#,0", "pt-PT") & "bn/ano (" & FORMAT(YEAR(d), "0") & ")",
+			"Saúde", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_1BN") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_1BN", Facts_Market[Data] = d) RETURN FORMAT(v, "#,0", "pt-PT") & " projetos (" & FORMAT(YEAR(d), "0") & ")",
+			"Residencial de Luxo", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_APPREC") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_APPREC", Facts_Market[Data] = d) RETURN "+" & FORMAT(v, "#,0", "pt-PT") & "% em 5 anos",
+			"Adjacente", VAR d = CALCULATE(MAX(Facts_Market[Data]), Dim_Metrica[MetricaID] = "M_TRANS") VAR v = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_TRANS", Facts_Market[Data] = d) RETURN "$" & FORMAT(v, "#,0", "pt-PT") & "M (" & FORMAT(YEAR(d), "0") & ")",
+			BLANK())
+		lineageTag: ab6cfb2b-38a3-5ed3-880a-db1dc081e947
+
+	measure 'KPI Seg 1 Titulo' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", "Pipeline hoteleiro — nacional",
+			"Saúde", "Construction starts — saúde",
+			"Residencial de Luxo", "Mercado residencial de luxo",
+			"Adjacente", "Ocupação senior living premium",
+			"Seleciona um segmento")
+		lineageTag: 06c0b4d0-7144-5128-a437-81e239ac2b10
+
+	measure 'KPI Seg 2 Titulo' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", "Pipeline em quartos",
+			"Saúde", "Novos hospitais anunciados",
+			"Residencial de Luxo", "Crescimento anual (CAGR)",
+			"Adjacente", "Défice de unidades senior",
+			"Seleciona um segmento")
+		lineageTag: 52900be9-f7ee-524a-87c3-f1a4579def2e
+
+	measure 'KPI Seg 3 Titulo' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", "Aberturas previstas",
+			"Saúde", "Renovação no capex hospitalar",
+			"Residencial de Luxo", "Preço médio por sq ft (Manhattan, Corcoran)",
+			"Adjacente", "Mercado senior housing",
+			"Seleciona um segmento")
+		lineageTag: 5bb7368b-9141-5398-8887-fca91dd0613b
+
+	measure 'KPI Seg 4 Titulo' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", "Despesa anual de construção",
+			"Saúde", "Mega-projetos > $1bn",
+			"Residencial de Luxo", "Valorização em 5 anos",
+			"Adjacente", "Volume de transações senior",
+			"Seleciona um segmento")
+		lineageTag: cd98deeb-8393-5b5f-af53-4b74af289389
+
+	measure 'Serie Segmento Temporal' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_PIPE_P", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)"),
+			"Saúde", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_STARTS"),
+			"Residencial de Luxo", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_MKT", Dim_SubSegmento[SubSegmento] = "Residencial luxo — total"),
+			"Adjacente", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_OCC"),
+			BLANK())
+		formatString: #,0.0
+		lineageTag: df948943-6ef9-5ffb-8d81-a0d4e2a68c0a
+
+	measure 'Titulo Grafico Temporal' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", "Momentum — pipeline hoteleiro nacional (nº projetos, trimestral)",
+			"Saúde", "Construction starts saúde ($bn, 2024-2030 — inclui forecast ConstructConnect)",
+			"Residencial de Luxo", "Mercado residencial de luxo ($bn, 2025 → 2031)",
+			"Adjacente", "Ocupação Senior Living Premium: 77,8% → 89,5% (procura estrutural)",
+			"Seleciona um segmento")
+		lineageTag: 20b607a7-54e6-5ea3-bf76-e31fd64aff5b
+
+	measure 'Serie Segmento Anual' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_ABRE_P", Dim_SubSegmento[SubSegmento] = "Hotelaria — total", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)"),
+			"Saúde", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_NOVOS", Dim_Geografia[Cidade/Área] = "Estados Unidos (nacional)"),
+			"Residencial de Luxo", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_MKT", Dim_SubSegmento[SubSegmento] = "Residencial luxo — total"),
+			"Adjacente", CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_DEFICE"),
+			BLANK())
+		formatString: #,0
+		lineageTag: 0c081eb2-2dc4-52cc-b1ff-f52f53bcecc8
+
+	measure 'Titulo Grafico Anual' =
+			VAR Seg = SELECTEDVALUE(Dim_Segmento[Segmento], "Residencial de Luxo")
+			RETURN SWITCH(Seg,
+			"Hotelaria", "Aberturas de hotéis por ano (2022-2027, Lodging Econometrics)",
+			"Saúde", "Novos hospitais anunciados (2025, nacional — ConstructConnect)",
+			"Residencial de Luxo", "Mercado residencial de luxo por ano ($bn, Mordor)",
+			"Adjacente", "Défice de senior housing — 806 mil unidades até 2030 (nº)",
+			"Seleciona um segmento")
+		lineageTag: a21fabe3-5c0d-5972-b83e-4500db051a9e
+
 	column ID
 		dataType: string
 		lineageTag: 91f0b923-1eb0-5013-b7e0-49b52d356ee3

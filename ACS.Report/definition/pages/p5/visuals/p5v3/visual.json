@@ -43,11 +43,11 @@
                       "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Ocupacao Senior (%)"
+                  "Property": "Serie Segmento Temporal"
                 }
               },
-              "queryRef": "Facts_Market.Ocupacao Senior (%)",
-              "nativeQueryRef": "Ocupacao Senior (%)"
+              "queryRef": "Facts_Market.Serie Segmento Temporal",
+              "nativeQueryRef": "Serie Segmento Temporal"
             }
           ]
         }
@@ -83,8 +83,39 @@
             },
             "text": {
               "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_Market"
+                    }
+                  },
+                  "Property": "Titulo Grafico Temporal"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
                 "Literal": {
-                  "Value": "'Ocupa\u00e7\u00e3o Senior Living Premium: 77,8% \u2192 89,5% (procura estrutural)'"
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Série temporal dinâmica: Hotelaria = pipeline trimestral (Lodging Econometrics) · Saúde = construction starts 2024-2030 (ConstructConnect) · Luxo = mercado 2025-2031 (Mordor) · Adjacente = ocupação senior (NIC MAP). Datas em formato mês/ano.'"
                 }
               }
             }

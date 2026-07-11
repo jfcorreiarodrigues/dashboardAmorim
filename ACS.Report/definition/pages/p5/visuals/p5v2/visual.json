@@ -102,7 +102,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Despesa anual por segmento 2018-2025, total anual Census ($M) \u2014 Residential = total, n\u00e3o s\u00f3 luxo'"
+                  "Value": "'Contexto — despesa dos 3 clusters, total anual Census ($M). Fixo: não muda com o separador'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'U.S. Census Bureau C30, total anual por categoria. Visual de contexto comparativo — deliberadamente fixo (as categorias Census não têm relação com o slicer de Segmento).'"
                 }
               }
             }

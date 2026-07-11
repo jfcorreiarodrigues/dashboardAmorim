@@ -4,17 +4,17 @@
   "position": {
     "x": 955,
     "y": 365,
-    "z": 3800,
+    "z": 3400,
     "width": 285,
     "height": 100,
-    "tabOrder": 3800
+    "tabOrder": 3400
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "card",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -24,16 +24,43 @@
                       "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "KPI Seg 4"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado",
-              "displayName": "Valoriza\u00e7\u00e3o 5 anos (%)"
+              "queryRef": "Facts_Market.KPI Seg 4",
+              "nativeQueryRef": "KPI Seg 4"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -48,8 +75,39 @@
             },
             "text": {
               "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_Market"
+                    }
+                  },
+                  "Property": "KPI Seg 4 Titulo"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
                 "Literal": {
-                  "Value": "'LUXO \u2014 valoriza\u00e7\u00e3o em 5 anos (+214%)'"
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cartão dinâmico: muda com o segmento do slicer. Fontes por segmento — Hotelaria: Lodging Econometrics · Saúde: ConstructConnect/HCA/AIA · Residencial de Luxo: Mordor Intelligence/Corcoran · Adjacente: NIC MAP/Research and Markets. Mostra sempre o período mais recente disponível (indicado no valor).'"
                 }
               }
             }
@@ -57,117 +115,5 @@
         }
       ]
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fMetLux4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Metrica"
-              }
-            },
-            "Property": "M\u00e9trica"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_Metrica",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "M\u00e9trica"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Valoriza\u00e7\u00e3o (5 anos)'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "fSubLux4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_SubSegmento"
-              }
-            },
-            "Property": "SubSegmento"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_SubSegmento",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "SubSegmento"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Residencial luxo \u2014 total'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }

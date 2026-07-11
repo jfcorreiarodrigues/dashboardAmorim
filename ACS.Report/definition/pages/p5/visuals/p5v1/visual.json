@@ -48,7 +48,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segmento — filtra a tabela de observações (os restantes visuais são fixos ao seu tema)'"
+                  "Value": "'Segmento — filtra TODOS os visuais da página (exceto o contexto Census, assinalado)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Seleção única: escolhe um segmento e todos os cartões e gráficos mudam para as métricas próprias desse segmento. Sem seleção, a página mostra Residencial de Luxo por omissão.'"
                 }
               }
             }
@@ -77,6 +103,19 @@
               "expr": {
                 "Literal": {
                   "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

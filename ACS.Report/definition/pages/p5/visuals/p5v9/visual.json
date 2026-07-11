@@ -6,7 +6,7 @@
     "y": 475,
     "z": 5000,
     "width": 580,
-    "height": 235,
+    "height": 205,
     "tabOrder": 5000
   },
   "visual": {
@@ -24,11 +24,11 @@
                       "Entity": "Dim_Metrica"
                     }
                   },
-                  "Property": "M\u00e9trica"
+                  "Property": "Métrica"
                 }
               },
-              "queryRef": "Dim_Metrica.M\u00e9trica",
-              "nativeQueryRef": "M\u00e9trica"
+              "queryRef": "Dim_Metrica.Métrica",
+              "nativeQueryRef": "Métrica"
             },
             {
               "field": {
@@ -104,7 +104,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observa\u00e7\u00f5es do segmento \u2014 de onde vem cada n\u00famero'"
+                  "Value": "'Observações do segmento — de onde vem cada número'"
                 }
               }
             }
