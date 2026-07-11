@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p2v4",
+  "name": "p2v6",
   "position": {
-    "x": 40,
-    "y": 328,
-    "z": 3000,
+    "x": 440,
+    "y": 72,
+    "z": 6000,
     "width": 390,
     "height": 248,
-    "tabOrder": 3000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "lineChart",
@@ -33,6 +33,24 @@
             }
           ]
         },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Categoria"
+                    }
+                  },
+                  "Property": "Categoria"
+                }
+              },
+              "queryRef": "Dim_Categoria.Categoria",
+              "nativeQueryRef": "Categoria"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -40,14 +58,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Market"
+                      "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Valor Mercado"
+                  "Property": "Despesa Constr ($M)"
                 }
               },
-              "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
+              "nativeQueryRef": "Despesa Constr ($M)"
             }
           ]
         }
@@ -84,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Momentum hoteleiro — procura represada, não destruída (pipeline, nº projetos)'"
+                  "Value": "'Foco ACS — Despesa Lodging + Health care (SAAR, $M), escala própria'"
                 }
               }
             }
@@ -110,7 +128,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pipeline: Lodging Econometrics (5.572 em 2023-Q2 → pico 6.378 em 2024-Q4 → 6.020 em 2026-Q1). ABI <50 há 13 meses (AIA) mas backlogs 6,3 meses e Dodge Momentum +37% em 2025: billing fraco hoje, momentum a acumular — quando o custo de capital estabilizar, liberta-se de uma vez.'"
+                  "Value": "'Fonte: U.S. Census Bureau, Construction Spending C30 — série mensal 1993-2026, taxa anualizada SAAR. Separado do Residencial para dar escala visível aos nichos-alvo da Amorim.'"
                 }
               }
             }
@@ -122,15 +140,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaPipe",
+        "name": "fCat3b",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Metrica"
+                "Entity": "Dim_Categoria"
               }
             },
-            "Property": "Métrica"
+            "Property": "Categoria"
           }
         },
         "type": "Categorical",
@@ -140,7 +158,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Metrica",
+              "Entity": "Dim_Categoria",
               "Type": 0
             }
           ],
@@ -156,7 +174,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Métrica"
+                        "Property": "Categoria"
                       }
                     }
                   ],
@@ -164,7 +182,14 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Pipeline (projetos)'"
+                          "Value": "'Lodging'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Health care'"
                         }
                       }
                     ]
@@ -176,15 +201,15 @@
         }
       },
       {
-        "name": "fSubHotTot",
+        "name": "fFreqMensal2",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_SubSegmento"
+                "Entity": "Facts_ConstrSpend"
               }
             },
-            "Property": "SubSegmento"
+            "Property": "Frequência"
           }
         },
         "type": "Categorical",
@@ -194,7 +219,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_SubSegmento",
+              "Entity": "Facts_ConstrSpend",
               "Type": 0
             }
           ],
@@ -210,7 +235,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "SubSegmento"
+                        "Property": "Frequência"
                       }
                     }
                   ],
@@ -218,61 +243,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Hotelaria — total'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "fGeoUS",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Geografia"
-              }
-            },
-            "Property": "Cidade/Área"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Dim_Geografia",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "Cidade/Área"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Estados Unidos (nacional)'"
+                          "Value": "'Mensal'"
                         }
                       }
                     ]

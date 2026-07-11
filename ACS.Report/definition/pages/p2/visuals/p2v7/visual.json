@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p2v5",
+  "name": "p2v7",
   "position": {
     "x": 840,
-    "y": 494,
-    "z": 4000,
-    "width": 400,
-    "height": 82,
-    "tabOrder": 4000
+    "y": 328,
+    "z": 7000,
+    "width": 195,
+    "height": 76,
+    "tabOrder": 7000
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "card",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
@@ -18,17 +18,18 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Calendario"
+                      "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Ano"
+                  "Property": "ABI Meses Abaixo 50"
                 }
               },
-              "queryRef": "Dim_Calendario.Ano",
-              "nativeQueryRef": "Ano"
+              "queryRef": "Facts_Market.ABI Meses Abaixo 50",
+              "nativeQueryRef": "ABI Meses Abaixo 50",
+              "displayName": "ABI <50"
             }
           ]
         }
@@ -48,22 +49,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Período'"
+                  "Value": "'Billing fraco hoje'"
                 }
               }
             }
           }
         }
-      ]
-    },
-    "objects": {
-      "data": [
+      ],
+      "visualHeader": [
         {
           "properties": {
-            "mode": {
+            "showTooltipButton": {
               "expr": {
                 "Literal": {
-                  "Value": "'Between'"
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Architecture Billings Index abaixo de 50 há 13 meses consecutivos — atividade de projeto em contração. Fonte: AIA / Deltek (ABI).'"
                 }
               }
             }

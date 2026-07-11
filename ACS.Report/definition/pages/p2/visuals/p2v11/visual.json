@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p2v11",
+  "position": {
+    "x": 40,
+    "y": 674,
+    "z": 11000,
+    "width": 1200,
+    "height": 40,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "FONTES — Despesa construção: U.S. Census Bureau (C30, mensal) · Housing starts: FRED (HOUST) · Taxa 30a histórico: FRED (MORTGAGE30US) · Taxa 30a forecast: consenso analistas (Fannie Mae, Morgan Stanley, MBA, Goldman Sachs, CBO), 2026",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Pipeline hoteleiro: Lodging Econometrics · ABI: AIA/Deltek · Momentum: Dodge Construction Network · Healthcare pipeline: JLL, CBRE, RevistaMed (sqft e $, unidade nativa) · Última atualização: 11-jul-2026",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

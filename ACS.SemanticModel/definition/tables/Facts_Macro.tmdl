@@ -26,6 +26,10 @@ table Facts_Macro
 		formatString: 0.00
 		lineageTag: ceaef24f-f6cc-50c5-9159-bb65744dad11
 
+	measure 'Taxa Credito 30a Forecast (%)' = CALCULATE(AVERAGE(Facts_Macro[Valor]), Dim_Indicador[Indicador] = "Taxa crédito 30a — forecast (consenso)")
+		formatString: 0.00
+		lineageTag: 4e48fc28-5627-595e-82c5-a8ed66fadc8b
+
 	measure 'Importacoes Cortica ($M)' = CALCULATE(SUM(Facts_Macro[Valor]), Dim_Indicador[IndicadorID] = "IND_CORK")
 		formatString: #,0
 		lineageTag: 292a7d33-7c2e-5d36-a915-c437f88c5f7a

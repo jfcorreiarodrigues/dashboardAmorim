@@ -186,6 +186,21 @@ Com os preços reais de SKUs do Ricardo (ACS) e as áreas do brief, o SAM passou
 - **Facts_Market**: SAM (F005) 1,9 → **1,64** (fonte F_MBA, nota aponta para a folha); SOM (F006) 40 → **65,4** (ponto central 4% do range 49-82); nota do TAM enriquecida com a composição.
 - **Página 1**: títulos dos cartões SAM ("SAM refined (bottom-up)") e SOM ("SOM target (3-5% do SAM, 5 anos) — $49-82M"); **tooltips de fonte nos 7 visuais** via ícone ⓘ do cabeçalho (hover em modo de leitura); **rodapé de fontes** em 8pt no fundo da página; gráficos encolhidos 460→410px para lhe dar lugar.
 
+## Ronda 15 — Página 2 reestruturada: forecast de taxas, healthcare pipeline e conclusão de timing
+
+**Dados novos no Excel** (integridade verificada, zero órfãos):
+- **Forecast da taxa 30a** — 7 pontos (2026-12 → 2031-12) em `Facts_Macro` (M02430-M02490), indicador novo `IND_MORT30F`, fonte nova `F_FORECAST_RATES` (consenso Fannie Mae 5,9 · Morgan Stanley 5,75 · MBA 6,4 · novo normal 5,85 = ponto médio de 5,5-6,2). O racional (10Y Treasury + prémio, inflação, défice) está na Nota do indicador.
+- **Healthcare pipeline** — 11 linhas em `Facts_Market` (F130-F140), fonte nova `F_HEALTHCARE_RE` (JLL/CBRE/RevistaMed): inpatient 2015/2018/2026 (30,7→70→79M sqft; $12,9→50→93bn), outpatient 2026 (34M sqft/$24bn), starts Q1-26 ($48bn), custo/sqft $714 (2018) → $1.177 (2026). Subsegmento novo `SUB_INPAT`; outpatient reutiliza `SUB_MOB`. **Mantido em sqft e $ (unidade nativa), não em nº de projetos.**
+- Medida nova: `Taxa Credito 30a Forecast (%)`.
+
+**Página 2 (QUANDO ENTRAR?) — grelha 2×3 + coluna de cartões:**
+- Despesa mensal **dividida em duas**: "Contexto — Residencial" (linha única) e "Foco ACS — Lodging + Health care" com escala própria — os nichos deixam de ser esmagados pela escala do Residencial.
+- **Combo starts vs taxa 30a com forecast até 2031** — série tracejada laranja-claro, distinta do histórico; a "faixa novo normal 5,5-6,2%" fica como retoque manual opcional (Analytics → constant lines em 5,5 e 6,2 — serialização de reference lines é exótica, lição das Rondas 6-7).
+- **Gráfico YoY removido** (instável, não contava história) → no lugar entra o **healthcare em colunas** ($bn por ano, inpatient vs outpatient, eixo categórico).
+- Pipeline hoteleiro retitulado como **"Momentum hoteleiro — procura represada, não destruída"** + cartões **ABI <50 (13 meses)** e **Dodge Momentum (+37%)** — o contraste "billing fraco / momentum a acumular".
+- Cartão **custo saúde por sqft** ($1.177 em 2026, +65% vs 2018).
+- **Caixa de conclusão** (HOTELARIA 2027-28 · HEALTHCARE contínua · RESIDENCIAL 2027-30 · TIMING: 2026 = posicionamento) e **rodapé de fontes** — todos os visuais com tooltip ⓘ de fonte.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

@@ -1,39 +1,20 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p2v4",
+  "name": "p2v9",
   "position": {
-    "x": 40,
-    "y": 328,
-    "z": 3000,
-    "width": 390,
-    "height": 248,
-    "tabOrder": 3000
+    "x": 840,
+    "y": 410,
+    "z": 9000,
+    "width": 400,
+    "height": 76,
+    "tabOrder": 9000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "card",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim_Calendario"
-                    }
-                  },
-                  "Property": "Date"
-                }
-              },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -47,27 +28,11 @@
                 }
               },
               "queryRef": "Facts_Market.Valor Mercado",
-              "nativeQueryRef": "Valor Mercado"
+              "nativeQueryRef": "Valor Mercado",
+              "displayName": "Custo 2026 ($/sqft)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Calendario"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "visualContainerObjects": {
@@ -84,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Momentum hoteleiro — procura represada, não destruída (pipeline, nº projetos)'"
+                  "Value": "'Custo saúde por sqft: $714 (2018) → $1.177 (2026) — +65% em 8 anos'"
                 }
               }
             }
@@ -110,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pipeline: Lodging Econometrics (5.572 em 2023-Q2 → pico 6.378 em 2024-Q4 → 6.020 em 2026-Q1). ABI <50 há 13 meses (AIA) mas backlogs 6,3 meses e Dodge Momentum +37% em 2025: billing fraco hoje, momentum a acumular — quando o custo de capital estabilizar, liberta-se de uma vez.'"
+                  "Value": "'Custo por sqft do pipeline inpatient: $50bn/70M sqft = $714 (2018) vs $93bn/79M sqft = $1.177 (2026). Sistemas avançados e padrões sanitários rigorosos — acústica premium (ORs, MRI, NICU) faz parte do pacote técnico. Fonte: JLL/CBRE/RevistaMed.'"
                 }
               }
             }
@@ -122,7 +87,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fMetricaPipe",
+        "name": "fCsfMet",
         "field": {
           "Column": {
             "Expression": {
@@ -164,7 +129,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Pipeline (projetos)'"
+                          "Value": "'Custo por sf'"
                         }
                       }
                     ]
@@ -176,15 +141,15 @@
         }
       },
       {
-        "name": "fSubHotTot",
+        "name": "fCsfSeg",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_SubSegmento"
+                "Entity": "Dim_Segmento"
               }
             },
-            "Property": "SubSegmento"
+            "Property": "Segmento"
           }
         },
         "type": "Categorical",
@@ -194,7 +159,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_SubSegmento",
+              "Entity": "Dim_Segmento",
               "Type": 0
             }
           ],
@@ -210,7 +175,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "SubSegmento"
+                        "Property": "Segmento"
                       }
                     }
                   ],
@@ -218,7 +183,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Hotelaria — total'"
+                          "Value": "'Saúde'"
                         }
                       }
                     ]
@@ -230,15 +195,15 @@
         }
       },
       {
-        "name": "fGeoUS",
+        "name": "fCsfAno",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Geografia"
+                "Entity": "Facts_Market"
               }
             },
-            "Property": "Cidade/Área"
+            "Property": "Ano"
           }
         },
         "type": "Categorical",
@@ -248,7 +213,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Geografia",
+              "Entity": "Facts_Market",
               "Type": 0
             }
           ],
@@ -264,7 +229,7 @@
                             "Source": "t"
                           }
                         },
-                        "Property": "Cidade/Área"
+                        "Property": "Ano"
                       }
                     }
                   ],
@@ -272,7 +237,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Estados Unidos (nacional)'"
+                          "Value": "2026L"
                         }
                       }
                     ]
