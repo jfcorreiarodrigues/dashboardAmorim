@@ -6,7 +6,7 @@
     "y": 250,
     "z": 5000,
     "width": 580,
-    "height": 460,
+    "height": 410,
     "tabOrder": 5000
   },
   "visual": {
@@ -85,6 +85,32 @@
               "expr": {
                 "Literal": {
                   "Value": "'Despesa de construção 2025, total anual Census ($M) — proxies: Residential = residencial total (o cluster alvo é o luxo)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Despesa anual de construção 2025 por categoria (total anual Census, $M) — Residencial vs Health care vs Lodging. Fonte: U.S. Census Bureau, C30 — série mensal 1993-2025 agregada ao ano.'"
                 }
               }
             }

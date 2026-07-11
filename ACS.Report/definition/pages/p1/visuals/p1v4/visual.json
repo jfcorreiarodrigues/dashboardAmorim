@@ -55,6 +55,32 @@
             }
           }
         }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'17,5% = TAM dos 3 clusters HHL (Hotelaria, Hospitais, Residencial Luxury) sobre o mercado total de construção EUA (~$2,17 biliões). Fonte: U.S. Census Bureau, Construction Spending C30 (2025).'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

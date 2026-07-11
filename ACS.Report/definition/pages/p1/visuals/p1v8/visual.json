@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p1v8",
+  "position": {
+    "x": 40,
+    "y": 668,
+    "z": 7000,
+    "width": 1200,
+    "height": 46,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "FONTES — TAM: Brief Amorim Cork Solutions · SAM refined: cálculo equipa MBA, folha SAM_Refined_Calculation (inputs: Brief Amorim áreas + Ricardo Martins/ACS preços SKU + assunções equipa taxas espec.) · SOM: projeção equipa (3-5% do SAM, 5 anos)",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Despesa e categorias de construção: U.S. Census Bureau (C30) · Importações de cortiça: UN Comtrade (HS 45) · Última atualização: 11-jul-2026",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

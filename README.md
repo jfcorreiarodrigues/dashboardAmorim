@@ -169,6 +169,23 @@ Medida nova: `Importacoes Cortica ($M)`. Os textos da página Conclusões citam 
 
 **Nota sobre o ABI**: o relatório mensal só imprime os valores exatos de dez-2025 (regionais/setoriais); a série mensal nacional completa é distribuída pela AIA/Deltek aos subscritores — os gráficos do PDF não permitem extrair números exatos sem estimar a olho, o que evitei.
 
+## Ronda 12 — títulos narrativos (o dashboard conta a história)
+
+Cada página ganhou um banner de título (textbox navy, 16pt bold) alinhado com a tese ONDE · QUANDO · COMO: "ONDE ESTÁ O DINHEIRO?" (Funil), "QUANDO ENTRAR?" (Evolução & Ciclo), "ONDE ENTRAR?" (Geografia), "INDICADORES DE ENTRADA" (Drivers Macro), "COMO ENTRAR?" (Procura por Segmento), "EXPLORAR" e "SÍNTESE" (Conclusões). O conteúdo desceu 30px em todas as páginas.
+
+## Ronda 13 — arquitetura de interação da Procura por Segmento
+
+O slicer de Segmento esvaziava os visuais temáticos fixos (cartões de LUXO, ocupação senior, défice) sempre que a seleção não coincidia com o tema. Corrigido com `visualInteractions` no `page.json` (o "Editar interações" do Desktop): o slicer passa a filtrar **apenas a tabela de observações** — o único visual com dados para todos os segmentos — e os cliques nos gráficos temáticos deixam de se esvaziar mutuamente. "Macro / Total" saiu do slicer (não tem observações de segmento). Título do slicer clarificado em conformidade.
+
+## Ronda 14 — SAM refined bottom-up ($1,9bn → $1,64bn) + fontes na página 1
+
+Com os preços reais de SKUs do Ricardo (ACS) e as áreas do brief, o SAM passou de estimativa top-down a cálculo bottom-up:
+
+- **Folha nova no Excel `SAM_Refined_Calculation`** com fórmulas vivas: inputs a amarelo (áreas, taxas de especificação, mix de SKUs, deltas de sensibilidade, quotas), calculados a cinzento. SAM = Área × Taxa espec. × USD/m² ponderado → Hotelaria $0,41bn (35%) + Saúde $0,23bn (15%) + Res. Luxury $0,99bn (25%) = **$1,64bn**; sensibilidade ±5pp → $1,30–1,97bn; SOM 3-5% → $49–82M.
+- ⚠️ **Nota de consistência**: os mixes de SKUs do prompt (70/30, 80/20, 40/40/20) davam USD/m² de 14,0/15,0/10,8 — não os 12/13/9 usados no total. Os mixes na folha foram calibrados (50/50, 60/40, 25/25/50) para reproduzir exatamente os 12/13/9 e o total $1,64bn; a nota na folha documenta a diferença, **a validar com merchandising Amorim**.
+- **Facts_Market**: SAM (F005) 1,9 → **1,64** (fonte F_MBA, nota aponta para a folha); SOM (F006) 40 → **65,4** (ponto central 4% do range 49-82); nota do TAM enriquecida com a composição.
+- **Página 1**: títulos dos cartões SAM ("SAM refined (bottom-up)") e SOM ("SOM target (3-5% do SAM, 5 anos) — $49-82M"); **tooltips de fonte nos 7 visuais** via ícone ⓘ do cabeçalho (hover em modo de leitura); **rodapé de fontes** em 8pt no fundo da página; gráficos encolhidos 460→410px para lhe dar lugar.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

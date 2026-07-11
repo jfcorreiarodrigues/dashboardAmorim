@@ -55,6 +55,32 @@
             }
           }
         }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'$230M de importações de cortiça (HS 45) em 11 meses (jun-2025 a abr-2026) — os EUA são o 3.º importador mundial: a procura e os canais de distribuição já existem. Fonte: UN Comtrade (comtradeplus.un.org).'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

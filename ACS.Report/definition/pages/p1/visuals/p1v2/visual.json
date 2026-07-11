@@ -49,7 +49,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SAM — mercado acústico servível'"
+                  "Value": "'SAM refined (bottom-up) — ver folha SAM_Refined_Calculation'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SAM $1,64bn calculado bottom-up: Área × Taxa de especificação × USD/m² — Hotelaria $0,41bn (spec 35%) + Saúde $0,23bn (15%) + Residencial Luxury $0,99bn (25%). Cobre APENAS underlays/underscreeds; Vibration Control é análise projeto-a-projeto. Fontes: Brief Amorim (áreas) · Ricardo Martins/ACS (preços SKU) · assunção equipa (taxas espec.). Ver folha SAM_Refined_Calculation no Excel.'"
                 }
               }
             }

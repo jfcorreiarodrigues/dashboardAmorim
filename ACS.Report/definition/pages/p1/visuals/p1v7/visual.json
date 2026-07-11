@@ -6,7 +6,7 @@
     "y": 250,
     "z": 6000,
     "width": 580,
-    "height": 460,
+    "height": 410,
     "tabOrder": 6000
   },
   "visual": {
@@ -68,6 +68,32 @@
               "expr": {
                 "Literal": {
                   "Value": "'Categorias não-residenciais 2025, total anual Census ($M) — Lodging e Health care face a Office, Power, etc.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Distribuição da construção não-residencial 2025 ($M): Manufacturing lidera; Health care e Lodging são os clusters Amorim. Fonte: U.S. Census Bureau, C30 non-residential detail.'"
                 }
               }
             }

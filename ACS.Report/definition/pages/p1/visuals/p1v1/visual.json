@@ -55,6 +55,32 @@
             }
           }
         }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TAM $380bn/ano = Residencial Luxury $290-300bn + Hotelaria $45-55bn + Hospitais $35bn. Fonte: Brief Amorim Cork Solutions (2025), despesa anual put-in-place.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   },
