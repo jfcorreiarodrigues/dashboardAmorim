@@ -11,7 +11,7 @@
   },
   "visual": {
     "visualType": "slicer",
-    "drillFilterOtherVisuals": false,
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -48,7 +48,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segmento'"
+                  "Value": "'Segmento — filtra a tabela de observações (os restantes visuais são fixos ao seu tema)'"
                 }
               }
             }

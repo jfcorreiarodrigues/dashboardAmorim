@@ -4,5 +4,62 @@
   "displayName": "Procura por Segmento",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "p5v1",
+      "target": "p5v2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v1",
+      "target": "p5v3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v1",
+      "target": "p5v4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v1",
+      "target": "p5v5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v1",
+      "target": "p5v6",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v1",
+      "target": "p5v7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v1",
+      "target": "p5v8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v3",
+      "target": "p5v8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v3",
+      "target": "p5v9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v8",
+      "target": "p5v3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p5v8",
+      "target": "p5v9",
+      "type": "NoFilter"
+    }
+  ]
 }
