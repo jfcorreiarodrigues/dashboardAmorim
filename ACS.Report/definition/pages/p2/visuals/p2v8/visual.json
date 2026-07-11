@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p2v8",
   "position": {
-    "x": 1045,
-    "y": 328,
+    "x": 840,
+    "y": 410,
     "z": 8000,
-    "width": 195,
+    "width": 400,
     "height": 76,
     "tabOrder": 8000
   },
@@ -76,6 +76,21 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dodge Momentum Index +37% em 2025 — projetos a entrar em planeamento inicial. O contraste com o ABI fraco = procura represada. Fonte: Dodge Construction Network.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
                 }
               }
             }

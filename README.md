@@ -212,6 +212,16 @@ Com os preços reais de SKUs do Ricardo (ACS) e as áreas do brief, o SAM passou
 - **Números validados no modelo**: Tier 1 = **≈47%** das licenças 2025 (o prompt dizia 54% — corrigido); Tier 2 = ≈10%; Tier 3 = ≈12%. Tier 2 inclui **CT** (8 estados, não 7).
 - Conclusão "ONDE ENTRAR" + rodapé de fontes; tooltips ⓘ em todos os visuais (tiers assinalados como classificação da equipa, não fonte externa).
 
+## Ronda 17 — afinações à página 2 e fix das cores por tier na página 3
+
+**Página 3 — cores por tier finalmente visíveis**: o conditional formatting "field value" precisava do selector `dataViewWildcard` (forma canónica confirmada no pbix da cadeira) — sem ele o Desktop ignorava o fx e tudo ficava teal. Adicionado aos 5 visuais (mapa, scatter e 3 barras).
+
+**Página 2 — 3 afinações**:
+- Gráfico de colunas healthcare **removido** (redundante com o "Foco ACS" que já mostra o recorde de Health care); os dados continuam no modelo.
+- Insight do custo/sqft **consolidado na coluna do meio**: cartão grande (mostra "1 177", sem abreviação K) + textbox com o argumento ("cada sqft integra mais sistemas → a acústica premium faz parte do pacote").
+- **Mistério do cartão "1,63K" resolvido**: o cartão somava a métrica `Custo por sf` que tinha DOIS dados de saúde — o standard acute care de $450/sf (F080, BSA LifeStructures) e o meu $1.177/sqft do pipeline (F140) → 450+1177=1.627. Corrigido criando a métrica própria `Valor por sqft (pipeline saúde)` (M_HC_CSF) para F139/F140 — o cartão passa a mostrar 1.177 e o standard BSA continua disponível sem colisão.
+- Cartões ABI e Dodge alargados (195→400px, fonte 24pt) — "13 meses" e "+37%" deixam de cortar.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

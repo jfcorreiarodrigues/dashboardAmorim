@@ -1,0 +1,49 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p2v12",
+  "position": {
+    "x": 440,
+    "y": 440,
+    "z": 12000,
+    "width": 390,
+    "height": 136,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Cada sqft integra mais sistemas e tecnologia — e isso abre a porta à acústica premium.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "bold": true,
+                      "color": "#1B3A7A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A subida de $714 para $1.177/sqft em 8 anos reflete a integração de sistemas avançados e padrões sanitários rigorosos. A acústica premium (ORs, MRI, NICU) faz parte desse pacote técnico — não é um extra. Nota: valor do pipeline por sqft (JLL/CBRE); o standard de construção acute care é ~$450/sf (BSA LifeStructures).",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#252423"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

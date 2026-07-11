@@ -5,7 +5,7 @@
     "x": 840,
     "y": 328,
     "z": 7000,
-    "width": 195,
+    "width": 400,
     "height": 76,
     "tabOrder": 7000
   },
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Billing fraco hoje'"
+                  "Value": "'Billing fraco hoje (ABI < 50)'"
                 }
               }
             }
@@ -76,6 +76,21 @@
               "expr": {
                 "Literal": {
                   "Value": "'Architecture Billings Index abaixo de 50 há 13 meses consecutivos — atividade de projeto em contração. Fonte: AIA / Deltek (ABI).'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
                 }
               }
             }

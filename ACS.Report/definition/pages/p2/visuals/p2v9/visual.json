@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
   "name": "p2v9",
   "position": {
-    "x": 840,
-    "y": 410,
+    "x": 440,
+    "y": 328,
     "z": 9000,
-    "width": 400,
-    "height": 76,
+    "width": 390,
+    "height": 104,
     "tabOrder": 9000
   },
   "visual": {
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Custo saúde por sqft: $714 (2018) → $1.177 (2026) — +65% em 8 anos'"
+                  "Value": "'Custo de construção healthcare: $714/sqft (2018) → $1.177/sqft (2026) = +65%'"
                 }
               }
             }
@@ -76,6 +76,35 @@
               "expr": {
                 "Literal": {
                   "Value": "'Custo por sqft do pipeline inpatient: $50bn/70M sqft = $714 (2018) vs $93bn/79M sqft = $1.177 (2026). Sistemas avançados e padrões sanitários rigorosos — acústica premium (ORs, MRI, NICU) faz parte do pacote técnico. Fonte: JLL/CBRE/RevistaMed.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
                 }
               }
             }
@@ -129,7 +158,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Custo por sf'"
+                          "Value": "'Valor por sqft (pipeline saúde)'"
                         }
                       }
                     ]
