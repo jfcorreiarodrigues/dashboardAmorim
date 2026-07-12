@@ -7,7 +7,7 @@ table Facts_Market
 
 	measure 'Quota TAM no Mercado (%)' =
 			VAR Tam = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_TAM")
-			VAR Total = CALCULATE(MAX(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_DESP", Dim_SubSegmento[SubSegmento] = "Hotelaria — total")
+			VAR Total = CALCULATE(MAX(Facts_Market[Valor]), Dim_Metrica[MetricaID] = "M_DESP")
 			RETURN DIVIDE(Tam, Total)
 		formatString: 0.0%
 		lineageTag: 0ee7fa5c-bbcf-5ecb-9481-bb885ddc458a
