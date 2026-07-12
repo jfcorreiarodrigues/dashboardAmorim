@@ -10,7 +10,7 @@
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "stackedColumnChart",
+    "visualType": "ribbonChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
