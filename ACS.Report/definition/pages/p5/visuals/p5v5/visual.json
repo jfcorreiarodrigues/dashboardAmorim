@@ -107,7 +107,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cartão dinâmico: muda com o segmento do slicer. Fontes por segmento — Hotelaria: Lodging Econometrics · Saúde: ConstructConnect/HCA/AIA · Residencial de Luxo: Mordor Intelligence/Corcoran · Adjacente: NIC MAP/Research and Markets. Mostra sempre o período mais recente disponível (indicado no valor).'"
+                  "Value": "'Cartão dinâmico: muda com o segmento do slicer. Fontes por segmento — Hotelaria: Lodging Econometrics · Saúde: ConstructConnect/HCA/AIA · Residencial de Luxo: Mordor Intelligence/Corcoran · Adjacente: NIC MAP/Multi-Housing News/Research and Markets. Mostra sempre o período mais recente disponível (indicado no valor).'"
                 }
               }
             }

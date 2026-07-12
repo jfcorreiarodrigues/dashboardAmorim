@@ -251,6 +251,15 @@ O slicer de Segmento passa a comandar **todos** os visuais (antes só filtrava a
 - Ribbon Census mantém-se como **contexto fixo assinalado** (não há relação Categoria↔Segmento); slicer em **seleção única**; `Dim_Calendario[Date]` com formato "mmm yyyy" (corrige o tooltip "30-06-2025 00:00:00"); cartão do luxo lê "$291,1bn (2025)"; rodapé de fontes por segmento.
 - Limitações honestas: Saúde nas colunas anuais tem 1 só ano (novos hospitais 2025 — evita duplicar os starts do gráfico temporal); starts "mais recentes reais" são 2024 ($33,9bn — 2026+ é forecast, o cartão indica o ano).
 
+## Ronda 21 — correção do mismatch de subsegmento no separador Adjacente
+
+**Bug confirmado nos dados** (bem apanhado pelo utilizador): o cartão "Mercado senior housing" mostrava **$0,99bn — que é o Mass Timber Multifamily global** (SUB_MASSTIMBER, Research and Markets), não senior housing. A medida filtrava só por métrica dentro do segmento Adjacente, e a única linha M_MKT do SEG_ADJ é a do mass timber.
+
+- **Não existe tamanho de mercado ($bn) para SUB_SENIOR** no modelo (tem ocupação, défice, renda, margem e transações) — em vez de inventar, o cartão 3 do Adjacente passou a **"Renda média mensal — senior living": $5.650/mês (set 2025)** (M_RENDA, Multi-Housing News), a alternativa sugerida no próprio prompt.
+- **27 filtros defensivos de SubSegmento** adicionados a todas as branches das medidas dinâmicas (M_OCC/M_DEFICE/M_TRANS/M_RENDA → "Senior Living Premium"; M_STARTS/M_NOVOS/M_RENOV/M_1BN → "Saúde — total"; M_DESP → "Hotelaria — total"; M_CAGR/M_APPREC → "Residencial luxo — total") — nenhum cartão volta a apanhar linhas de outro subsegmento.
+- **Auditoria aos outros 3 separadores: limpa** — todas as combinações (segmento, métrica) usadas tinham um único subsegmento; o Adjacente era o único caso (é o segmento "saco" com senior + mass timber + adaptive reuse). Todas as 11 combinações verificadas ponta-a-ponta contra o Excel (nomes de subsegmento exatos, nº de linhas, último valor).
+- O Mass Timber ($0,99bn → $1,3bn 2030) continua acessível na tabela de observações, corretamente rotulado pela sua métrica — nunca sob "senior housing".
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**
