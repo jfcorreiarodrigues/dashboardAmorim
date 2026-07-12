@@ -266,6 +266,21 @@ A página "Explorar" (árvore de decomposição, Q&A, donut por região, matriz 
 
 **Pendente**: reintroduzir os componentes de Business Analytics (árvore de decomposição, Q&A, matriz hierárquica) de forma integrada nas páginas narrativas — a decidir página a página numa próxima revisão.
 
+## Ronda 23 — Página 6 "Exploração" + técnicas avançadas de Power BI
+
+**Página 6 nova (entre a Procura por Segmento e as Conclusões)**:
+- **Duas árvores de decomposição**: licenças (RegiãoCensus → Tier → Estado → TipoEstrutura, com as linhas "Total" excluídas para não duplicar) e observações de mercado (Segmento → SubSegmento → Métrica → Fonte — cada folha chega à fonte do número).
+- **Guarda-fogo das unidades**: slicer de `Dim_Metrica[Unidade]` em **seleção única** (obriga a explorar dentro de UMA unidade — $bn + % + nº não são somáveis) + nota laranja visível; a árvore de mercado exclui "Macro / Total". Slicer de Ano também em seleção única e ordenado descendente (a soma de 7 anos de licenças não é interpretável).
+- **Smart Narrative** (`aiNarratives`) — resumo textual automático da página; ⚠ sem exemplo canónico nos ficheiros da aula, é o único visual "à mão" desta ronda: se aparecer como placeholder, basta clicar-lhe uma vez no Desktop; se der erro, apagar (não afeta o resto da página).
+- Rodapé de fontes e tooltips ⓘ em tudo.
+
+**Técnicas nas páginas existentes**:
+- **Play Axis** no scatter Volume × Valor da Geografia — anima 2019-2025 (o filtro de página Ano=2025 passou para filtros de visual no mapa e nas 3 barras, senão a animação nascia morta).
+- **Drill Ano → Trimestre → Mês** nas séries temporais: despesa residencial e Foco ACS (P2) e taxas (P4); o Case-Shiller já o tinha. **Cuidado SAAR respeitado**: os gráficos de despesa passaram de `Despesa Constr ($M)` (SUM — inflaria 12× ao nível do ano) para `Despesa Anual ($M)` (média dos meses SAAR — correta em qualquer nível do drill). Hierarquia formal "Hierarquia de Data" adicionada à `Dim_Calendario`.
+- **Ribbon → colunas empilhadas** (P5, contexto Census): o Residential domina sempre — sem trocas de ranking, as fitas do ribbon só acrescentavam ruído.
+
+**Key Influencers — avaliado e DESCARTADO** (decisão fundamentada): (1) o `TipoEstrutura` contém "Total", que é combinação linear dos outros tipos — o visual "descobriria" que Total puxa o volume, um artefacto; (2) os tiers foram atribuídos *a partir* do volume — "Tier 1 influencia licenças" seria circular; (3) 51 estados × 7 anos é agregado demais para inferência com valor. Um visual que confirma tautologias enfraquece a defesa.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

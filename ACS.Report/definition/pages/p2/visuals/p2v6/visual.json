@@ -24,12 +24,40 @@
                       "Entity": "Dim_Calendario"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Ano"
                 }
               },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "Dim_Calendario.Ano",
+              "nativeQueryRef": "Ano",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Trimestre"
+                }
+              },
+              "queryRef": "Dim_Calendario.Trimestre",
+              "nativeQueryRef": "Trimestre"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Mes"
+                }
+              },
+              "queryRef": "Dim_Calendario.Mes",
+              "nativeQueryRef": "Mes"
             }
           ]
         },
@@ -61,11 +89,11 @@
                       "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Despesa Constr ($M)"
+                  "Property": "Despesa Anual ($M)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
-              "nativeQueryRef": "Despesa Constr ($M)"
+              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
+              "nativeQueryRef": "Despesa Anual ($M)"
             }
           ]
         }
@@ -102,7 +130,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Foco ACS — Despesa Lodging + Health care (SAAR, $M), escala própria'"
+                  "Value": "'Foco ACS — Lodging + Health care (SAAR média, $M, escala própria) — drill Ano→Trim→Mês'"
                 }
               }
             }
@@ -128,7 +156,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Fonte: U.S. Census Bureau, Construction Spending C30 — série mensal 1993-2026, taxa anualizada SAAR. Separado do Residencial para dar escala visível aos nichos-alvo da Amorim.'"
+                  "Value": "'U.S. Census Bureau, C30. Escala própria para os nichos-alvo. Drill Ano→Trimestre→Mês com as setas do visual; média SAAR do período.'"
                 }
               }
             }

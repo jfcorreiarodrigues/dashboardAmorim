@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.1.0/schema.json",
-  "name": "p3",
-  "displayName": "Geografia",
+  "name": "p6",
+  "displayName": "Explora\u00e7\u00e3o",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280

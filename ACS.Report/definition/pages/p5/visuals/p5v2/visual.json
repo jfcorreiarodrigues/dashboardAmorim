@@ -10,7 +10,7 @@
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "ribbonChart",
+    "visualType": "stackedColumnChart",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
@@ -102,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Contexto — despesa dos 3 clusters, total anual Census ($M). Fixo: não muda com o separador'"
+                  "Value": "'Contexto — despesa dos 3 clusters, total anual Census ($M, colunas empilhadas). Fixo: não muda com o separador'"
                 }
               }
             }

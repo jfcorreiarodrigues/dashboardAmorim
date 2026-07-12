@@ -61,6 +61,21 @@ table Dim_Calendario
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'Hierarquia de Data'
+		lineageTag: 217ac4f7-586a-58d5-81ca-9afd1d5cfe56
+
+		level Ano
+			lineageTag: 26972503-ce7f-511e-8b86-28f612c44af4
+			column: Ano
+
+		level Trimestre
+			lineageTag: 7736951d-5c9d-5f23-84f7-288b0014e018
+			column: Trimestre
+
+		level 'Mês'
+			lineageTag: 9344e359-048f-55ca-814f-95763f3d13d2
+			column: Mes
+
 	partition Dim_Calendario = calculated
 		mode: import
 		source =

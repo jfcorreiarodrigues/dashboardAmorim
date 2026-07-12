@@ -24,12 +24,40 @@
                       "Entity": "Dim_Calendario"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Ano"
                 }
               },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "Dim_Calendario.Ano",
+              "nativeQueryRef": "Ano",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Trimestre"
+                }
+              },
+              "queryRef": "Dim_Calendario.Trimestre",
+              "nativeQueryRef": "Trimestre"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Mes"
+                }
+              },
+              "queryRef": "Dim_Calendario.Mes",
+              "nativeQueryRef": "Mes"
             }
           ]
         },
@@ -43,11 +71,11 @@
                       "Entity": "Facts_ConstrSpend"
                     }
                   },
-                  "Property": "Despesa Constr ($M)"
+                  "Property": "Despesa Anual ($M)"
                 }
               },
-              "queryRef": "Facts_ConstrSpend.Despesa Constr ($M)",
-              "nativeQueryRef": "Despesa Constr ($M)"
+              "queryRef": "Facts_ConstrSpend.Despesa Anual ($M)",
+              "nativeQueryRef": "Despesa Anual ($M)"
             }
           ]
         }
@@ -84,7 +112,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Contexto — Despesa residencial mensal (SAAR, $M)'"
+                  "Value": "'Contexto — Despesa residencial (SAAR média do período, $M) — drill Ano→Trimestre→Mês'"
                 }
               }
             }
@@ -110,7 +138,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Fonte: U.S. Census Bureau, Construction Spending C30 — série mensal 1993-2026, taxa anualizada SAAR.'"
+                  "Value": "'U.S. Census Bureau, C30 (mensal 1993-2026, SAAR). Usa as setas de drill do visual: Ano → Trimestre → Mês. A medida usa a MÉDIA dos meses SAAR no período (somar meses anualizados inflaria ~12x).'"
                 }
               }
             }

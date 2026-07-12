@@ -68,6 +68,24 @@
               "nativeQueryRef": "Preco Medio Unidade ($k)"
             }
           ]
+        },
+        "Play": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_PermitsState"
+                    }
+                  },
+                  "Property": "Ano"
+                }
+              },
+              "queryRef": "Facts_PermitsState.Ano",
+              "nativeQueryRef": "Ano"
+            }
+          ]
         }
       }
     },
@@ -123,7 +141,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Volume × Valor — onde o potencial se concentra (2025)'"
+                  "Value": "'Volume × Valor — evolução 2019-2025 (carrega ▶ para animar; cor = tier)'"
                 }
               }
             }
@@ -149,7 +167,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'U.S. Census Bureau, Building Permits Survey (unidades + valor declarado, 2025). NOTA DE RIGOR: valor = custo de construção declarado na licença, NÃO preço de venda nem densidade de procura acústica — Wyoming/Hawaii (alto $/unidade, baixo volume) não são por isso prioritários. Cor = Tier (legenda no topo). Honey pot = alto volume E alto valor.'"
+                  "Value": "'U.S. Census Bureau, Building Permits Survey 2019-2025. Play axis: carrega no botao de reproducao para veres os estados a moverem-se no quadrante ao longo dos anos. NOTA DE RIGOR: valor = custo declarado na licenca, nao preco de venda. Cor = tier (legenda no topo).'"
                 }
               }
             }

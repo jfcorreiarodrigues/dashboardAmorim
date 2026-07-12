@@ -1,0 +1,208 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p6v5",
+  "position": {
+    "x": 660,
+    "y": 88,
+    "z": 2100,
+    "width": 580,
+    "height": 386,
+    "tabOrder": 2100
+  },
+  "visual": {
+    "visualType": "decompositionTreeVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Analyze": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_Market"
+                    }
+                  },
+                  "Property": "Valor Mercado"
+                }
+              },
+              "queryRef": "Facts_Market.Valor Mercado",
+              "nativeQueryRef": "Valor Mercado"
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Segmento"
+                    }
+                  },
+                  "Property": "Segmento"
+                }
+              },
+              "queryRef": "Dim_Segmento.Segmento",
+              "nativeQueryRef": "Segmento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_SubSegmento"
+                    }
+                  },
+                  "Property": "SubSegmento"
+                }
+              },
+              "queryRef": "Dim_SubSegmento.SubSegmento",
+              "nativeQueryRef": "SubSegmento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Metrica"
+                    }
+                  },
+                  "Property": "Métrica"
+                }
+              },
+              "queryRef": "Dim_Metrica.Métrica",
+              "nativeQueryRef": "Métrica"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Fonte"
+                    }
+                  },
+                  "Property": "Fonte"
+                }
+              },
+              "queryRef": "Dim_Fonte.Fonte",
+              "nativeQueryRef": "Fonte"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Explorar observações por segmento e fonte (na unidade selecionada)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Facts_Market — observações recolhidas por segmento. O valor agregado SÓ faz sentido dentro de uma unidade (usa o slicer de Unidade, seleção única). Cada folha da árvore chega à fonte do número.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fSemMacroDecomp",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Segmento"
+              }
+            },
+            "Property": "Segmento"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Dim_Segmento",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "Segmento"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Macro / Total'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
