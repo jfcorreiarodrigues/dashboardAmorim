@@ -3,10 +3,10 @@
   "name": "p6v6",
   "position": {
     "x": 40,
-    "y": 470,
+    "y": 516,
     "z": 2200,
     "width": 1200,
-    "height": 40,
+    "height": 36,
     "tabOrder": 2200
   },
   "visual": {

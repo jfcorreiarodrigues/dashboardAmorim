@@ -12,6 +12,16 @@ table Facts_Market
 		formatString: 0.0%
 		lineageTag: 0ee7fa5c-bbcf-5ecb-9481-bb885ddc458a
 
+	measure 'Narrativa Funil TAM SAM SOM' =
+			VAR Tam = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "TAM")
+			VAR Sam = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "SAM")
+			VAR Som = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "SOM (target 5 anos)")
+			VAR SamPctTam = DIVIDE(Sam, Tam)
+			VAR SomPctSam = DIVIDE(Som, Sam * 1000)
+			RETURN
+			"Como se relacionam os três números: do mercado total endereçável (TAM) de $" & FORMAT(Tam, "#,0") & "bn — toda a construção onde a cortiça pode entrar — a Amorim consegue servir um mercado (SAM) de $" & FORMAT(Sam, "0.00") & "bn, ou seja " & FORMAT(SamPctTam, "0.0%") & " do TAM, calculado bottom-up com áreas e preços por SKU. O objetivo realista a 5 anos (SOM) é $" & FORMAT(Som, "#,0") & "M, i.e. " & FORMAT(SomPctSam, "0.0%") & " do SAM (regra 3-5%)."
+		lineageTag: bf924a1e-72d7-4403-bac5-8acf77199ecf
+
 	measure 'ABI Meses Abaixo 50' = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "ABI <50 (duração)")
 		formatString: 0" meses"
 		lineageTag: 6cd5a207-25a4-5d19-b021-cc999315d34e

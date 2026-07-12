@@ -3,33 +3,85 @@
   "name": "p1v9",
   "position": {
     "x": 40,
-    "y": 220,
+    "y": 204,
     "z": 8000,
     "width": 1200,
-    "height": 25,
+    "height": 42,
     "tabOrder": 8000
   },
   "visual": {
-    "visualType": "textbox",
+    "visualType": "card",
     "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_Market"
+                    }
+                  },
+                  "Property": "Narrativa Funil TAM SAM SOM"
+                }
+              },
+              "queryRef": "Facts_Market.Narrativa Funil TAM SAM SOM",
+              "nativeQueryRef": "Narrativa Funil TAM SAM SOM"
+            }
+          ]
+        }
+      }
+    },
     "objects": {
-      "general": [
+      "labels": [
         {
           "properties": {
-            "paragraphs": [
-              {
-                "textRuns": [
-                  {
-                    "value": "TAM (Total Addressable Market, $380bn) = mercado global onde cortiça é usada em construção. SAM (Serviceable Addressable Market, $1,64bn) = subset refinado onde Amorim pode competir. SOM (Serviceable Obtainable Market, $49-82M) = target realista em 5 anos (~3-5% do SAM).",
-                    "textStyle": {
-                      "fontSize": "10pt",
-                      "color": "#444444",
-                      "italic": true
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#444444'"
                     }
                   }
-                ]
+                }
               }
-            ]
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "wordWrap": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           }
         }
       ]
