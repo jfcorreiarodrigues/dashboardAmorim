@@ -3,10 +3,10 @@
   "name": "p2v10",
   "position": {
     "x": 40,
-    "y": 584,
+    "y": 580,
     "z": 10000,
     "width": 1200,
-    "height": 84,
+    "height": 90,
     "tabOrder": 10000
   },
   "visual": {
@@ -33,7 +33,7 @@
                   {
                     "value": "• HOTELARIA: momentum represado — ABI <50 há 13 meses, mas backlogs de 6,3 meses e Dodge Momentum +37%; o pipeline liberta-se quando o custo de capital estabilizar («quando dá, dispara»). Colheita: 2027-2028.",
                     "textStyle": {
-                      "fontSize": "9pt",
+                      "fontSize": "8pt",
                       "color": "#252423"
                     }
                   }
@@ -44,7 +44,7 @@
                   {
                     "value": "• HEALTHCARE: recorde resiliente ($93bn / 79M sqft), imune às taxas — acústica premium (ORs, MRI, NICU) faz parte do pacote técnico, não é um extra. Colheita: contínua.",
                     "textStyle": {
-                      "fontSize": "9pt",
+                      "fontSize": "8pt",
                       "color": "#252423"
                     }
                   }
@@ -55,7 +55,7 @@
                   {
                     "value": "• RESIDENCIAL: o dinheiro barato não volta — consenso 5,5-6,2% («novo normal»); a retoma não depende de taxas baixas, mas da adaptação do mercado a este patamar. Colheita: 2027-2030.",
                     "textStyle": {
-                      "fontSize": "9pt",
+                      "fontSize": "8pt",
                       "color": "#252423"
                     }
                   }
@@ -66,7 +66,7 @@
                   {
                     "value": "TIMING: 2026 = posicionamento e projetos-âncora · colheita faseada 2027-2030 · a entrada antecipa a adaptação do mercado — não espera por taxas que não voltam.",
                     "textStyle": {
-                      "fontSize": "9pt",
+                      "fontSize": "8pt",
                       "color": "#C8602A",
                       "bold": true
                     }

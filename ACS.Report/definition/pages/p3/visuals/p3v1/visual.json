@@ -3,7 +3,7 @@
   "name": "p3v1",
   "position": {
     "x": 40,
-    "y": 36,
+    "y": 40,
     "z": 1000,
     "width": 400,
     "height": 42,
@@ -90,6 +90,19 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
