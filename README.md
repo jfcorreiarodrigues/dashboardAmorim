@@ -260,6 +260,12 @@ O slicer de Segmento passa a comandar **todos** os visuais (antes só filtrava a
 - **Auditoria aos outros 3 separadores: limpa** — todas as combinações (segmento, métrica) usadas tinham um único subsegmento; o Adjacente era o único caso (é o segmento "saco" com senior + mass timber + adaptive reuse). Todas as 11 combinações verificadas ponta-a-ponta contra o Excel (nomes de subsegmento exatos, nº de linhas, último valor).
 - O Mass Timber ($0,99bn → $1,3bn 2030) continua acessível na tabela de observações, corretamente rotulado pela sua métrica — nunca sob "senior housing".
 
+## Ronda 22 — remoção da página "Explorar"
+
+A página "Explorar" (árvore de decomposição, Q&A, donut por região, matriz tier→estado) foi removida: era uma página de auto-serviço/demonstração de componentes do Power BI, sem narrativa própria, e sobrepunha-se à página Geografia (ambas licenças por estado/tier). Tinha ainda um título duplo (banner próprio + banner narrativo da Ronda 12). O report passa de 7 para **6 páginas** (Funil · Evolução & Ciclo · Geografia · Drivers Macro · Procura por Segmento · Conclusões). Sem referências órfãs no resto do report.
+
+**Pendente**: reintroduzir os componentes de Business Analytics (árvore de decomposição, Q&A, matriz hierárquica) de forma integrada nas páginas narrativas — a decidir página a página numa próxima revisão.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**
