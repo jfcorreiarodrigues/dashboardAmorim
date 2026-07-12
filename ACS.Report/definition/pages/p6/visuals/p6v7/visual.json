@@ -10,49 +10,41 @@
     "tabOrder": 2300
   },
   "visual": {
-    "visualType": "aiNarratives",
+    "visualType": "textbox",
     "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Uso da Árvore de Decomposição: Clique nos nós para explorar a divisão das licenças por geografia (RegiãoCensus), segmento de mercado (Tier), estado/localização (Estado) e tipo de estrutura (TipoEstrutura). O tamanho de cada nó representa a proporção de licenças em relação ao total. Use os filtros acima para refinar a análise por ano ou tier específico.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#333333"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
-      "title": [
+      "background": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Narrativa automática — resumo gerado pelo Power BI a partir dos visuais da página'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeader": [
-        {
-          "properties": {
-            "showTooltipButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeaderTooltip": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Smart Narrative: texto gerado automaticamente (máximos, mínimos, distribuições) e recalculado a cada filtro. Nota: o Power BI gera em inglês por omissão; o texto pode ser editado/complementado em PT-PT no Desktop.'"
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F5F5F5'"
+                    }
+                  }
                 }
               }
             }
