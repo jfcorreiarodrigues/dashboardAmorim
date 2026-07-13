@@ -6,7 +6,7 @@
     "y": 86,
     "z": 16000,
     "width": 630,
-    "height": 288,
+    "height": 262,
     "tabOrder": 16000
   },
   "visual": {
@@ -141,7 +141,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Volume × Valor — evolução 2019-2025 (carrega ▶ para animar; cor = tier)'"
+                  "Value": "'Volume × valor declarado — construção residencial por estado (carrega ▶ para animar; cor = tier)'"
                 }
               }
             }
@@ -167,7 +167,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'U.S. Census Bureau, Building Permits Survey 2019-2025. Play axis: carrega no botao de reproducao para veres os estados a moverem-se no quadrante ao longo dos anos. NOTA DE RIGOR: valor = custo declarado na licenca, nao preco de venda. Cor = tier (legenda no topo).'"
+                  "Value": "'Dados de licenciamento RESIDENCIAL. Fonte: U.S. Census Bureau, Building Permits Survey (2025). Play axis: carrega ▶ para veres os estados a moverem-se ao longo dos anos. NOTA DE RIGOR: valor = custo declarado na licença (administrativo, não auditado), não preço de venda — mistura tipologias.'"
                 }
               }
             }

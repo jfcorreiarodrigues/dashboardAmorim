@@ -6,7 +6,7 @@
     "y": 86,
     "z": 2000,
     "width": 560,
-    "height": 288,
+    "height": 296,
     "tabOrder": 2000
   },
   "visual": {
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Onde está o potencial — cor = Tier de prioridade, tamanho = volume de licenças (2025)'"
+                  "Value": "'Onde está o potencial — licenças RESIDENCIAIS: cor = Tier de prioridade, tamanho = volume (2025)'"
                 }
               }
             }
@@ -93,7 +93,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'U.S. Census Bureau, Building Permits Survey (por estado, 2025). Tiers: classificação da equipa MBA (mapa mental A2). O Sun Belt acende a laranja e grande; estados sem prioridade ficam cinza e pequenos.'"
+                  "Value": "'Dados de licenciamento RESIDENCIAL. Fonte: U.S. Census Bureau, Building Permits Survey (2025). Tiers: classificação da equipa MBA (mapa mental A2). O Sun Belt acende a laranja e grande; estados sem prioridade ficam cinza e pequenos.'"
                 }
               }
             }

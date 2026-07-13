@@ -3,7 +3,7 @@
   "name": "p3v13",
   "position": {
     "x": 40,
-    "y": 578,
+    "y": 580,
     "z": 17000,
     "width": 1200,
     "height": 94,
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "• Tier 1 · Volume (Sun Belt): TX, FL, GA, AZ, TN, NC, SC — ≈47% das licenças dos EUA em 2025 (validado no modelo). Entrada por escala: onde há mais projetos em absoluto nos 3 clusters.",
+                    "value": "• Tier 1 · Volume (Sun Belt): TX, FL, GA, AZ, TN, NC, SC — ≈47% das licenças residenciais dos EUA em 2025. Entrada por escala: onde há mais projetos em absoluto nos 3 clusters.",
                     "textStyle": {
                       "fontSize": "8pt",
                       "color": "#252423"
@@ -64,11 +64,16 @@
               {
                 "textRuns": [
                   {
-                    "value": "«Honey pot» = interseção de alto volume E alto valor premium (ver quadrante). $/unidade = custo declarado na licença — não preço de venda nem procura acústica.",
+                    "value": "CONVERGÊNCIA GEOGRÁFICA — os 3 segmentos apontam para os mesmos mercados: ",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#C8602A",
                       "bold": true
+                    }
+                  },
+                  {
+                    "value": "Hotelaria (pipeline, Lodging Econometrics): Dallas 184 · Atlanta 158 · Phoenix 123 · Nashville 120 · Austin 117 · Saúde (novos hospitais 2025, ConstructConnect): Texas 27 · Florida 18 · California 17 · Tennessee 13 · Residencial de Luxo: Miami · Manhattan · Los Angeles · Aspen. É esta convergência — e não um índice agregado — que fundamenta a classificação em Tiers.",
+                    "textStyle": {
+                      "fontSize": "8pt"
                     }
                   }
                 ]

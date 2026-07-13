@@ -103,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Os dois jogos — volume (licenças, eixo X) vs valor ($k por unidade, eixo Y) por estado prioritário'"
+                  "Value": "'Os dois jogos — volume (licenças residenciais, eixo X) vs valor declarado ($k/unidade, eixo Y) por estado prioritário'"
                 }
               }
             }

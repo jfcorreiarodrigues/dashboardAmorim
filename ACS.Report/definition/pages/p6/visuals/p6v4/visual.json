@@ -108,7 +108,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'De onde vêm as licenças? — quebra o total pelo caminho que quiseres'"
+                  "Value": "'De onde vêm as licenças residenciais? — quebra o total pelo caminho que quiseres'"
                 }
               }
             }
@@ -134,7 +134,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'U.S. Census Bureau, Building Permits Survey. Exclui as linhas Total (são a soma dos tipos — incluí-las duplicaria). Usa o slicer de Ano: um ano de cada vez. Caminho sugerido: região → tier → estado → tipo de estrutura.'"
+                  "Value": "'Dados de licenciamento RESIDENCIAL. Fonte: U.S. Census Bureau, Building Permits Survey (2025). Exclui as linhas Total (são a soma dos tipos — incluí-las duplicaria). Usa o slicer de Ano: um ano de cada vez. Caminho sugerido: região → tier → estado → tipo de estrutura.'"
                 }
               }
             }

@@ -3,10 +3,10 @@
   "name": "p3v6",
   "position": {
     "x": 350,
-    "y": 382,
+    "y": 386,
     "z": 6000,
     "width": 300,
-    "height": 190,
+    "height": 144,
     "tabOrder": 6000
   },
   "visual": {
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top estados — multifamily 5+ unidades (milhares)'"
+                  "Value": "'Top estados — multifamiliar 5+ unidades (residencial, milhares)'"
                 }
               }
             }
@@ -110,7 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'U.S. Census Bureau, Building Permits Survey (2025) — multifamily 5+ unidades, o proxy de condos/apartamentos. Cor = Tier de prioridade.'"
+                  "Value": "'Dados de licenciamento RESIDENCIAL. Fonte: U.S. Census Bureau, Building Permits Survey (2025). Multifamily 5+ unidades, o proxy de condos/apartamentos. Cor = Tier de prioridade.'"
                 }
               }
             }

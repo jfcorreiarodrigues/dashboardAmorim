@@ -119,7 +119,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ano (licenças)'"
+                  "Value": "'Ano (licenças residenciais)'"
                 }
               }
             }
