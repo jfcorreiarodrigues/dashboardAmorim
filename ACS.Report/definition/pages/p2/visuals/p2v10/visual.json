@@ -6,7 +6,7 @@
     "y": 580,
     "z": 10000,
     "width": 1200,
-    "height": 90,
+    "height": 92,
     "tabOrder": 10000
   },
   "visual": {
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "• HOTELARIA: momentum represado — ABI <50 há 13 meses, mas backlogs de 6,3 meses e Dodge Momentum +37%; o pipeline liberta-se quando o custo de capital estabilizar («quando dá, dispara»). Colheita: 2027-2028.",
+                    "value": "• HOTELARIA: procura represada — pipeline em 6.020 projetos (após pico de 6.378 em 2024), aberturas em trajetória ascendente (475 em 2022 → 902 previstas em 2027) e 2.041 projetos em conversão/renovação — fluxo recorrente. O pipeline converte-se em obra quando o custo de capital estabilizar. Colheita: 2027-2028.",
                     "textStyle": {
                       "fontSize": "8pt",
                       "color": "#252423"

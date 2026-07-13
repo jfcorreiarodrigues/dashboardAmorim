@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'ABI < 50 (billing fraco)'"
+                  "Value": "'ABI < 50 — billing fraco (não residencial, nacional)'"
                 }
               }
             }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Architecture Billings Index abaixo de 50 há 13 meses consecutivos. Fonte: AIA / Deltek.'"
+                  "Value": "'Indicador macro do ciclo de construção não residencial (comercial + institucional). Não é específico de hotelaria nem de saúde. Fontes: AIA (ABI); Dodge Construction Network (Momentum Index).'"
                 }
               }
             }

@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Momentum a acumular (Dodge 2025)'"
+                  "Value": "'Dodge Momentum +37% (2025) — planeamento de construção não residencial a acelerar'"
                 }
               }
             }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dodge Momentum Index +37% em 2025 — projetos a entrar em planeamento inicial. O contraste com o ABI fraco = procura represada. Fonte: Dodge Construction Network.'"
+                  "Value": "'Indicador macro do ciclo de construção não residencial (comercial + institucional). Não é específico de hotelaria nem de saúde. Fontes: AIA (ABI); Dodge Construction Network (Momentum Index).'"
                 }
               }
             }

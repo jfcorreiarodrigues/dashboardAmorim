@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dodge Momentum 2025 — starts a acelerar p/ 2027'"
+                  "Value": "'Dodge Momentum 2025 — planeamento não residencial a acelerar'"
                 }
               }
             }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dodge Momentum Index +37% em 2025 — projetos a entrar em planeamento. Fonte: Dodge Construction Network.'"
+                  "Value": "'Indicador macro do ciclo de construção não residencial (comercial + institucional). Não é específico de hotelaria nem de saúde. Fontes: AIA (ABI); Dodge Construction Network (Momentum Index).'"
                 }
               }
             }
