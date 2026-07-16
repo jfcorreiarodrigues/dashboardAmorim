@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["CaminhoExcel", "Dim_Segmento", "Dim_SubSegmento", "Dim_Geografia", "Dim_RegiaoCensus", "Dim_Estado", "Dim_CidadeCS", "Dim_Metrica", "Dim_Categoria", "Dim_Indicador", "Dim_Fonte", "Facts_Market", "Facts_ConstrSpend", "Facts_Permits", "Facts_PermitsState", "Facts_Macro", "Facts_HomePrices"]
+annotation PBI_QueryOrder = ["CaminhoExcel", "Dim_Segmento", "Dim_SubSegmento", "Dim_Geografia", "Dim_RegiaoCensus", "Dim_Estado", "Dim_CidadeCS", "Dim_Metrica", "Dim_Categoria", "Dim_Indicador", "Dim_Fonte", "Facts_Market", "Facts_ConstrSpend", "Facts_Permits", "Facts_PermitsState", "Facts_Macro", "Facts_HomePrices", "SAM_California"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -27,3 +27,4 @@ ref table Facts_PermitsState
 ref table Facts_Macro
 ref table Facts_HomePrices
 ref table Dim_Calendario
+ref table SAM_California

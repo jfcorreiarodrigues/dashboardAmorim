@@ -1,0 +1,88 @@
+table SAM_California
+	lineageTag: e1c79b58-6c14-4ce4-b4a4-fae650c2f955
+
+	measure 'Sub-SAM CA ($M)' = SUM(SAM_California[SubSAM_USDm])
+		formatString: \$#,0" M"
+		lineageTag: 5ac746c9-9187-4605-8f89-abf2a73221f5
+
+	measure 'SOM CA Baixo ($M)' = [Sub-SAM CA ($M)] * 0.03
+		formatString: \$#,0.0" M"
+		lineageTag: 74b36ddf-cad5-4723-99c7-58d2942d01a4
+
+	measure 'SOM CA Alto ($M)' = [Sub-SAM CA ($M)] * 0.05
+		formatString: \$#,0.0" M"
+		lineageTag: 2c53d1c1-877e-4e49-9f27-c18ac085d3f8
+
+	measure 'Quota CA no SAM Nacional (%)' =
+			VAR SamNacionalM = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "SAM") * 1000
+			RETURN DIVIDE([Sub-SAM CA ($M)], SamNacionalM)
+		formatString: 0.0%
+		lineageTag: 1cd9e9a8-922c-4665-912e-6227365ded5e
+
+	measure 'SOM CA (5 anos) Texto' = "$" & FORMAT([SOM CA Baixo ($M)], "0.0") & "–" & FORMAT([SOM CA Alto ($M)], "0.0") & " M"
+		lineageTag: f0af953e-ec9e-48d8-846e-b88f685ec910
+
+	column Segmento
+		dataType: string
+		lineageTag: bb7be166-40cc-4f6d-9877-5689d83d8302
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuotaCA
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 041b39ce-9a26-4886-9e3d-114140f8fa96
+		summarizeBy: none
+		sourceColumn: QuotaCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoQuota
+		dataType: string
+		lineageTag: 31cb7d4e-5d74-4709-a309-d980f51fe139
+		summarizeBy: none
+		sourceColumn: TipoQuota
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubSAM_USDm
+		dataType: int64
+		formatString: #,0
+		lineageTag: 6c5f0ed1-d549-4f44-a3fb-f674a1c74871
+		summarizeBy: sum
+		sourceColumn: SubSAM_USDm
+
+		annotation SummarizationSetBy = Automatic
+
+	column PesoEstado
+		dataType: double
+		formatString: 0%
+		lineageTag: c13b6188-4124-4eb7-84a6-e6872ec8e625
+		summarizeBy: none
+		sourceColumn: PesoEstado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fonte
+		dataType: string
+		lineageTag: bea93454-7198-472c-8e1b-1a117cc91400
+		summarizeBy: none
+		sourceColumn: Fonte
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SAM_California = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="SAM_California",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Segmento", type text}, {"QuotaCA", type number}, {"TipoQuota", type text}, {"SubSAM_USDm", Int64.Type}, {"PesoEstado", type number}, {"Fonte", type text}}),
+				    SoLinhasComQuota = Table.SelectRows(TiposAlterados, each [QuotaCA] <> null)
+				in
+				    SoLinhasComQuota
+
+	annotation PBI_ResultType = Table

@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p3v1",
+  "name": "p1v11",
   "position": {
     "x": 40,
-    "y": 40,
-    "z": 1000,
-    "width": 200,
-    "height": 42,
-    "tabOrder": 1000
+    "y": 552,
+    "z": 8600,
+    "width": 240,
+    "height": 106,
+    "tabOrder": 8600
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "card",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
@@ -18,17 +18,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Estado"
+                      "Entity": "SAM_California"
                     }
                   },
-                  "Property": "Tier prioridade Amorim"
+                  "Property": "Sub-SAM CA ($M)"
                 }
               },
-              "queryRef": "Dim_Estado.Tier prioridade Amorim",
-              "nativeQueryRef": "Tier prioridade Amorim"
+              "queryRef": "SAM_California.Sub-SAM CA ($M)",
+              "nativeQueryRef": "Sub-SAM CA ($M)"
             }
           ]
         }
@@ -48,7 +48,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tier prioridade Amorim'"
+                  "Value": "'Sub-SAM Califórnia — 9,6% do SAM nacional'"
                 }
               }
             }
@@ -74,35 +74,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tiers: classificação da equipa MBA (volume × densidade premium × pipeline) — não é fonte externa. Ordenados por prioridade via TierOrdem.'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "objects": {
-      "data": [
-        {
-          "properties": {
-            "mode": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Dropdown'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "'Sub-SAM CA — Método A (top-down): quota CA × SAM nacional por segmento, mantendo taxas de especificação, mix de SKUs e quota-SOM do modelo nacional. Quota residencial = dado real (Census, permits multifamiliar CA/US); quotas de saúde e hotelaria são proxies a validar com o Â3 (concorrência). SOM assume 3-5%; concentrar num só estado pode justificar quota superior.'"
                 }
               }
             }
