@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SOM target (3-5% do SAM, 5 anos) — $49-82M'"
+                  "Value": "'SOM target (3-5% do SAM, 5 anos) — $78-130M'"
                 }
               }
             }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SOM $49-82M = 3-5% de quota sobre o SAM refined ($1,64bn) em 5 anos; o cartão mostra o ponto central (4% = $65M). Brief Amorim indicava $30-50M (mais conservador). Assume margens 8-10% em projetos-âncora.'"
+                  "Value": "'SOM $78-130M = 3-5% de quota sobre o SAM v2 ($2,59bn) em 5 anos; o cartão mostra o ponto central (4% = $104M). Brief Amorim indicava $30-50M (mais conservador). Assume margens 8-10% em projetos-âncora.'"
                 }
               }
             }

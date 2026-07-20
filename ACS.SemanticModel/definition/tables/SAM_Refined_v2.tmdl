@@ -1,0 +1,75 @@
+table SAM_Refined_v2
+	lineageTag: a82efcac-9da0-4aa0-bdc6-b1b1bf908cb7
+
+	measure 'SAM v2 ($M)' = SUM(SAM_Refined_v2[SAM_USDm])
+		formatString: \$#,0" M"
+		lineageTag: 5012bff9-4988-4b58-8714-2d28e7492f3a
+
+	measure 'SAM v2 ($bn) Texto' = "$" & FORMAT(DIVIDE([SAM v2 ($M)], 1000), "0.00", "pt-PT") & " bn"
+		lineageTag: a702f65e-51ae-4a23-a99e-f47461c6086d
+
+	column Segmento
+		dataType: string
+		lineageTag: 6e5629ed-d21a-4f4b-bc34-1aed5e22c049
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area_Mm2
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5cca5649-2ff9-45c1-b08d-efcd1f97c719
+		summarizeBy: none
+		sourceColumn: Area_Mm2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PctAreaElevada
+		dataType: double
+		formatString: 0%
+		lineageTag: 30a8110f-3b7e-4a31-adfe-51aa5b89f44e
+		summarizeBy: none
+		sourceColumn: PctAreaElevada
+
+		annotation SummarizationSetBy = Automatic
+
+	column USDm2
+		dataType: double
+		formatString: 0.0
+		lineageTag: 56e571a6-682b-4ba1-9aca-47e15c2fe189
+		summarizeBy: none
+		sourceColumn: USDm2
+
+		annotation SummarizationSetBy = Automatic
+
+	column SAM_USDm
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1ffb08ef-1d39-4cba-8aff-a9dfd877d1dc
+		summarizeBy: sum
+		sourceColumn: SAM_USDm
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nota
+		dataType: string
+		lineageTag: a01786d9-f8d7-4be5-96c7-697c2e217cca
+		summarizeBy: none
+		sourceColumn: Nota
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SAM_Refined_v2 = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="SAM_Refined_v2",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Segmento", type text}, {"Area_Mm2", Int64.Type}, {"PctAreaElevada", type number}, {"USDm2", type number}, {"SAM_USDm", Int64.Type}, {"Nota", type text}}),
+				    SoLinhasComArea = Table.SelectRows(TiposAlterados, each [PctAreaElevada] <> null)
+				in
+				    SoLinhasComArea
+
+	annotation PBI_ResultType = Table

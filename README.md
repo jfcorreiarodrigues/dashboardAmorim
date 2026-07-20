@@ -281,6 +281,18 @@ A página "Explorar" (árvore de decomposição, Q&A, donut por região, matriz 
 
 **Key Influencers — avaliado e DESCARTADO** (decisão fundamentada): (1) o `TipoEstrutura` contém "Total", que é combinação linear dos outros tipos — o visual "descobriria" que Total puxa o volume, um artefacto; (2) os tiers foram atribuídos *a partir* do volume — "Tier 1 influencia licenças" seria circular; (3) 51 estados × 7 anos é agregado demais para inferência com valor. Um visual que confirma tautologias enfraquece a defesa.
 
+## Ronda 24 — SAM/SOM v2 (validado com a Amorim, jul-2026)
+
+A ACS respondeu às perguntas de validação e reformulou dois pressupostos do SAM:
+- **Taxa de especificação** passou a **% de ÁREA ELEVADA** (pisos com área útil por baixo), não da área total. Hospitais isolam TODA a área acima do chão → **saúde +112%**, a maior revisão.
+- **Mix de SKUs** corrigido para as gamas mais baratas (U85/U34C/U90 dominam; U38 de topo raramente vendido) → **~$5/m²** (antes $9-13/m²). As duas correções compensam-se e o SAM sobe.
+
+**Novos valores** (v1 → v2): SAM nacional **$1,64bn → $2,59bn** (intervalo $1,97-3,13bn) · SOM nacional **$49-82M → $78-130M** · Sub-SAM Califórnia **$157M → $251M** · SOM CA **$4,7-7,9M → $7,5-12,5M**.
+- SAM v2 por segmento: Hotelaria $416M (85%×$5,0) · Saúde $495M (75%×$5,5) · Residencial multi-storey $1.683M (85%×$4,5).
+- Sub-SAM CA v2: Residencial $150M (60%) · Saúde $59M (23%) · Hotelaria $42M (17%).
+
+**Excel**: folha nova **`SAM_Refined_v2`** (área elevada × ~$5/m²; v1 preservada em `SAM_Refined_Calculation`); `Facts_Market` F005 SAM 1,64→2,59 e F006 SOM 65,4→103,8; `SAM_California` atualizada para v2. **Modelo**: tabela `SAM_Refined_v2` importada (autónoma, sem relações) com medidas `SAM v2 ($M)` e `SAM v2 ($bn) Texto`. **Página 1**: cartões SAM/SOM e camada Califórnia atualizados; tooltip de validação (o que é validado vs assunção geométrica); rodapé aponta para a folha v2. **VC (Vibration Control)**: cartão de *upside* ~€200/m² de implantação (ref. ACS) claramente separado — **NÃO somado** ao SAM.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

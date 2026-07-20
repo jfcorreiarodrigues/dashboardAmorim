@@ -5,7 +5,7 @@
     "x": 532,
     "y": 552,
     "z": 8800,
-    "width": 708,
+    "width": 560,
     "height": 106,
     "tabOrder": 8800
   },
@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Composição do Sub-SAM CA por segmento ($M) — Residencial de Luxo domina (56%)'"
+                  "Value": "'Composição do Sub-SAM CA por segmento ($M) — Residencial de Luxo domina (60%)'"
                 }
               }
             }
