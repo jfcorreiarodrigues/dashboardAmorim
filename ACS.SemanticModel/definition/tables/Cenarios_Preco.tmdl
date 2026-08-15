@@ -95,9 +95,9 @@ table Cenarios_Preco
 				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
 				    Folha = Origem{[Item="Cenarios_Preco",Kind="Sheet"]}[Data],
 				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
-				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Ordem", Int64.Type}, {"Preco", type number}, {"Leitura", type text}, {"SAM_bn", type number}, {"SubSAM_CA_M", Int64.Type}, {"SOM_CA_Baixo", type number}, {"SOM_CA_Alto", type number}}),
-				    SoLinhas = Table.SelectRows(TiposAlterados, each [Ordem] <> null)
+				    SoLinhas = Table.SelectRows(CabecalhosPromovidos, each [Ordem] <> null and Value.Is([Ordem], type number)),
+				    TiposAlterados = Table.TransformColumnTypes(SoLinhas,{{"Ordem", Int64.Type}, {"Preco", type number}, {"Leitura", type text}, {"SAM_bn", type number}, {"SubSAM_CA_M", Int64.Type}, {"SOM_CA_Baixo", type number}, {"SOM_CA_Alto", type number}})
 				in
-				    SoLinhas
+				    TiposAlterados
 
 	annotation PBI_ResultType = Table
