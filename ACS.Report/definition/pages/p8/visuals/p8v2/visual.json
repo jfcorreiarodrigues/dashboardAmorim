@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p8v2",
+  "position": {
+    "x": 352,
+    "y": 42,
+    "z": 1100,
+    "width": 286,
+    "height": 76,
+    "tabOrder": 1100
+  },
+  "visual": {
+    "visualType": "card",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "SAM Cenário Texto"
+                }
+              },
+              "queryRef": "Cenarios_Preco.SAM Cenário Texto",
+              "nativeQueryRef": "SAM Cenário Texto"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SAM nacional (cenário)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

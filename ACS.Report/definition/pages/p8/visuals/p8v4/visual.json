@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p8v4",
+  "position": {
+    "x": 940,
+    "y": 42,
+    "z": 1100,
+    "width": 300,
+    "height": 76,
+    "tabOrder": 1100
+  },
+  "visual": {
+    "visualType": "card",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "SOM CA Cenário Texto"
+                }
+              },
+              "queryRef": "Cenarios_Preco.SOM CA Cenário Texto",
+              "nativeQueryRef": "SOM CA Cenário Texto"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SOM Califórnia 5 anos (cenário)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

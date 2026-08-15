@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p8v9",
+  "position": {
+    "x": 40,
+    "y": 672,
+    "z": 2400,
+    "width": 1200,
+    "height": 34,
+    "tabOrder": 2400
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "FONTES — Sensibilidade de preço/m² e cenários de entrada: cálculo da equipa (Âmbito 2, secções 3.5 e 8), folhas Cenarios_Preco e Cenarios_Entrada. Base de preço validada com a ACS (~$4,7/m²). SKUs e IIC: resposta Ricardo Martins/ACS.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

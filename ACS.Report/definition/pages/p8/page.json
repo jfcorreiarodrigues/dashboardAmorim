@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.1.0/schema.json",
+  "name": "p8",
+  "displayName": "Sensibilidade & Cenários",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "p8v1",
+      "target": "p8v5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p8v1",
+      "target": "p8v6",
+      "type": "NoFilter"
+    },
+    {
+      "source": "p8v1",
+      "target": "p8v7",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+table Cenarios_Preco
+	lineageTag: 3a748aa2-8ad1-4505-ad41-044994f8ae3e
+
+	measure 'SAM Cenário Texto' =
+			VAR s = SELECTEDVALUE(Cenarios_Preco[SAM_bn])
+			VAR base = CALCULATE(MAX(Cenarios_Preco[SAM_bn]), ALL(Cenarios_Preco), Cenarios_Preco[Ordem] = 2)
+			RETURN "$" & FORMAT(IF(ISBLANK(s), base, s), "0.00", "pt-PT") & " bn"
+		lineageTag: 0bb011c5-ba98-43b9-8849-743e1756df0e
+
+	measure 'Sub-SAM CA Cenário Texto' =
+			VAR s = SELECTEDVALUE(Cenarios_Preco[SubSAM_CA_M])
+			VAR base = CALCULATE(MAX(Cenarios_Preco[SubSAM_CA_M]), ALL(Cenarios_Preco), Cenarios_Preco[Ordem] = 2)
+			RETURN "$" & FORMAT(IF(ISBLANK(s), base, s), "#,0", "pt-PT") & " M"
+		lineageTag: 38c11892-a6a2-4d83-9a7e-60364fb221c5
+
+	measure 'SOM CA Cenário Texto' =
+			VAR lo = SELECTEDVALUE(Cenarios_Preco[SOM_CA_Baixo])
+			VAR hi = SELECTEDVALUE(Cenarios_Preco[SOM_CA_Alto])
+			VAR loB = CALCULATE(MAX(Cenarios_Preco[SOM_CA_Baixo]), ALL(Cenarios_Preco), Cenarios_Preco[Ordem] = 2)
+			VAR hiB = CALCULATE(MAX(Cenarios_Preco[SOM_CA_Alto]), ALL(Cenarios_Preco), Cenarios_Preco[Ordem] = 2)
+			RETURN "$" & FORMAT(IF(ISBLANK(lo), loB, lo), "0.0", "pt-PT") & "–" & FORMAT(IF(ISBLANK(hi), hiB, hi), "0.0", "pt-PT") & " M"
+		lineageTag: 89437ea9-1fce-4c59-9749-fc6f1ea1851b
+
+	measure 'SOM CA Médio ($M)' = DIVIDE(SUM(Cenarios_Preco[SOM_CA_Baixo]) + SUM(Cenarios_Preco[SOM_CA_Alto]), 2)
+		formatString: \$#,0.0" M"
+		lineageTag: 0b88c474-0110-4736-ab2f-35f2397ae315
+
+	column Ordem
+		dataType: int64
+		formatString: 0
+		lineageTag: f86f49b7-0b8a-4478-b72f-453f552fd349
+		summarizeBy: none
+		sourceColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Preco
+		dataType: double
+		formatString: \$0.0
+		lineageTag: 4c63bbfd-ac3e-4305-9979-ed8ead732410
+		summarizeBy: none
+		sourceColumn: Preco
+
+		annotation SummarizationSetBy = Automatic
+
+	column Leitura
+		dataType: string
+		lineageTag: 6c272b1c-06c7-4d87-9752-50e72cc92ed8
+		summarizeBy: none
+		sourceColumn: Leitura
+		sortByColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column SAM_bn
+		dataType: double
+		formatString: 0.00
+		lineageTag: 2acbcc00-2fc8-4622-90d5-b508e89df2d3
+		summarizeBy: none
+		sourceColumn: SAM_bn
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubSAM_CA_M
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2083999e-dc85-4b99-a07e-b55ebfd409a5
+		summarizeBy: sum
+		sourceColumn: SubSAM_CA_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOM_CA_Baixo
+		dataType: double
+		formatString: 0.0
+		lineageTag: b9d34d4a-e75e-4597-97ac-8eef6b42edf4
+		summarizeBy: sum
+		sourceColumn: SOM_CA_Baixo
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOM_CA_Alto
+		dataType: double
+		formatString: 0.0
+		lineageTag: d8af41fe-0f5d-4299-92cf-c2ab07dca725
+		summarizeBy: sum
+		sourceColumn: SOM_CA_Alto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Cenarios_Preco = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Cenarios_Preco",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Ordem", Int64.Type}, {"Preco", type number}, {"Leitura", type text}, {"SAM_bn", type number}, {"SubSAM_CA_M", Int64.Type}, {"SOM_CA_Baixo", type number}, {"SOM_CA_Alto", type number}}),
+				    SoLinhas = Table.SelectRows(TiposAlterados, each [Ordem] <> null)
+				in
+				    SoLinhas
+
+	annotation PBI_ResultType = Table

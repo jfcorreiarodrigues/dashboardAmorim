@@ -1,0 +1,156 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p8v7",
+  "position": {
+    "x": 40,
+    "y": 416,
+    "z": 2200,
+    "width": 720,
+    "height": 210,
+    "tabOrder": 2200
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Entrada"
+                    }
+                  },
+                  "Property": "Cenario"
+                }
+              },
+              "queryRef": "Cenarios_Entrada.Cenario",
+              "nativeQueryRef": "Cenario"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Entrada"
+                    }
+                  },
+                  "Property": "SKU_Lider"
+                }
+              },
+              "queryRef": "Cenarios_Entrada.SKU_Lider",
+              "nativeQueryRef": "SKU_Lider"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Entrada"
+                    }
+                  },
+                  "Property": "Preco"
+                }
+              },
+              "queryRef": "Cenarios_Entrada.Preco",
+              "nativeQueryRef": "Preco"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Entrada"
+                    }
+                  },
+                  "Property": "Alvo_1aFase"
+                }
+              },
+              "queryRef": "Cenarios_Entrada.Alvo_1aFase",
+              "nativeQueryRef": "Alvo_1aFase"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Entrada"
+                    }
+                  },
+                  "Property": "Margem"
+                }
+              },
+              "queryRef": "Cenarios_Entrada.Margem",
+              "nativeQueryRef": "Margem"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Entrada"
+                    }
+                  },
+                  "Property": "Sequencia"
+                }
+              },
+              "queryRef": "Cenarios_Entrada.Sequencia",
+              "nativeQueryRef": "Sequencia"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cenários de entrada — premium (B) vs volume (A) vs JV (C) — secção 8'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Três estratégias de entrada. Recomendação do lado do mercado: liderar com B (premium, U38), com A embutido como escada de recuo; C é último recurso. Fonte: relatório Âmbito 2, secção 8.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

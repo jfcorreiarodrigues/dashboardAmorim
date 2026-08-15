@@ -293,6 +293,19 @@ A ACS respondeu às perguntas de validação e reformulou dois pressupostos do S
 
 **Excel**: folha nova **`SAM_Refined_v2`** (área elevada × ~$5/m²; v1 preservada em `SAM_Refined_Calculation`); `Facts_Market` F005 SAM 1,64→2,59 e F006 SOM 65,4→103,8; `SAM_California` atualizada para v2. **Modelo**: tabela `SAM_Refined_v2` importada (autónoma, sem relações) com medidas `SAM v2 ($M)` e `SAM v2 ($bn) Texto`. **Página 1**: cartões SAM/SOM e camada Califórnia atualizados; tooltip de validação (o que é validado vs assunção geométrica); rodapé aponta para a folha v2. **VC (Vibration Control)**: cartão de *upside* ~€200/m² de implantação (ref. ACS) claramente separado — **NÃO somado** ao SAM.
 
+## Ronda 25 — Página nova "Sensibilidade & Cenários" (mix de produto → SOM)
+
+Revisão de âmbito (relatório Âmbito 2 v6, secções 3.5 e 8): o SOM da Califórnia é muito sensível ao **mix de produto** (preço médio $/m²). O dashboard só mostrava o ponto base — faltava a alavanca estratégica.
+
+**Página nova (2ª, a seguir ao Funil de Mercado)** — interativa:
+- **Slicer de preço/m²** (5 pontos: $3 piso → $4,7 base → $9 → $13 → $17 teto) que atualiza ao vivo 3 cartões: SAM nacional, sub-SAM CA e SOM CA. Medidas com `SELECTEDVALUE` e recuo à base (Ordem=2) quando nada está selecionado.
+- **Gráfico de colunas** do SOM CA (ponto médio) por cenário — mostra a escalada até ~6× (do piso ~$6M ao teto ~$36M).
+- **Tabela de sensibilidade** (Tabela 3: SAM/sub-SAM/SOM por preço) e **tabela de cenários de entrada** (Tabela 6: A volume / B premium / C JV Pliteq), ambas ordenadas por `sortByColumn = Ordem`.
+- **Interações**: o slicer filtra os cartões mas **não** o gráfico nem a tabela de sensibilidade (`NoFilter`), que mostram sempre os 5 pontos de contexto.
+- Nota de leitura estratégica (liderar premium B, A como escada de recuo; recuo mensurável recupera a base $251M) e rodapé de fontes.
+
+**Excel**: 2 folhas novas `Cenarios_Preco` e `Cenarios_Entrada`. **Modelo**: 2 tabelas autónomas (sem relações) importadas por Power Query, com 4 medidas de cenário. **Página 1**: tooltip do SOM aponta para a página nova. É o que o relatório pedia na secção 9 ("transformar a tabela de sensibilidade num separador editável do modelo, com o preço/m² e o mix como inputs").
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

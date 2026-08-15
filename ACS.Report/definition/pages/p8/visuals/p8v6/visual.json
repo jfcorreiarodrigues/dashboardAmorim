@@ -1,0 +1,156 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
+  "name": "p8v6",
+  "position": {
+    "x": 656,
+    "y": 126,
+    "z": 2100,
+    "width": 584,
+    "height": 280,
+    "tabOrder": 2100
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "Preco"
+                }
+              },
+              "queryRef": "Cenarios_Preco.Preco",
+              "nativeQueryRef": "Preco"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "Leitura"
+                }
+              },
+              "queryRef": "Cenarios_Preco.Leitura",
+              "nativeQueryRef": "Leitura"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "SAM_bn"
+                }
+              },
+              "queryRef": "Cenarios_Preco.SAM_bn",
+              "nativeQueryRef": "SAM_bn"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "SubSAM_CA_M"
+                }
+              },
+              "queryRef": "Cenarios_Preco.SubSAM_CA_M",
+              "nativeQueryRef": "SubSAM_CA_M"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "SOM_CA_Baixo"
+                }
+              },
+              "queryRef": "Cenarios_Preco.SOM_CA_Baixo",
+              "nativeQueryRef": "SOM_CA_Baixo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cenarios_Preco"
+                    }
+                  },
+                  "Property": "SOM_CA_Alto"
+                }
+              },
+              "queryRef": "Cenarios_Preco.SOM_CA_Alto",
+              "nativeQueryRef": "SOM_CA_Alto"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sensibilidade — SAM / sub-SAM CA / SOM CA por preço/m² (Tabela 3)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showTooltipButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeaderTooltip": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Geometria constante (547 Mm² área elevada nacional, ~53 Mm² CA); varia só o preço médio ponderado por m². Fonte: cálculo equipa (folha Cenarios_Preco).'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

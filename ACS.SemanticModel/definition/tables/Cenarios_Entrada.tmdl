@@ -1,0 +1,75 @@
+table Cenarios_Entrada
+	lineageTag: 67992272-26f8-4e48-8c44-c8994e227d7a
+
+	column Ordem
+		dataType: int64
+		formatString: 0
+		lineageTag: 727b3924-3631-4060-a391-b9d2b3ce7114
+		summarizeBy: none
+		sourceColumn: Ordem
+		isHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cenario
+		dataType: string
+		lineageTag: be9c3b54-c64c-416a-b71e-1630c12815a1
+		summarizeBy: none
+		sourceColumn: Cenario
+		sortByColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU_Lider
+		dataType: string
+		lineageTag: 634d1902-0a5e-4947-933b-796cd0a685ae
+		summarizeBy: none
+		sourceColumn: SKU_Lider
+
+		annotation SummarizationSetBy = Automatic
+
+	column Preco
+		dataType: string
+		lineageTag: 07e58af6-dade-4583-8c29-aa0cb3a224a7
+		summarizeBy: none
+		sourceColumn: Preco
+
+		annotation SummarizationSetBy = Automatic
+
+	column Alvo_1aFase
+		dataType: string
+		lineageTag: dabbd6a2-7450-42c8-85ac-06d5da1df8e1
+		summarizeBy: none
+		sourceColumn: Alvo_1aFase
+
+		annotation SummarizationSetBy = Automatic
+
+	column Margem
+		dataType: string
+		lineageTag: 40b6725b-47bd-4ee1-8abd-8f9a6628b839
+		summarizeBy: none
+		sourceColumn: Margem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sequencia
+		dataType: string
+		lineageTag: 66c5d97c-bab9-4044-9422-6597888ba9aa
+		summarizeBy: none
+		sourceColumn: Sequencia
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Cenarios_Entrada = m
+		mode: import
+		source =
+				let
+				    Origem = Excel.Workbook(File.Contents(CaminhoExcel), null, true),
+				    Folha = Origem{[Item="Cenarios_Entrada",Kind="Sheet"]}[Data],
+				    CabecalhosPromovidos = Table.PromoteHeaders(Folha, [PromoteAllScalars=true]),
+				    TiposAlterados = Table.TransformColumnTypes(CabecalhosPromovidos,{{"Ordem", Int64.Type}, {"Cenario", type text}, {"SKU_Lider", type text}, {"Preco", type text}, {"Alvo_1aFase", type text}, {"Margem", type text}, {"Sequencia", type text}}),
+				    SoLinhas = Table.SelectRows(TiposAlterados, each [Ordem] <> null)
+				in
+				    SoLinhas
+
+	annotation PBI_ResultType = Table
