@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Valor de obra por unidade ($k) — custo declarado na licença residencial, não preço de venda'"
+                  "Value": "'Valor de obra por unidade ($k): custo declarado na licença, não preço de venda'"
                 }
               }
             }

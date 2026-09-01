@@ -306,6 +306,18 @@ Revisão de âmbito (relatório Âmbito 2 v6, secções 3.5 e 8): o SOM da Calif
 
 **Excel**: 2 folhas novas `Cenarios_Preco` e `Cenarios_Entrada`. **Modelo**: 2 tabelas autónomas (sem relações) importadas por Power Query, com 4 medidas de cenário. **Página 1**: tooltip do SOM aponta para a página nova. É o que o relatório pedia na secção 9 ("transformar a tabela de sensibilidade num separador editável do modelo, com o preço/m² e o mix como inputs").
 
+## Ronda 26 — versão de entrega: alinhamento com o relatório e revisão de escrita
+
+O repositório foi **sincronizado com o `.pbix` final** (as remoções editoriais feitas no Desktop: página Conclusões e 9 caixas de texto). Sobre essa base:
+
+**Técnicas em falta face ao relatório, agora implementadas:**
+- **Funnel na página 1** (`p1v15`) — a página chama-se "Funil de Mercado" e não tinha funil. Mostra TAM → SAM → SOM com a medida nova `Funil Mercado ($M)`, que normaliza as unidades ($bn → $M via `SELECTEDVALUE(Dim_Metrica[Unidade])`), sem a qual os três níveis não seriam somáveis no mesmo eixo. Filtrado por `Dim_Metrica[Categoria] = "Funil"`. As barras e o treemap foram estreitados para o acomodar.
+- **Matriz na página 6** (`p6v9`, `pivotTable`) — região Census × tipo de estrutura, com as linhas "Total" excluídas. Ocupa o espaço deixado livre e dá leitura cruzada da mesma base da árvore.
+
+**Correção factual:** o título do `p5v2` descrevia "colunas empilhadas" quando o visual é um *ribbon chart* (sobra da reversão da Ronda 24).
+
+**Revisão de escrita:** 40 títulos reescritos. A construção com travessão "—" passou de **80% para 0%** dos títulos, o comprimento máximo de 120 para 93 caracteres. Variou-se a construção (dois pontos, ponto final, pergunta direta) em vez de repetir o mesmo padrão em todos.
+
 ## O que está 100% implementado e validado
 
 **Modelo (a parte crítica) — validado com o parser oficial da Microsoft (AMO/TMDL):**

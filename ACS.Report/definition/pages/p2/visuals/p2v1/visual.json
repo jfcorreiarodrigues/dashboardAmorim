@@ -112,7 +112,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Contexto — Despesa residencial (SAAR média do período, $M) — drill Ano→Trimestre→Mês'"
+                  "Value": "'Despesa residencial, média SAAR do período ($M). Usa o drill Ano/Trimestre/Mês'"
                 }
               }
             }

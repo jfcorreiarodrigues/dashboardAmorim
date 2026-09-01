@@ -1,34 +1,70 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p5v1",
+  "name": "p6v9",
   "position": {
     "x": 40,
-    "y": 60,
-    "z": 1000,
+    "y": 518,
+    "z": 2500,
     "width": 1200,
-    "height": 55,
-    "tabOrder": 1000
+    "height": 156,
+    "tabOrder": 2500
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "pivotTable",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Values": {
+        "Rows": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Segmento"
+                      "Entity": "Dim_Estado"
                     }
                   },
-                  "Property": "Segmento"
+                  "Property": "RegiaoCensus"
                 }
               },
-              "queryRef": "Dim_Segmento.Segmento",
-              "nativeQueryRef": "Segmento"
+              "queryRef": "Dim_Estado.RegiaoCensus",
+              "nativeQueryRef": "RegiaoCensus"
+            }
+          ]
+        },
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_PermitsState"
+                    }
+                  },
+                  "Property": "TipoEstrutura"
+                }
+              },
+              "queryRef": "Facts_PermitsState.TipoEstrutura",
+              "nativeQueryRef": "TipoEstrutura"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts_PermitsState"
+                    }
+                  },
+                  "Property": "Permits (milhares)"
+                }
+              },
+              "queryRef": "Facts_PermitsState.Permits (milhares)",
+              "nativeQueryRef": "Permits (milhares)"
             }
           ]
         }
@@ -48,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segmento: filtra todos os visuais da página, exceto o contexto Census'"
+                  "Value": "'Licenças por região e tipo de estrutura (milhares)'"
                 }
               }
             }
@@ -74,61 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Seleção única: escolhe um segmento e todos os cartões e gráficos mudam para as métricas próprias desse segmento. Sem seleção, a página mostra Residencial de Luxo por omissão.'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "objects": {
-      "general": [
-        {
-          "properties": {
-            "orientation": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "data": [
-        {
-          "properties": {
-            "mode": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Basic'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "selection": [
-        {
-          "properties": {
-            "singleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "'Leitura cruzada da mesma base da árvore: região Census nas linhas, tipo de estrutura nas colunas. Exclui as linhas Total, que são a soma dos restantes tipos. Fonte: U.S. Census Bureau, Building Permits Survey.'"
                 }
               }
             }
@@ -140,15 +122,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fSegmentoExcludeMacro",
+        "name": "fSemTotalMatriz",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Segmento"
+                "Entity": "Facts_PermitsState"
               }
             },
-            "Property": "Segmento"
+            "Property": "TipoEstrutura"
           }
         },
         "type": "Categorical",
@@ -158,7 +140,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "Dim_Segmento",
+              "Entity": "Facts_PermitsState",
               "Type": 0
             }
           ],
@@ -176,7 +158,7 @@
                                 "Source": "t"
                               }
                             },
-                            "Property": "Segmento"
+                            "Property": "TipoEstrutura"
                           }
                         }
                       ],
@@ -184,7 +166,7 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'Macro / Total'"
+                              "Value": "'Total'"
                             }
                           }
                         ]

@@ -102,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top estados — licenças residenciais totais (milhares; tooltip = quota nacional)'"
+                  "Value": "'Top estados por licenças residenciais (milhares). O tooltip mostra a quota nacional'"
                 }
               }
             }

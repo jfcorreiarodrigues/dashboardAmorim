@@ -130,7 +130,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Foco ACS — Lodging + Health care (SAAR média, $M, escala própria) — drill Ano→Trim→Mês'"
+                  "Value": "'Foco ACS: Lodging e Health care em escala própria (média SAAR, $M)'"
                 }
               }
             }

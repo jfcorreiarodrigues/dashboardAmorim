@@ -118,7 +118,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cenários de entrada — premium (B) vs volume (A) vs JV (C) — secção 8'"
+                  "Value": "'Cenários de entrada: premium (B), volume (A) ou joint venture (C)'"
                 }
               }
             }

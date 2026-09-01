@@ -130,7 +130,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Custo de capital — crédito 30a vs taxa Fed (%) — drill Ano→Trimestre→Mês'"
+                  "Value": "'Custo de capital: crédito a 30 anos vs. taxa da Fed (%)'"
                 }
               }
             }

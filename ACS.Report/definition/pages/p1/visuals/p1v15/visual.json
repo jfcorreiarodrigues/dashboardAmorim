@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.1.0/schema.json",
-  "name": "p4v9",
+  "name": "p1v15",
   "position": {
-    "x": 830,
-    "y": 439,
-    "z": 9000,
-    "width": 410,
-    "height": 112,
-    "tabOrder": 9000
+    "x": 40,
+    "y": 250,
+    "z": 4800,
+    "width": 380,
+    "height": 272,
+    "tabOrder": 4800
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "funnel",
     "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
@@ -21,15 +21,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Calendario"
+                      "Entity": "Dim_Metrica"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Métrica"
                 }
               },
-              "queryRef": "Dim_Calendario.Date",
-              "nativeQueryRef": "Date",
-              "active": true
+              "queryRef": "Dim_Metrica.Métrica",
+              "nativeQueryRef": "Métrica"
             }
           ]
         },
@@ -40,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Facts_Macro"
+                      "Entity": "Facts_Market"
                     }
                   },
-                  "Property": "Indicador Macro"
+                  "Property": "Funil Mercado ($M)"
                 }
               },
-              "queryRef": "Facts_Macro.Indicador Macro",
-              "nativeQueryRef": "Indicador Macro"
+              "queryRef": "Facts_Market.Funil Mercado ($M)",
+              "nativeQueryRef": "Funil Mercado ($M)"
             }
           ]
         }
@@ -56,16 +55,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim_Calendario"
+                    "Entity": "Facts_Market"
                   }
                 },
-                "Property": "Date"
+                "Property": "Funil Mercado ($M)"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -84,7 +83,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Renovação residencial (LIRA): ~$509bn/ano, estável ao longo do ciclo'"
+                  "Value": "'O funil do mercado: TAM, SAM e SOM na mesma escala ($M)'"
                 }
               }
             }
@@ -110,7 +109,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Harvard JCHS — LIRA (renovação residencial, média móvel 4T, 1996-2027). ~$509bn/ano, estável no ciclo.'"
+                  "Value": "'Os três níveis convertidos para milhões de dólares para serem comparáveis (o TAM e o SAM estão em $bn na origem). A estreiteza do funil é a mensagem: o TAM de $380.000M reduz-se a um SAM de $2.590M e a um alvo de $104M a cinco anos.'"
                 }
               }
             }
@@ -122,15 +121,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fIndLira",
+        "name": "fCatFunil",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Indicador"
+                "Entity": "Dim_Metrica"
               }
             },
-            "Property": "Indicador"
+            "Property": "Categoria"
           }
         },
         "type": "Categorical",
@@ -139,8 +138,8 @@
           "Version": 2,
           "From": [
             {
-              "Name": "t",
-              "Entity": "Dim_Indicador",
+              "Name": "m",
+              "Entity": "Dim_Metrica",
               "Type": 0
             }
           ],
@@ -153,10 +152,10 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "t"
+                            "Source": "m"
                           }
                         },
-                        "Property": "Indicador"
+                        "Property": "Categoria"
                       }
                     }
                   ],
@@ -164,7 +163,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'LIRA — renovação residencial (móvel 4T)'"
+                          "Value": "'Funil'"
                         }
                       }
                     ]

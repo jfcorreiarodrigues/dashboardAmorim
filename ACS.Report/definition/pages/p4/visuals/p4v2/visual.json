@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa de crédito — último mês'"
+                  "Value": "'Taxa de crédito no último mês'"
                 }
               }
             }

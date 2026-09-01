@@ -118,7 +118,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sensibilidade — SAM / sub-SAM CA / SOM CA por preço/m² (Tabela 3)'"
+                  "Value": "'Sensibilidade do SAM, do sub-SAM e do SOM ao preço/m²'"
                 }
               }
             }

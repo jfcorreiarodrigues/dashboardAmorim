@@ -130,7 +130,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Case-Shiller — cidades-chave (base 2000 = 100; usa as setas de drill Ano→Trim→Mês)'"
+                  "Value": "'Case-Shiller nas cidades-chave (base 2000 = 100)'"
                 }
               }
             }

@@ -102,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Contexto — despesa dos 3 clusters, total anual Census ($M, colunas empilhadas). Fixo: não muda com o separador'"
+                  "Value": "'Despesa dos 3 clusters Census, total anual ($M). Visual fixo: não acompanha o separador'"
                 }
               }
             }

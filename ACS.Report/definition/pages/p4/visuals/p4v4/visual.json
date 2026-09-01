@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'ABI < 50 — billing fraco (não residencial, nacional)'"
+                  "Value": "'ABI abaixo de 50: billing fraco (não residencial, nacional)'"
                 }
               }
             }

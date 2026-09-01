@@ -22,6 +22,13 @@ table Facts_Market
 			"Como se relacionam os três números: do mercado total endereçável (TAM) de $" & FORMAT(Tam, "#,0") & "bn — toda a construção onde a cortiça pode entrar — a Amorim consegue servir um mercado (SAM) de $" & FORMAT(Sam, "0.00") & "bn, ou seja " & FORMAT(SamPctTam, "0.0%") & " do TAM, calculado bottom-up com áreas e preços por SKU. O objetivo realista a 5 anos (SOM) é $" & FORMAT(Som, "#,0") & "M, i.e. " & FORMAT(SomPctSam, "0.0%") & " do SAM (regra 3-5%)."
 		lineageTag: bf924a1e-72d7-4403-bac5-8acf77199ecf
 
+	measure 'Funil Mercado ($M)' =
+			VAR u = SELECTEDVALUE(Dim_Metrica[Unidade])
+			VAR v = SUM(Facts_Market[Valor])
+			RETURN IF(u = "$bn", v * 1000, v)
+		formatString: \$#,0" M"
+		lineageTag: 1311fe24-44c3-43d7-b07d-6dcda8a8e3d8
+
 	measure 'ABI Meses Abaixo 50' = CALCULATE(SUM(Facts_Market[Valor]), Dim_Metrica[Métrica] = "ABI <50 (duração)")
 		formatString: 0" meses"
 		lineageTag: 6cd5a207-25a4-5d19-b021-cc999315d34e

@@ -104,7 +104,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observações do segmento — de onde vem cada número'"
+                  "Value": "'Observações do segmento: de onde vem cada número'"
                 }
               }
             }

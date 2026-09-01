@@ -102,7 +102,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Unidade (obrigatória p/ árvore de mercado)'"
+                  "Value": "'Unidade (seleção obrigatória)'"
                 }
               }
             }

@@ -84,7 +84,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pipeline hoteleiro por cidade — NY lidera em stock, Sun Belt em nº de mercados (nº projetos)'"
+                  "Value": "'Pipeline hoteleiro por cidade (nº projetos). NY lidera em stock; o Sun Belt em nº de mercados'"
                 }
               }
             }

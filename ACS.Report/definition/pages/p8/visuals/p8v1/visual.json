@@ -48,7 +48,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cenário de preço/m² (mix de produto) — escolhe um'"
+                  "Value": "'Cenário de preço/m² (mix de produto)'"
                 }
               }
             }
