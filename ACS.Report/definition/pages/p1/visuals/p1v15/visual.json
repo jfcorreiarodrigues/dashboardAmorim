@@ -3,10 +3,10 @@
   "name": "p1v15",
   "position": {
     "x": 40,
-    "y": 250,
+    "y": 248,
     "z": 4800,
     "width": 380,
-    "height": 272,
+    "height": 262,
     "tabOrder": 4800
   },
   "visual": {
@@ -110,6 +110,21 @@
               "expr": {
                 "Literal": {
                   "Value": "'Os três níveis convertidos para milhões de dólares para serem comparáveis (o TAM e o SAM estão em $bn na origem). A estreiteza do funil é a mensagem: o TAM de $380.000M reduz-se a um SAM de $2.590M e a um alvo de $104M a cinco anos.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

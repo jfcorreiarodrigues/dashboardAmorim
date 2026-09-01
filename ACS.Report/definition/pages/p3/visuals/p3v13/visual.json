@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "ONDE ENTRAR — leitura geográfica:",
+                    "value": "ONDE ENTRAR: leitura geográfica",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#1B3A7A",
@@ -64,7 +64,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "CONVERGÊNCIA GEOGRÁFICA — os 3 segmentos apontam para os mesmos mercados: ",
+                    "value": "CONVERGÊNCIA GEOGRÁFICA: os 3 segmentos apontam para os mesmos mercados. ",
                     "textStyle": {
                       "fontSize": "8pt",
                       "bold": true

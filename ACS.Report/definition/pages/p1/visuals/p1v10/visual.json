@@ -3,10 +3,10 @@
   "name": "p1v10",
   "position": {
     "x": 40,
-    "y": 528,
+    "y": 516,
     "z": 8500,
     "width": 1200,
-    "height": 20,
+    "height": 24,
     "tabOrder": 8500
   },
   "visual": {
@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "FOCO ESTRATÉGICO: CALIFÓRNIA — o funil nacional é o contexto; o recorte CA é o mercado-alvo. Método A (quota CA × SAM nacional); detalhe nos tooltips.",
+                    "value": "FOCO ESTRATÉGICO: CALIFÓRNIA. O funil nacional é o contexto; o recorte CA é o mercado-alvo (Método A).",
                     "textStyle": {
                       "fontSize": "10pt",
                       "bold": true,

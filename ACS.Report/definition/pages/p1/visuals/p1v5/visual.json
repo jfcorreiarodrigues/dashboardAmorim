@@ -6,7 +6,7 @@
     "y": 70,
     "z": 4500,
     "width": 228,
-    "height": 130,
+    "height": 170,
     "tabOrder": 4500
   },
   "visual": {
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'A procura já existe: os EUA são o 3.º importador mundial de cortiça'"
+                  "Value": "'EUA: 3.º importador mundial de cortiça'"
                 }
               }
             }

@@ -6,7 +6,7 @@
     "y": 70,
     "z": 2000,
     "width": 228,
-    "height": 130,
+    "height": 170,
     "tabOrder": 2000
   },
   "visual": {
@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SAM refinado v2, validado com a Amorim. Intervalo: $1,97 a $3,13bn'"
+                  "Value": "'SAM refinado v2 (validado com a Amorim)'"
                 }
               }
             }

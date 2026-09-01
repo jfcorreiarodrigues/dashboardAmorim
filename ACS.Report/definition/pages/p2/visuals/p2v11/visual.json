@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "FONTES — Despesa construção: U.S. Census Bureau (C30, mensal) · Housing starts: FRED (HOUST) · Taxa 30a histórico: FRED (MORTGAGE30US) · Taxa 30a forecast: consenso analistas (Fannie Mae, Morgan Stanley, MBA, Goldman Sachs, CBO), 2026",
+                    "value": "Fontes. Despesa construção: U.S. Census Bureau (C30, mensal) · Housing starts: FRED (HOUST) · Taxa 30a histórico: FRED (MORTGAGE30US) · Taxa 30a forecast: consenso analistas (Fannie Mae, Morgan Stanley, MBA, Goldman Sachs, CBO), 2026",
                     "textStyle": {
                       "fontSize": "8pt",
                       "color": "#605E5C"
