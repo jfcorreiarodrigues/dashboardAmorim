@@ -19,18 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Fontes. Despesa construção: U.S. Census Bureau (C30, mensal) · Housing starts: FRED (HOUST) · Taxa 30a histórico: FRED (MORTGAGE30US) · Taxa 30a forecast: consenso analistas (Fannie Mae, Morgan Stanley, MBA, Goldman Sachs, CBO), 2026",
-                    "textStyle": {
-                      "fontSize": "8pt",
-                      "color": "#605E5C"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Pipeline hoteleiro: Lodging Econometrics · ABI: AIA/Deltek · Momentum: Dodge Construction Network · Healthcare pipeline: JLL, CBRE, RevistaMed (sqft e $, unidade nativa) · Última atualização: 11-jul-2026",
+                    "value": "Fontes. Despesa de construção: U.S. Census Bureau (C30). Housing starts e taxa a 30 anos: FRED. Forecast de taxas: consenso de analistas (2026). Pipeline hoteleiro: Lodging Econometrics. ABI: AIA/Deltek. Momentum: Dodge. Saúde: JLL e CBRE.",
                     "textStyle": {
                       "fontSize": "8pt",
                       "color": "#605E5C"

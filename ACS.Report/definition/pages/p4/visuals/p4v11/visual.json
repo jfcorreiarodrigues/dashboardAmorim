@@ -31,10 +31,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "• Custo de capital elevado: crédito 30a ~6,5%. Spread sobre o Treasury 10Y ~2,0pp vs norma ~1,7pp — esticado (prémio de risco elevado); face à Fed (2,8pp) está em linha com a média desde 2000 (3,2pp).",
+                    "value": "• Custo de capital elevado: crédito a 30 anos ~6,5%, com spread de ~2,0pp sobre o Treasury 10Y, acima da norma de 1,7pp.",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#252423"
+                      "color": "#1B3A7A"
                     }
                   }
                 ]
@@ -42,10 +42,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "• O dinheiro barato não volta — consenso «novo normal» 5,5-6,2% (ver Pág. 2). • Preços resilientes: Case-Shiller em máximos (até mar-2026). • Renovação dá fluxo recorrente, menos sensível a taxas.",
+                    "value": "• O dinheiro barato não volta: o consenso aponta para 5,5-6,2%. Os preços mantêm-se resilientes, com o Case-Shiller em máximos.",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#252423"
+                      "color": "#1B3A7A"
                     }
                   }
                 ]
@@ -53,11 +53,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "→ A entrada não depende de crédito barato; depende da adaptação do mercado ao novo patamar.",
+                    "value": "A entrada não depende de crédito barato, mas da adaptação do mercado a este novo patamar.",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#C8602A",
-                      "bold": true
+                      "color": "#1B3A7A"
                     }
                   }
                 ]

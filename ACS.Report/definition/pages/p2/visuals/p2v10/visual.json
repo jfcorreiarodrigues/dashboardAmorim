@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "CONCLUSÃO. Quando entrar? Os 3 segmentos estão em fases diferentes do ciclo, e isso é uma vantagem:",
+                    "value": "CONCLUSÃO. Os três segmentos estão em fases diferentes do ciclo, e isso é uma vantagem:",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#1B3A7A",
@@ -31,10 +31,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "• HOTELARIA: procura represada — pipeline em 6.020 projetos (após pico de 6.378 em 2024), aberturas em trajetória ascendente (475 em 2022 → 902 previstas em 2027) e 2.041 projetos em conversão/renovação — fluxo recorrente. O pipeline converte-se em obra quando o custo de capital estabilizar. Colheita: 2027-2028.",
+                    "value": "• HOTELARIA: procura represada. Pipeline em 6.020 projetos e aberturas a subir, de 475 em 2022 para 902 previstas em 2027. Colheita: 2027-2028.",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#252423"
+                      "color": "#1B3A7A"
                     }
                   }
                 ]
@@ -42,10 +42,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "• HEALTHCARE: recorde resiliente ($93bn / 79M sqft), imune às taxas — acústica premium (ORs, MRI, NICU) faz parte do pacote técnico, não é um extra. Colheita: contínua.",
+                    "value": "• SAÚDE: recorde resiliente ($93bn / 79M sqft), imune às taxas. A acústica premium faz parte do pacote técnico. Colheita contínua.",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#252423"
+                      "color": "#1B3A7A"
                     }
                   }
                 ]
@@ -53,10 +53,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "• RESIDENCIAL: o dinheiro barato não volta — consenso 5,5-6,2% («novo normal»); a retoma não depende de taxas baixas, mas da adaptação do mercado a este patamar. Colheita: 2027-2030.",
+                    "value": "• RESIDENCIAL: o dinheiro barato não volta (consenso 5,5-6,2%); a retoma depende da adaptação ao novo patamar. Colheita: 2027-2030.",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#252423"
+                      "color": "#1B3A7A"
                     }
                   }
                 ]
@@ -64,11 +64,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "TIMING: 2026 = posicionamento e projetos-âncora · colheita faseada 2027-2030 · a entrada antecipa a adaptação do mercado — não espera por taxas que não voltam.",
+                    "value": "TIMING: 2026 para posicionamento e projetos-âncora, com colheita faseada entre 2027 e 2030.",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#C8602A",
-                      "bold": true
+                      "color": "#1B3A7A"
                     }
                   }
                 ]
